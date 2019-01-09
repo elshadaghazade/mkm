@@ -1,9 +1,9 @@
 from django.shortcuts import render
 
 # Create your views here.
-def news(request):
+def home(request):
     context = {}
-    return render(request, "news.html", context)
+    return render(request, "home.html", context)
 
 def news_detailed(request):
     context = {}
