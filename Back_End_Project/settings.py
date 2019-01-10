@@ -63,7 +63,7 @@ ROOT_URLCONF = 'Back_End_Project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -76,7 +76,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'Back_End_Project.wsgi.application'
+# WSGI_APPLICATION = 'Back_End_Project.wsgi.application'
 
 
 # Database
@@ -132,3 +132,4 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+

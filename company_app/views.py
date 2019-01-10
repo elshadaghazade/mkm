@@ -1,9 +1,13 @@
 from django.shortcuts import render
 
 # Create your views here.
+def companies(request):
+    context = {}
+    return render(request, "companies.html", context)
+
 def company(request):
     context = {}
-    return render(request, "company", context)
+    return render(request, 'company.html', context)
 
 def about(request):
     context = {}
@@ -20,3 +24,7 @@ def achievements(request):
 def admission(request):
     context = {}
     return render(request, "admission.html", context)
+
+def distinquished(request):
+    context = {}
+    return render(request, "distinquished.html", context)
