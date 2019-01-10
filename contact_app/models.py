@@ -1,5 +1,7 @@
 from django.db import models
-from ..company_app.models import Companies
+import sys
+sys.path.append("..")
+from company_app.models import Companies
 # Create your models here.
 
 
