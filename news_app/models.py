@@ -16,7 +16,7 @@ class NewsCategories(models.Model):
 
 class News(models.Model):
     title = models.CharField(max_length=255)
-    news_picture = models.ImageField(upload_to=None)
+    news_picture = models.ImageField(upload_to='media')
     short_description = models.CharField(max_length=255)
     full_content = models.CharField(max_length=255)
     category_id = models.ForeignKey(Category, on_delete=models.CASCADE)
@@ -28,7 +28,7 @@ class News(models.Model):
     
 class CompanyNews(models.Model):
     title = models.CharField(max_length=255)
-    news_picture = models.ImageField(upload_to=None)
+    news_picture = models.ImageField(upload_to='media')
     short_description = models.CharField(max_length=255)
     full_content = models.CharField(max_length=255)
     category_id = models.ForeignKey(Category, on_delete=models.CASCADE)
