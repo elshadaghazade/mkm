@@ -70,3 +70,15 @@ class VideoGallery(models.Model):
     class Meta:
         verbose_name = 'Video Gallery'
         verbose_name_plural = 'Video Galleries'
+
+
+class CompanyInformativePages(models.Model):
+    title = models.CharField(max_length=255)
+    slug = models.SlugField(max_length=40)
+    short_description = models.CharField(max_length=255)
+    full_content = models.CharField(max_length=255)
+    company_id = models.ForeignKey(Companies,on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return "{},{},{}".format(self.title,self.short_description,self.full_content)
