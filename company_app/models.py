@@ -30,7 +30,7 @@ class Companies(models.Model):
         verbose_name_plural = 'Companies'
 
 
-class Administration(models.Model):
+class CompanyAdministration(models.Model):
     company_id = models.ForeignKey(Companies, on_delete=models.CASCADE)
     parent_id = models.IntegerField()
     full_name = models.CharField(max_length=255)
@@ -44,7 +44,7 @@ class Administration(models.Model):
                                  self.administration_type)
 
 
-class PhotoGallery(models.Model):
+class CompanyPhotoGallery(models.Model):
     company_id = models.ForeignKey(Companies, on_delete=models.CASCADE)
     photo_file = models.FileField(upload_to='media')
     title = models.CharField(max_length=255)
@@ -58,7 +58,7 @@ class PhotoGallery(models.Model):
         verbose_name_plural = 'Photo Galleries'
 
 
-class VideoGallery(models.Model):
+class CompanyVideoGallery(models.Model):
     company_id = models.ForeignKey(Companies, on_delete=models.CASCADE)
     video_file = models.FileField(upload_to='media')
     title = models.CharField(max_length=255)
@@ -77,8 +77,8 @@ class CompanyInformativePages(models.Model):
     slug = models.SlugField(max_length=40)
     short_description = models.CharField(max_length=255)
     full_content = models.CharField(max_length=255)
-    company_id = models.ForeignKey(Companies,on_delete=models.CASCADE)
+    company_id = models.ForeignKey(Companies, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return "{},{},{}".format(self.title,self.short_description,self.full_content)
+        return "{},{},{}".format(self.title, self.short_description, self.full_content)

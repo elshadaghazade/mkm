@@ -2,6 +2,7 @@ from django.db import models
 from company_app.models import Companies
 # Create your models here.
 
+
 class Faq(models.Model):
     question = models.CharField(max_length=255)
     answer = models.CharField(max_length=255)
