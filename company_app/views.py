@@ -1,11 +1,11 @@
 from django.shortcuts import render
+from .models import Companies
 
 
 # Create your views here.
 def companies(request):
-    context = {
-        
-    }
+    context = {}
+    context['company_list'] = Companies.objects.all()
     return render(request, "companies.html", context)
 
 
