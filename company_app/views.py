@@ -1,11 +1,24 @@
 from django.shortcuts import render
+from .models import Companies
+
+
+class Counter:
+    count = 1
+
+    def increment(self):
+        self.count += 1
+        return ''
+
+    def set_to_one(self):
+        self.count = 1
+        return ''
 
 
 # Create your views here.
 def companies(request):
-    context = {
-        
-    }
+    context = {}
+    context['company_list'] = Companies.objects.all()
+    context['counter'] = Counter()
     return render(request, "companies.html", context)
 
 

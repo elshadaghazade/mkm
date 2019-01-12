@@ -17,13 +17,18 @@ class Companies(models.Model):
     regulation_file = models.FileField(upload_to='media')
     admission_requirements = models.CharField(max_length=255)
     profile_id = models.ForeignKey(CompanyProfile, on_delete=models.CASCADE)
+    url = models.URLField(null=True, blank=True)
+    address = models.CharField(max_length=255, null=True, blank=True)
+    phone_number = models.CharField(max_length=25, null=True, blank=True)
 
     def __str__(self):
-        return "{},{},{},{},{}".format(self.company_name,
-                                       self.about,
-                                       self.main_activity,
-                                       self.regulation_file,
-                                       self.admission_requirements)
+        return "{},{},{},{},{},{}".format(self.company_name,
+                                          self.about,
+                                          self.main_activity,
+                                          self.regulation_file,
+                                          self.admission_requirements,
+                                          self.url,
+                                          self.address)
 
     class Meta:
         verbose_name = 'Company'
