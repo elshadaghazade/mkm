@@ -3,7 +3,9 @@ from django.shortcuts import render
 
 # Create your views here.
 def companies(request):
-    context = {}
+    context = {
+        
+    }
     return render(request, "companies.html", context)
 
 
