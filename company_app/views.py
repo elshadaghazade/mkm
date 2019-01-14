@@ -1,35 +1,51 @@
 from django.shortcuts import render
 from company_app.models import Companies
-
-
-class Counter:
-    count = 1
-
-    def increment(self):
-        self.count += 1
-        return ''
-
-    def set_to_one(self):
-        self.count = 1
-        return ''
+import math
 
 
 # Create your views here.
 def companies(request):
+    try:
+        start = int(request.GET.get('start', 0)) - 1
+    except:
+        start = 0
+
     context = {}
-    #cp_id = Companies.objects.get(pk=pk)
-    context['company_list'] = Companies.objects.all()
-    context['counter'] = Counter()
+    limit = 3
+    company_count = Companies.objects.count()
+
+    if start < 0:
+        start = 0
+    elif start > math.ceil(company_count / limit):
+        start = math.ceil(company_count / limit) - 1
+
+    context['selected_page'] = start + 1
+    context['company_list'] = Companies.objects.all()[start * limit:start * limit +limit]
+    pages_count = math.ceil(company_count / limit)
+    context['total_pages'] = range(1, pages_count+1)
+    context['horizontal_limit'] = 3
+    context['next_page'] = start + 2 if start + 2 < pages_count else pages_count
+    context['prev_page'] = start if start > 0 else 1
+
     return render(request, "companies.html", context)
 
 
 def company(request, pk):
-    context = {}
+    context = {
+        'company': Companies.objects.get(pk=pk),
+        'company_id': pk,
+    }
+
     return render(request, 'company.html', context)
 
 
-def about(request):
-    context = {}
+def about(request, pk):
+    context = {
+        'company': Companies.objects.get(pk=pk),
+        'company_id': pk,
+
+    }
+
     return render(request, "about.html", context)
 
 

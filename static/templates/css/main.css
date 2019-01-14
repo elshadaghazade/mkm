@@ -512,6 +512,7 @@ img.logo-main {
 .pagination1{
     margin-top: 1em;
 }
+
 .search-2{
     background-color: transparent;
     border: 2px dotted #8b7736;
@@ -547,6 +548,11 @@ img.logo-main {
 .pagination2 a{
     color: black;
     font-weight: bold;
+}
+.pagination2 li.active a {
+    background: #ccc;
+    display: inline-block;
+    padding: 0px 7px;
 }
 @media screen and (max-width: 1024px){
     .pagination2 li{

@@ -48,51 +48,41 @@
             <div class="col-lg-2 col-md-2"></div>
             <div class="col-lg-4 col-md-4 col-sm-8 col-xs-12">
                 <ul class="pagination pagination1">
-                    <li><a href="{% url 'companies' %}"><i class="fas fa-home home-icon"></i> <span>&gt;</span> Müəssisələr <span>&gt; </span> </a></li>
-                    <li><a href="#">Müəssisələr daxili</a></li>
+                    <li><a href="{% url 'homepage' %}"><i class="fas fa-home home-icon"></i> <span>&gt;</span> </a></li>
+                    <li><a href="{% url 'companies' %}"> Müəssisələr</a></li>
                 </ul>
             </div>
             <div class="col-lg-6 col-md-6 col-sm-4"></div>
         </div>
 
-        {% for company in company_list %}
-        {% if counter.count == 1 %}
         <div class="row">
             <div class="col-lg-2 col-md-2"></div>
-        {% endif %}
-
+        {% for company in company_list %}
+            {% if forloop.counter0 and forloop.counter0|divisibleby:horizontal_limit %}
+                    <div class="col-lg-1 col-md-1"></div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-2 col-md-2"></div>
+            {% endif %}
             <div class="col-lg-3 col-md-3 col-sm-4 address">
                 <a href="{% url 'company' company.pk %}"><h6>{{ company.company_name }}</h6></a>
                 <p>{{ company.address }}</p>
                 <p>{{ company.phone_number }}</p>
-                <p>Sayt: <a href="{{ company.url }}">{{ company.url }}</a></p>
+                <p>Sayt: <a href="{{ company.url }}" target="_blank">{{ company.url }}</a></p>
             </div>
-            {% if counter.count == 3 %}
-            <div class="col-lg-1 col-md-1"></div>
-            </div>
-            {% endif %}
-            {% if counter.count == 3 %}
-                    {{ counter.set_to_one }}
-            {% else %}
-                {{ counter.increment }}
-            {% endif %}
         {% endfor %}
         </div>
+
         <div class="row">
             <div class="col-lg-3 col-md-3"></div>
             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                {% if total_pages|length > 1 %}
                 <ul class="pagination pagination2">
-                    <li><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">5</a></li>
-                    <li><a href="#">6</a></li>
-                    <li><a href="#">7</a></li>
-                    <li><a href="#">8</a></li>
-                    <li><a href="#">9</a></li>
-                    <li><a href="#">10</a></li>
+                    {% for i in total_pages %}
+                        <li {% if i == selected_page %}class="active"{% endif %}><a href="?start={{i}}">{{i}}</a></li>
+                    {% endfor %}
                 </ul>
+                {% endif %}
             </div>
             <div class="col-lg-3 col-md-2"></div>
         </div>
@@ -100,18 +90,18 @@
             <div class="col-lg-3 col-md-3"></div>
             <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
                 <ul class="bas">
-                    <li><a href="#">Başlanğıc</a></li>
+                    <li><a href="{% url 'companies' %}">Başlanğıc</a></li>
                 </ul>
             </div>
             <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
                 <ul class="pagination pagination3">
-                    <li class="arrow1"><a href="#"><span>&lt;</span></a></li>
-                    <li><a href="#"><span>&gt;</span></a></li>
+                    <li class="arrow1"><a href="?start={{prev_page}}"><span>&lt;</span></a></li>
+                    <li><a href="?start={{next_page}}"><span>&gt;</span></a></li>
                 </ul>
             </div>
             <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
                 <ul class="text-center son">
-                    <li><a href="#">Son</a></li>
+                    <li><a href="?start={{total_pages|length}}">Son</a></li>
                 </ul>
             </div>
             <div class="col-lg-3 col-md-3"></div>
