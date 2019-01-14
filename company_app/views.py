@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Companies
+from company_app.models import Companies
 
 
 class Counter:
@@ -17,12 +17,13 @@ class Counter:
 # Create your views here.
 def companies(request):
     context = {}
+    #cp_id = Companies.objects.get(pk=pk)
     context['company_list'] = Companies.objects.all()
     context['counter'] = Counter()
     return render(request, "companies.html", context)
 
 
-def company(request):
+def company(request, pk):
     context = {}
     return render(request, 'company.html', context)
 

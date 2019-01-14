@@ -48,7 +48,7 @@
             <div class="col-lg-2 col-md-2"></div>
             <div class="col-lg-4 col-md-4 col-sm-8 col-xs-12">
                 <ul class="pagination pagination1">
-                    <li><a href="#"><i class="fas fa-home home-icon"></i> <span>&gt;</span> Müəssisələr <span>&gt; </span> </a></li>
+                    <li><a href="{% url 'companies' %}"><i class="fas fa-home home-icon"></i> <span>&gt;</span> Müəssisələr <span>&gt; </span> </a></li>
                     <li><a href="#">Müəssisələr daxili</a></li>
                 </ul>
             </div>
@@ -62,7 +62,7 @@
         {% endif %}
 
             <div class="col-lg-3 col-md-3 col-sm-4 address">
-                <h6>{{ company.company_name }}</h6>
+                <a href="{% url 'company' company.pk %}"><h6>{{ company.company_name }}</h6></a>
                 <p>{{ company.address }}</p>
                 <p>{{ company.phone_number }}</p>
                 <p>Sayt: <a href="{{ company.url }}">{{ company.url }}</a></p>
