@@ -55,7 +55,7 @@
                     {% endif %}
 
                 <div class="col-lg-3 col-md-3 col-sm-4">
-                    <a href="fotoqalereya-daxili.html"><img class="main-images" src="{{ photo.photo_file.url }}" alt=""></a>
+                    <a href="{% url 'photo_gallery_detailed' company_id photo.id %}"><img class="main-images" src="{{ photo.photo_file.url }}" alt=""></a>
                 </div>
                 {% endfor %}
             </div>
