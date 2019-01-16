@@ -6,28 +6,28 @@
 img{max-width: 100%;}
 @font-face {
     font-family: "Segoe UI";
-    src: url("../fonts/new/segoeui.ttf");
+    src: url("static/templates/fonts/new/segoeui.ttf");
 }
 @font-face {
     font-family: "Georgia";
-    src: url("/fonts/Georgia.ttf");
+    src: url("static/templates/fonts/Georgia.ttf");
 }
 @font-face {
     font-family: "Segoe UI Bold";
-    src: url("../fonts/new/segoeuib.ttf");
+    src: url("static/templates/fonts/new/segoeuib.ttf");
 }
 @font-face {
     font-family: "segoe-italic";
-    src: url("../fonts/new/segoeuii.ttf");
+    src: url("static/templates/fonts/new/segoeuii.ttf");
 }
 
 @font-face {
     font-family: "Segoe UI";
-    src: url("../fonts/Segoe/Segoeui2.ttf");
+    src: url("static/templates/fonts/Segoe/Segoeui2.ttf");
 }
 @font-face {
     font-family: "Segoe UI Bold";
-    src: url("../fonts/Segoe/Segoeuib.ttf");
+    src: url("static/templates/fonts/Segoe/Segoeuib.ttf");
 }
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
     font-family: "Segoe UI"!important;
@@ -134,27 +134,27 @@ a.infrastructure-top-menu-link2.active2 {
 
  .left-top
  {
-     background: url("../images/assets/top/dotted_top.png");
+     background: url("static/templates/images/assets/top/dotted_top.png");
      height: 201px;
      width: 154px;
      background-repeat: no-repeat;
  }
  .right-top
  {
-     background: url("../images/assets/top/dotted_top.png");
+     background: url("static/templates/images/assets/top/dotted_top.png");
      height: 201px;
      width: 154px;
      background-repeat: no-repeat;
  }
  .right-bottom-search {
-     background: url("../images/assets/top/dotted.png");
+     background: url("static/templates/images/assets/top/dotted_top.png");
      height: 401px;
      width: 155px;
      background-repeat: no-repeat;
  }
  .left-bottom
  {
-     background: url("../images/assets/top/dotted.png");
+     background: url("static/templates/images/assets/top/dotted.png");
      height: 401px;
    /*  width: 201px; */
     width:153px;
@@ -162,7 +162,7 @@ a.infrastructure-top-menu-link2.active2 {
 }
 .right-bottom
 {
-    background: url("../images/assets/top/dotted.png");
+    background: url("static/templates/images/assets/top/dotted.png");
     height: 401px;
    /* width: 201px; */
     width:153px;
@@ -319,7 +319,7 @@ a.infrastructure-top-menu-link2.active2 {
     display: block;
     width: 22px;
     height: 22px;
-    background: url(/images/social-links2.png);
+    background: url("static/templates/images/social-links2.png");
     float: left;
     margin-top: 5px;
     margin-right: 6px;
@@ -695,7 +695,7 @@ img.logo-main {
     padding: 13px;
 }
 .carousel-control-prev-icon{
-    background: url(../images/assets/left-arrow.png) no-repeat center center;
+    background: url(templates/static/images/assets/left-arrow.png) no-repeat center center;
     width: 90px;
     height: 90px;
 }
@@ -721,7 +721,7 @@ margin-left: 15px;
 .d-md-block{
 }
 .carousel-control-next-icon{
-    background: url(../images/assets/right-arrow.png) no-repeat center center;
+    background: url(templates/static/images/assets/right-arrow.png) no-repeat center center;
     width: 90px;
     height: 90px;
 }
@@ -1037,7 +1037,7 @@ margin-left: 15px;
     color: black;
 }
 .main{
-    background-image: url(../images/assets/top/dotted.png), url(../images/assets/top/dotted.png);
+    background-image: url("templates/static/images/assets/top/dotted.png"), url("templates/static/images/assets/top/dotted.png");
     background-position: left top, right top;
     background-repeat: no-repeat;
     margin-top: -16px;
