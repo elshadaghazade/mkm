@@ -9,8 +9,10 @@ def news_detailed(request):
     context = {}
     return render(request, "news_detailed.html", context)
     
-def projects_events(request):
-    context = {}
+def projects_events(request,pk):
+    context = {
+        'company_id':pk,
+    }
     return render(request, "projects_events.html", context)
 
 def projects_events_details(request):
