@@ -40,8 +40,11 @@ def photo_gallery_detailed(request, pk, photo_gallery_detailed_id):
     
     return render(request, "photo_gallery_detailed.html", context)
     
-def video_gallery(request):
-    context = {}
+def video_gallery(request,pk):
+    context = {
+        'company': Companies.objects.get(pk=pk),
+        'company_id': pk,
+    }
     return render(request, "video_gallery.html", context)
 
 def video_gallery_detailed(request):

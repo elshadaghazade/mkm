@@ -49,18 +49,27 @@ def about(request, pk):
     return render(request, "about.html", context)
 
 
-def administration(request):
-    context = {}
+def administration(request,pk):
+    context = {
+        'company': Companies.objects.get(pk=pk),
+        'company_id': pk,
+    }
     return render(request, "administration_company.html", context)
 
 
-def achievements(request):
-    context = {}
+def achievements(request,pk):
+    context = {
+        'company': Companies.objects.get(pk=pk),
+        'company_id': pk,
+    }
     return render(request, "achievements.html", context)
 
 
-def admission(request):
-    context = {}
+def admission(request,pk):
+    context = {
+        'company':Companies.objects.get(pk=pk),
+        'company_id':pk,
+    }
     return render(request, "admission.html", context)
 
 
