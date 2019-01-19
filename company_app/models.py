@@ -12,7 +12,8 @@ class CompanyProfile(models.Model):
 
 class Companies(models.Model):
     company_name = models.CharField(max_length=255)
-    about = models.CharField(max_length=255)
+    about = models.TextField()
+    main_duties = models.TextField()
     main_activity = models.CharField(max_length=255)
     regulation_file = models.FileField(upload_to='media')
     admission_requirements = models.CharField(max_length=255)
@@ -51,7 +52,7 @@ class CompanyAdministration(models.Model):
 
 class CompanyPhotoGallery(models.Model):
     company_id = models.ForeignKey(Companies, on_delete=models.CASCADE)
-    photo_file = models.FileField(upload_to='media')
+    photo_file = models.FileField(upload_to='media',default='')
     title = models.CharField(max_length=255)
     content = models.TextField()
 

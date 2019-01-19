@@ -45,7 +45,8 @@ def about(request, pk):
         'company_id': pk,
 
     }
-
+    comps = Companies.objects.all()
+    context['comps'] = comps 
     return render(request, "about.html", context)
 
 
