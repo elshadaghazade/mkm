@@ -47,13 +47,11 @@
             <div class="row">
                 <div class="col-lg-2"></div>
                 <div class="col-lg-8">
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam officiis accusamus, omnis magnam dignissimos quos sint vero impedit harum. Molestias, ipsam et. Architecto sapiente qui laboriosam quasi, aliquid maxime nobis! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum quam, eligendi ullam soluta modi sequi. Dicta rerum delectus sunt, aperiam natus consequatur sed debitis, voluptas rem molestias enim placeat culpa. Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam, quam consectetur. Necessitatibus repellat labore, dolor veritatis laborum quisquam inventore! Aliquam doloremque accusamus quia minima rerum rem itaque fugiat delectus at.
-                        <br><br>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio officia repellendus maxime deleniti laborum. Suscipit, quod aspernatur debitis inventore qui enim sunt ipsa ad minus perferendis sed tempora, ut molestias? Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit quis ut alias minima et esse repudiandae natus corrupti fugiat harum accusamus, officiis quia, debitis commodi amet nesciunt. Autem, aperiam quisquam! Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate eos reprehenderit officia maxime? Unde atque, voluptates dolorem optio debitis ratione nihil, officiis ipsum in facilis, dignissimos voluptatem accusantium provident corporis?
-                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nam ipsam doloremque, in ea ullam quis aliquam veritatis et modi recusandae minima voluptate temporibus, quas molestias odio illum iste corrupti nesciunt.
-                        <br><br>
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repudiandae ipsam pariatur ea perspiciatis nostrum se
+                    {% for article in comps %}
+                    <p>
+                        {{ article.about }}
                     </p>
+                    {% endfor %}
                 </div>
                 <div class="col-lg-2"></div>
             </div>
@@ -74,12 +72,11 @@
             <div class="row">
                 <div class="col-lg-2"></div>
                 <div class="col-lg-8">
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quaerat quia enim eos exercitationem deserunt error totam quisquam vel natus, nulla dolorum labore ab! Vitae ad repellat minima cumque voluptates aspernatur.
-                        <br><br>
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reprehenderit ipsum dolorem pariatur animi voluptatem ipsa deserunt provident ducimus temporibus eum, recusandae corrupti officiis iure sunt quas, id sed ullam fugiat!
-                        <br><br>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse animi dolores facere pariatur molestiae non? Ipsam, amet ea obcaecati explicabo voluptas aperiam! Quis ipsam nihil pariatur optio tempore similique voluptatum.
+                    {% for duties in comps %}
+                    <p>
+                        {{duties.main_duties}}
                     </p>
+                    {% endfor %}
                 </div>
                 <div class="col-lg-2"></div>
             </div>
