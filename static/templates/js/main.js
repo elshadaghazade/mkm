@@ -2,7 +2,7 @@ $('.owl-carousel').owlCarousel({
     loop:true,
     margin:30,
     responsiveClass:true,
-    navText: ["<img src='/static/templates/images/assets/back.png'>", "<img src='/static/templates/images/assets/next.png'>"],
+    navText: ["<img src='./images/assets/back.png'>", "<img src='./images/assets/next.png'>"],
     responsiveRefreshRate:10,
     responsive:{
         0:{
@@ -97,35 +97,6 @@ $(".block-menu").click(function()
 
 
 });
-
-$(".infrastructure-top-menu-block").not(".active2").hover(function () {
-
-    var hover = $(this).find(".infrastructure-top-menu-image1").attr("data-hover-image");
-
-    $(this).find(".infrastructure-top-menu-image1").css("background-image", "url("+hover+")");
-},function()
-{
-    var hover = $(this).find(".infrastructure-top-menu-image1").attr("data-image");
-
-    $(this).find(".infrastructure-top-menu-image1").css("background-image", "url("+hover+")");
-
-    $(".infrastructure-top-menu-link.active2").find(".infrastructure-top-menu-image1").css("background-image", "url("+ $(".infrastructure-top-menu-link.active2").find(".infrastructure-top-menu-image1").attr("data-hover-image")+")");
-});
-
-$(".infrastructure-top-menu-block").not(".active2").hover(function () {
-
-    var hover = $(this).find(".infrastructure-top-menu-image2").attr("data-hover-image");
-
-    $(this).find(".infrastructure-top-menu-image2").css("background-image", "url("+hover+")");
-},function()
-{
-    var hover = $(this).find(".infrastructure-top-menu-image2").attr("data-image");
-
-    $(this).find(".infrastructure-top-menu-image2").css("background-image", "url("+hover+")");
-
-    $(".infrastructure-top-menu-link.active2").find(".infrastructure-top-menu-image2").css("background-image", "url("+ $(".infrastructure-top-menu-link.active2").find(".infrastructure-top-menu-image2").attr("data-hover-image")+")");
-});
-
 
 
 

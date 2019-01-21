@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from company_app.models import Companies
+from company_app.models import Companies,CompanyAdministration
 import math
 
 
@@ -56,6 +56,7 @@ def administration(request,pk):
         'company': Companies.objects.get(pk=pk),
         'company_id': pk,
     }
+    context['images'] = CompanyAdministration.objects.all()
     return render(request, "administration_company.html", context)
 
 

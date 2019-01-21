@@ -1,0 +1,8 @@
+@media print{
+    header, footer, .none-print{
+        display: none
+    }
+    .print{
+        margin-top: 10em;
+    }
+}

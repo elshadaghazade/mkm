@@ -41,6 +41,7 @@ class Companies(models.Model):
 class CompanyAdministration(models.Model):
     company_id = models.ForeignKey(Companies, on_delete=models.CASCADE)
     parent_id = models.IntegerField()
+    #about_images = models.ImageField(upload_to='media') 
     full_name = models.CharField(max_length=255)
     occupation = models.CharField(max_length=255)
     administration_type = models.CharField(max_length=255)
