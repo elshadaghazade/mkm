@@ -47,21 +47,19 @@
             <div class="row">
                 <div class="col-lg-2"></div>
                 <div class="col-lg-8">
-                    {% for article in comps %}
                     <p>
-                        {{ article.about }}
+                        {{ company.about }}
                     </p>
-                    {% endfor %}
                 </div>
                 <div class="col-lg-2"></div>
             </div>
             <div class="row">
                 <div class="col-lg-2"></div>
-                {% for img in images %}
+                {% if company.about_images %}
                <div class="col-lg-8">
-                    <img src="{% if img.about_images %}{{ img.about_images.url }}{% endif %}" alt="">
+                    <img src="{{ company.about_images.url }}" alt="">
                 </div>
-                {% endfor %}
+                {% endif %}
                 <div class="col-lg-2"></div>
             </div>
             <div class="row">
@@ -74,11 +72,9 @@
             <div class="row">
                 <div class="col-lg-2"></div>
                 <div class="col-lg-8">
-                    {% for duties in comps %}
                     <p>
-                        {{duties.main_duties}}
+                        {{company.main_duties}}
                     </p>
-                    {% endfor %}
                 </div>
                 <div class="col-lg-2"></div>
             </div>
