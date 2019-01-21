@@ -2,13 +2,30 @@
 {% load static %}
 {% load widget_tweaks %}
 {% block content %}
+
 <div class="row">
-    <div class="col-lg-2"></div>
-    {% for img in images %}
-   <div class="col-lg-8">
-        <img src="{% if img.about_images %}{{ img.about_images.url }}{% endif %}" alt="">
-    </div>
-    {% endfor %}
-    <div class="col-lg-2"></div>
-</div>
+                <div class="col-lg-2"></div>
+                <div class="col-lg-8">
+                    {% if company.about_images %}
+                        <img src="{{ company.about_images.url }}" alt="">
+                    {% endif %}
+                </div>
+                <div class="col-lg-2"></div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-3"></div>
+                <div class="col-lg-5 col-md-8 col-sm-12 col-xs-12">
+                    <h5 class="head-words2">İdarənin əsas vəzifələri aşağıdakılardır :</h5>
+                </div>
+                <div class="col-lg-3 col-md-1"></div>
+            </div>
+            <div class="row">
+                <div class="col-lg-2"></div>
+                <div class="col-lg-8">
+                    <p>
+                        {{company.main_duties | safe}}
+                    </p>
+                </div>
+                <div class="col-lg-2"></div>
+            </div>
 {% endblock %}

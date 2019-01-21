@@ -45,9 +45,8 @@ def about(request, pk):
         'company_id': pk,
 
     }
-    comps = Companies.objects.all()
-    context['comps'] = comps 
-    context['images'] = Companies.objects.all()
+    
+    context['company'] = Companies.objects.get(pk=pk)
     return render(request, "about.html", context)
 
 
@@ -56,7 +55,7 @@ def administration(request,pk):
         'company': Companies.objects.get(pk=pk),
         'company_id': pk,
     }
-    context['images'] = CompanyAdministration.objects.all()
+    
     return render(request, "administration_company.html", context)
 
 

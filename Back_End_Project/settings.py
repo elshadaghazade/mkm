@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'media_app',
     'legislation_app',
     'widget_tweaks',
+    'control_panel'
 ]
 
 MIDDLEWARE = [
@@ -88,7 +89,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'ministry_of_education',
         'USER': 'root',
-        'PASSWORD': '12345',
+        'PASSWORD': 'Lappin555',
         'HOST': 'localhost',
         'PORT': '3306',
     }
