@@ -14,6 +14,7 @@ class Companies(models.Model):
     company_name = models.CharField(max_length=255)
     about = models.TextField()
     main_duties = models.TextField()
+    about_images = models.ImageField(upload_to='media') 
     main_activity = models.CharField(max_length=255)
     regulation_file = models.FileField(upload_to='media')
     admission_requirements = models.CharField(max_length=255)
@@ -29,7 +30,8 @@ class Companies(models.Model):
                                           self.regulation_file,
                                           self.admission_requirements,
                                           self.url,
-                                          self.address)
+                                          self.address,
+                                          self.about_images)
 
     class Meta:
         verbose_name = 'Company'

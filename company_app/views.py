@@ -47,6 +47,7 @@ def about(request, pk):
     }
     comps = Companies.objects.all()
     context['comps'] = comps 
+    context['images'] = Companies.objects.all()
     return render(request, "about.html", context)
 
 
