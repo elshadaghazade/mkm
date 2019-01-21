@@ -1,4 +1,5 @@
 {% load static %}
+
 <!--FOOTER BASLADI-->
 <footer class="footer-container">
     <div class="footer-slider">
@@ -37,9 +38,6 @@
                 </div>
             </div>
         </div>
-        <!--KOD ELAVESI-->
-        <!--KOD ELAVESI BURDA BITDI-->
-
         <a id="scroll-top" href="#">
             <div class="top-button">
                 <img src="{% static 'templates/images/assets/up-arrow.png' %}">
@@ -50,34 +48,24 @@
         <div class="custom-container">
             <div class="container">
                 <div class="row">
-                    <div class="footer-menu col-md-3 col-6">
+                    <div class="col-md-1"></div>
+                    <div class="footer-menu col-md-4 col-6">
                         <ul class="footer-menu-block">
-                            <li class="footer-menu-item footer-menu-item-header foot-mobile-tab">İdarə haqqında</li>
-                            <li class="footer-menu-item"><a href="#">Struktur</a></li>
-                            <li class="footer-menu-item"><a href="/news">Xəbərlər</a></li>
-                            
+                            <li class="footer-menu-item"><a href="#">Təhsil Nazirliyi</a></li>
+                            <li class="footer-menu-item"><a href="{% url 'companies' %}">Müəssisələr</a></li>
+                            <li class="footer-menu-item"><a href="tedbirler-daxili.html">Tədbirlər</a></li>
                         </ul>
                     </div>
-                    <div class="footer-menu col-md-3 col-6">
+                    <div class="footer-menu col-md-4 col-6">
                         <ul class="footer-menu-block">
-                            <li class="footer-menu-item footer-menu-item-header foot-mobile-tab">Sənədlər</li>
-                            <li class="footer-menu-item"><a href="#">Normativlər</a></li>
-                            <li class="footer-menu-item"><a href="#">Reqlamentlər</a></li>
-                            <li class="footer-menu-item"><a href="#">Kibertəhlükəsizlik siyasəti</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-menu col-md-3 col-6">
-                        <ul class="footer-menu-block">
-                            <li class="footer-menu-item footer-menu-item-header foot-mobile-tab">Fəaliyyət sahələri</li>
-                            <li class="footer-menu-item"><a href="#">İnfrastruktur</a></li>
-                            <li class="footer-menu-item"><a href="#">e-İdarəetmə</a></li>
-                            <li class="footer-menu-item"><a href="#">e-Məzmun</a></li>
-                            <li class="footer-menu-item"><a href="#">Peşəkar İnkişaf</a></li>
+                            <li class="footer-menu-item"><a href="layihe-tedbirler.html">Media</a></li>
+                            <li class="footer-menu-item"><a href="layihe-tedbirler.html">Xəbərlər</a></li>
+                            <li class="footer-menu-item"><a href="senedler.html">Sənədlər</a></li>
                         </ul>
                     </div>
                     <div class="col-md-3 col-6">
                         <ul class="footer-menu-block">
-                            <li class="footer-menu-item"><a href="/contact">Əlaqə</a></li>
+                            <li class="footer-menu-item"><a href="{% url 'contact_main' %}">Əlaqə</a></li>
                             <li class="footer-menu-item">Azadlıq prospekti 909</li>
                             <li class="footer-menu-item">+99412 565 02 37</li>
                             <li class="footer-menu-item footer-tel">+99412 565 02 38</li>
@@ -87,6 +75,7 @@
                     </div>
                 </div>
                 <div class="row">
+                    <div class="col-lg-1 col-md-1"></div>
                     <div class="footer-authors col-lg-6 col-md-6">
                         <p class="footer-author-p1">Copyright © 2010 Azərbaycan Respublikasında təhsil sisteminin informasiyalaşdırılması üzrə dövlət proqramı</p>
                     </div>

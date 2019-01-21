@@ -21,7 +21,7 @@
                         <div class="header-search-input-container">
                             <form action="#" method="GET">
                                 <input class="header-search-input"  type="text" name="query" placeholder="Axtar">
-                                <button class="header-search-button" type="submit"><img src="{% static 'templates/./images/assets/search-find.png' %}"></button>
+                                <button class="header-search-button" type="submit"><img src="{% static 'templates/images/assets/search-find.png' %}"></button>
                             </form>
                         </div>
                     </div>
@@ -62,29 +62,54 @@
         </div>
     </div>
     <div class="navigation-menu">
-        <div class="container">
-            <div class="custom-container mobile-width-min">
-                <div class="menu-container ">
-                    <ul class="nav justify-content-center nav-fill ">
-                        <li class="menu-item nav-item">
-                            <a class="nav-link"  href="#">Təhsil nazirliyi</a>
-                        </li>
-                        <li class="menu-item nav-item">
-                            <a class="nav-link"  href="#">İdarə</a>
-                        </li>
-                        <li class="menu-item nav-item">
-                            <a class="nav-link"  href="{% url 'companies' %}">Müəssisələr</a>
-                        </li>
-                        <li class="menu-item nav-item">
-                            <a class="nav-link" target=_blank href="#">Media</a>
-                        </li>
-                        <li class=" menu-item nav-item">
-                            <a class="nav-link" href="{% url 'contact_main' %}">Əlaqə</a>
-                        </li>
-                    </ul>
+            <div class="container">
+                <div class="custom-container mobile-width-min">
+                    <div class="menu-container ">
+                        <ul class="nav justify-content-center nav-fill ">
+                            <li class="menu-item nav-item">
+                                <a class="nav-link"  href="#">Təhsil nazirliyi</a>
+                            </li>
+                            <li class="menu-item menu-item-click nav-item">
+                                <a class="nav-link" target=_blank href="#"><span class="chevron chevron-1"></span>İdarə</a>
+                                <ul class="nav2 nav2-center nav2-active">
+                                    <li class="menu-item2"><a href="umumi-melumat.html" class="mobile-font-color">Ümumi məlumat</a></li>
+                                    <li class="menu-item2"><a href="haqqimizda.html" class="mobile-font-color">Struktur</a></li>
+                                    <li class="menu-item2"><a href="{% url 'companies' %}" class="mobile-font-color">Müəssisələr</a></li>
+                                    <li class="menu-item2"><a href="senedler.html" class="mobile-font-color">Sənədlər</a></li>
+                                </ul>
+                            </li>
+                            <li class="menu-item nav-item">
+                                <a class="nav-link"  href="{% url 'companies' %}">Müəssisələr</a>
+                            </li>
+                            <li class="menu-item menu-item-click nav-item">
+                                <a class="nav-link" target=_blank href="#"><span class="chevron chevron-1"></span>Media</a>
+                                <ul class="nav2 nav2-center nav2-active">
+                                    <li class="menu-item2"><a href="layihe-tedbirler.html" class="mobile-font-color">Xəbərlər</a></li>
+                                    <li class="menu-item2"><a href="tedbirler.html" class="mobile-font-color">Tədbirlər</a></li>
+                                    <li class="menu-item2"><a href="cixislar.html" class="mobile-font-color">Çıxışlar</a></li>
+                                    <li class="menu-item2"><a href="sual-cavab.html" class="mobile-font-color">Sual-cavab</a></li>
+                                    <li class="menu-item2"><a href="atributlar.html" class="mobile-font-color">Atributlar</a></li>
+                                </ul>
+                            </li>
+                            <li class=" menu-item nav-item">
+                                <a class="nav-link" href="{% url 'contact_main' %}">Əlaqə</a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</header>
+    </header>
 <!--HEADER BITDI-->
+
+
+
+
+
+
+
+
+
+
+
+<!---->

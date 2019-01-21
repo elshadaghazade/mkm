@@ -1,1 +1,14 @@
-<h1>administration_company</h1>
+{% extends "about.html" %}
+{% load static %}
+{% load widget_tweaks %}
+{% block content %}
+<div class="row">
+    <div class="col-lg-2"></div>
+    {% for img in images %}
+   <div class="col-lg-8">
+        <img src="{% if img.about_images %}{{ img.about_images.url }}{% endif %}" alt="">
+    </div>
+    {% endfor %}
+    <div class="col-lg-2"></div>
+</div>
+{% endblock %}
