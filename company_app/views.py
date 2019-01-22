@@ -45,8 +45,7 @@ def about(request, pk):
         'company_id': pk,
 
     }
-    
-    context['company'] = Companies.objects.get(pk=pk)
+    context['company'] = Companies.objects.get(pk=pk) 
     return render(request, "about.html", context)
 
 
@@ -55,7 +54,7 @@ def administration(request,pk):
         'company': Companies.objects.get(pk=pk),
         'company_id': pk,
     }
-    
+    context['company'] = Companies.objects.get(pk=pk) 
     return render(request, "administration_company.html", context)
 
 
