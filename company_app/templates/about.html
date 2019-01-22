@@ -48,7 +48,7 @@
                 <div class="col-lg-2"></div>
                 <div class="col-lg-8">
                     <p>
-                        {{ company.about }}
+                        {{ company.about | safe }}
                     </p>
                 </div>
                 <div class="col-lg-2"></div>
@@ -73,7 +73,7 @@
                 <div class="col-lg-2"></div>
                 <div class="col-lg-8">
                     <p>
-                        {{company.main_duties}}
+                        {{company.main_duties | safe}}
                     </p>
                 </div>
                 <div class="col-lg-2"></div>
