@@ -65,7 +65,7 @@
                     <div class="col-lg-2 col-md-2"></div>
             {% endif %}
             <div class="col-lg-3 col-md-3 col-sm-4 address">
-                <a href="{% url 'company' company.pk %}"><h6>{{ company.company_name }}</h6></a>
+                <a href="{% url 'company' company.id %}"><h6>{{ company.company_name }}</h6></a>
                 <p>{{ company.address }}</p>
                 <p>{{ company.phone_number }}</p>
                 <p>Sayt: <a href="{{ company.url }}" target="_blank">{{ company.url }}</a></p>

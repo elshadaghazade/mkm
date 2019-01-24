@@ -16,8 +16,7 @@ class Companies(models.Model):
     main_duties = models.TextField()
     about_images = models.ImageField(upload_to='media') 
     main_activity = models.CharField(max_length=255)
-    regulation_file = models.FileField(upload_to='media')
-    admission_requirements = models.CharField(max_length=255)
+    admission_requirements = models.TextField()
     profile_id = models.ForeignKey(CompanyProfile, on_delete=models.CASCADE)
     url = models.URLField(null=True, blank=True)
     address = models.CharField(max_length=255, null=True, blank=True)
@@ -27,7 +26,6 @@ class Companies(models.Model):
         return "{},{},{},{},{},{}".format(self.company_name,
                                           self.about,
                                           self.main_activity,
-                                          self.regulation_file,
                                           self.admission_requirements,
                                           self.url,
                                           self.address,

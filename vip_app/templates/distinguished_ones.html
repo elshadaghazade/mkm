@@ -30,59 +30,31 @@
                     <ul class="pagination pagination1">
                         <li><a href="{% url 'companies' %}"><i class="fas fa-home home-icon"></i> <span>&gt;</span> Müəssisələr <span>&gt; </span> </a></li>
                         <li><a href="{% url 'company' company_id %}"> {{company.company_name}} <span>&gt;</span> </a></li>
-                        <li><a href="{% url 'distinguished_ones' company_id %}">Ferqlənən yetirmələr</a></li>
+                        <li><a href="{% url 'medalist' company_id %}">Ferqlənən yetirmələr</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-6"></div>
             </div>
+            {% for d in distinguished_ones %}
             <div class="row information">
                 <div class="col-lg-2"></div>
                 <div class="col-lg-2 col-md-2">
-                    <img src="{% static 'templates/images/assets/picture-95970-1460131169.png' %}">
+                    <img src="{{d.image.url}}">
                 </div>
                 <div class="col-lg-6 col-md-6">
-                    <h3>Filankəs Filankəsov</h3>
-                    <p class="info-line">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
-                    <p class="info-line">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
-                    <p class="info-line">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+                    <h3>{{d.full_name}}</h3>
+                    <p class="info-line">{{d.short_description |safe}}</p>
                 </div>
                 <div class="col-lg-2 col-md-2"></div>
             </div>
             <div class="row">
                 <div class="col-lg-2"></div>
                 <div class="col-lg-8 information-word">
-                    <p class="info-line">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Lorem ipsum, dolor sit amet consectetur adipisicing elit</p>
-                    <p class="info-line">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Lorem ipsum, dolor sit amet consectetur adipisicing elit</p>
-                    <p class="info-line">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Lorem ipsum, dolor sit amet consectetur adipisicing elit</p>
-                    <p class="info-line">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Lorem ipsum, dolor sit amet consectetur adipisicing elit</p>
-                    <p class="info-line">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Lorem ipsum, dolor sit amet consectetur adipisicing elit</p>
+                    <p class="info-line">{{d.text |safe}}</p>
                 </div>
                 <div class="col-lg-2"></div>
             </div>
-            <div class="row information">
-                <div class="col-lg-2"></div>
-                <div class="col-lg-2 col-md-2">
-                    <img src="{% static 'templates/images/assets/picture-95970-1460131169.png' %}">
-                </div>
-                <div class="col-lg-6 col-md-6">
-                    <h3>Filankəs Filankəsov</h3>
-                    <p class="info-line">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
-                    <p class="info-line">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
-                    <p class="info-line">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
-                </div>
-                <div class="col-lg-2 col-md-2"></div>
-            </div>
-            <div class="row">
-                <div class="col-lg-2"></div>
-                <div class="col-lg-8 information-word">
-                    <p class="info-line">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Lorem ipsum, dolor sit amet consectetur adipisicing elit</p>
-                    <p class="info-line">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Lorem ipsum, dolor sit amet consectetur adipisicing elit</p>
-                    <p class="info-line">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Lorem ipsum, dolor sit amet consectetur adipisicing elit</p>
-                    <p class="info-line">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Lorem ipsum, dolor sit amet consectetur adipisicing elit</p>
-                    <p class="info-line">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Lorem ipsum, dolor sit amet consectetur adipisicing elit</p>
-                </div>
-                <div class="col-lg-2"></div>
-            </div>
+            {% endfor %}
         </div>
     </main>
     <!--MAIN BITDI-->
