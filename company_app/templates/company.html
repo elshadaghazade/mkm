@@ -1,12 +1,13 @@
+
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
-    {% load static %}
 <head>
     <meta charset="UTF-8">
     <meta name="csrf-token" content="UzgxbEbbw6N8kbdiGZVNzSvaVT3WnahqSly1v6ic" />
     <meta name="viewport"content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Muessiseler</title>
+    <title>Muessiseler daxili</title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{% static 'templates/js/owlcarousel/dist/assest/owl.carousel.min.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'templates/css/bootstrap/css/bootstrap.min.css' %}">
@@ -42,18 +43,18 @@
                     <button class="btn btn-primary dropdown-toggle main-buttons" type="button" data-toggle="dropdown"><a>Fəaliyyət istiqamətləri</a>
                     <span class="caret"></span></button>
                     <ul class="dropdown-menu dropdown-menu-show">
-                        <li><a href="#">HTML</a></li>
-                        <li><a href="#">CSS</a></li>
-                        <li><a href="#">JavaScript</a></li>
+                        <li><a href="#">Empty</a></li>
+                        <li><a href="#">Empty</a></li>
+                        <li><a href="#">Empty</a></li>
                     </ul>
                 </div>
                 <div class="dropdown col-lg-3 col-md-4">
                     <button class="btn btn-primary dropdown-toggle main-buttons main-buttons2" type="button" data-toggle="dropdown">Təşkil olunduğu yerlər
                     <span class="caret"></span></button>
                     <ul class="dropdown-menu dropdown-menu-show">
-                        <li><a href="#">HTML</a></li>
-                        <li><a href="#">CSS</a></li>
-                        <li><a href="#">JavaScript</a></li>
+                        <li><a href="#">Empty</a></li>
+                        <li><a href="#">Empty</a></li>
+                        <li><a href="#">Empty</a></li>
                     </ul>
                 </div>
                 <div class="input-group col-lg-3 col-md-4">
@@ -69,70 +70,94 @@
         <div class="row main-icons">
             <div class="col-lg-2"></div>
             <div class="col-lg-2 col-md-3 col-sm-6 col-xs-6">
-                <div class="icn">
-                    <a href="{% url 'about' company_id %}"><span><img class="icn-img1" src="{% static 'templates/images/assets/icons/output-125.png' %}" alt=""><strong>Haqqımızda</strong></span></a>
-                </div>
+                <a href="{% url 'about' company_id %}">
+                    <div class="icn1">
+                        <strong>Haqqımızda</strong>
+                    </div>
+                </a>
             </div>
             <div class="col-lg-2 col-md-3 col-sm-6 col-xs-6">
-                <div class="icn">
-                    <a href="{% url 'administration' company_id %}"><span><img class="icn-img2" src="{% static 'templates/images/assets/icons/output-115.png' %}" alt=""><strong>Rəhbərlik</strong></span></a>
-                </div>
+                <a href="{% url 'administration' company_id %}">
+                    <div class="icn2">
+                        <strong>Rəhbərlik</strong>
+                    </div>
+                </a>
             </div>
             <div class="col-lg-2 col-md-3 col-sm-6 col-xs-6">
-                <div class="icn">
-                    <a href="{% url 'achievements' company_id %}"><span><img class="icn-img3" src="{% static 'templates/images/assets/icons/output-116.png' %}" alt=""><strong>Nailiyyətlərimiz</strong></span></a>
-                </div>
+                <a href="{% url 'achievements' company_id %}">
+                    <div class="icn3">
+                        <strong>Nailiyyətlərimiz</strong>
+                    </div>
+                </a>
             </div>
             <div class="col-lg-2 col-md-3 col-sm-6 col-xs-6">
-                <div class="icn">
-                    <a href="{% url 'medalist' company_id %}"><span><img class="icn-img4" src="{% static 'templates/images/assets/icons/output-117.png' %}" alt=""><strong>Medal alanlar</strong></span></a>
-                </div>
+                <a href="{% url 'medalist' company_id %}">
+                    <div class="icn4">
+                        <strong>Medal alanlar</strong>
+                    </div>
+                </a>
             </div>
         </div>
         <div class="row main-icons">
             <div class="col-lg-2"></div>
             <div class="col-lg-2 col-md-3 col-sm-6 col-sm-6">
-                <div class="icn">
-                    <a href="{% url 'distinguished_ones' company_id %}"><span><img class="icn-img5" src="{% static 'templates/images/assets/icons/output-42.png' %}" alt=""><strong>Fərqlənən yetirmələr</strong></span></a>
-                </div>
+                <a href="{% url 'distinguished_ones' company_id %}">    
+                    <div class="icn5">
+                        <strong>Fərqlənən yetirmələr</strong>
+                    </div>
+                </a>
             </div>
             <div class="col-lg-2 col-md-3 col-sm-6 col-sm-6">
-                <div class="icn">
-                    <a href="{% url 'projects_events' company_id %}"><span><img class="icn-img6" src="{% static 'templates/images/assets/icons/output-118.png' %}" alt=""><strong>Layihə və tədbirlər</strong></span></a>
-                </div>
+                <a href="{% url 'projects_events' company_id %}">    
+                    <div class="icn6">
+                        <strong>Layihə və tədbirlər</strong>
+                    </div>
+                </a>
             </div>
             <div class="col-lg-2 col-md-3 col-sm-6 col-sm-6">
-                <div class="icn">
-                    <a href="{% url 'legislation' company_id %}"><span><img class="icn-img7" src="{% static 'templates/images/assets/icons/output-119.png' %}" alt=""><strong>Qanunvericilik</strong></span></a>
-                </div>
+                <a href="{% url 'legislation' company_id %}">
+                    <div class="icn7">
+                        <strong>Qanunvericilik</strong>
+                    </div>
+                </a>
             </div>
             <div class="col-lg-2 col-md-3 col-sm-6 col-sm-6">
-                <div class="icn">
-                    <a href="{% url 'admission' company_id %}"><span><img class="icn-img8" src="{% static 'templates/images/assets/icons/output-120.png' %}" alt=""><strong>Qəbul qaydaları</strong></span></a>
-                </div>
+                <a href="{% url 'admission' company_id %}">
+                    <div class="icn8">
+                        <strong>Qəbul qaydaları</strong>
+                    </div>
+                </a>
             </div>
         </div>
         <div class="row main-icons">
             <div class="col-lg-2"></div>
             <div class="col-lg-2 col-md-3 col-sm-6">
-                <div class="icn">
-                    <a href="{% url 'faq' company_id %}"><span><img class="icn-img9" src="{% static 'templates/images/assets/icons/output-121.png' %}" alt=""><strong>Tez-tez<br>verilən suallar</strong></span></a>
-                </div>
+                <a href="{% url 'faq' company_id %}">
+                    <div class="icn9">
+                        <strong class="line-height">Tez-tez<br>verilən suallar</strong>
+                    </div>
+                </a>
             </div>
             <div class="col-lg-2 col-md-3 col-sm-6">
-                <div class="icn">
-                    <a href="{% url 'photo_galleries' company_id %}"><span><img class="icn-img10" src="{% static 'templates/images/assets/icons/output-122.png' %}" alt=""><strong>Fotoqalereya</strong></span></a>
-                </div>
+                <a href="{% url 'photo_galleries' company_id %}">
+                    <div class="icn10">
+                        <strong>Fotoqalereya</strong>
+                    </div>
+                </a>
             </div>
             <div class="col-lg-2 col-md-3 col-sm-6">
-                <div class="icn">
-                    <a href="{% url 'video_gallery' company_id %}"><span><img class="icn-img11" src="{% static 'templates/images/assets/icons/output-123.png' %}" alt=""><strong>Videoqalereya</strong></span></a>
-                </div>
+                <a href="{% url 'video_gallery' company_id %}">
+                    <div class="icn11">
+                        <strong>Videoqalereya</strong>
+                    </div>
+                </a>
             </div>
             <div class="col-lg-2 col-md-3 col-sm-6">
-                <div class="icn">
-                    <a href="{% url 'contact_company' company_id %}"><span><img class="icn-img12" src="{% static 'templates/images/assets/icons/output-124.png' %}" alt=""><strong>Əlaqə</strong></span></a>
-                </div>
+                <a href="{% url 'contact_company' company_id %}">
+                    <div class="icn12">
+                        <strong>Əlaqə</strong>
+                    </div>
+                </a>
             </div>
         </div>
     </div>
@@ -141,10 +166,11 @@
 
 <!--FOOTER BASLADI-->
 {% include 'layouts/footer.html' %}
-    <!--FOOTER BITDI-->
-    <script type="text/javascript" src="{% static 'templates/js/jquery-3.3.1.min.js' %}"></script>
-    <script type="text/javascript" src="{% static 'templates/css/bootstrap/js/bootstrap.min.js' %}"></script>
-    <script type="text/javascript" src="{% static 'templates/js/owlcarousel/dist/owl.carousel.min.js' %}"></script>
-    <script type="text/javascript" src="{% static 'templates/js/main.js' %}"></script>
-    </body>
-    </html>
+<!--FOOTER BITDI-->
+<script type="text/javascript" src="{% static 'templates/js/jquery-3.3.1.min.js' %}"></script>
+<script type="text/javascript" src="https://unpkg.com/popper.js@1.14.6/dist/umd/popper.min.js"></script>
+<script type="text/javascript" src="{% static 'templates/css/bootstrap/js/bootstrap.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'templates/js/owlcarousel/dist/owl.carousel.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'templates/js/main.js' %}"></script>
+</body>
+</html>

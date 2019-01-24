@@ -6,7 +6,7 @@
     <meta name="csrf-token" content="UzgxbEbbw6N8kbdiGZVNzSvaVT3WnahqSly1v6ic" />
     <meta name="viewport"content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Sual cavab</title>
+    <title>Qanunvericilik</title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{% static 'templates/js/owlcarousel/dist/assest/owl.carousel.min.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'templates/css/bootstrap/css/bootstrap.min.css' %}">
@@ -36,62 +36,15 @@
                 </div>
                 <div class="col-lg-6"></div>
             </div>
+            {% for legs in legislations %}
             <div class="row">
                 <div class="col-lg-2"></div>
                 <div class="col-lg-8">
-                    <p class="second-question">Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+                    <p class="second-question"><a target="_blank" href="/media/{{legs.legislation_file}}">{{legs.title}}</a></p>
                 </div>
                 <div class="col-lg-2"></div>
             </div>
-            <div class="row">
-                <div class="col-lg-2"></div>
-                <div class="col-lg-8">
-                    <p class="second-question">Lorem ipsum dolor sit amet, consectetur adipisicing elit consectetur adipisicing elit</p>
-                </div>
-                <div class="col-lg-2"></div>
-            </div>
-            <div class="row">
-                <div class="col-lg-2"></div>
-                <div class="col-lg-8">
-                    <p class="second-question">Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
-                </div>
-                <div class="col-lg-2"></div>
-            </div>
-            <div class="row">
-                <div class="col-lg-2"></div>
-                <div class="col-lg-8">
-                    <p class="second-question">Lorem ipsum dolor sit amet, consectetur adipisicing elit consectetur adipisicing elit</p>
-                </div>
-                <div class="col-lg-2"></div>
-            </div>
-            <div class="row">
-                <div class="col-lg-2"></div>
-                <div class="col-lg-8">
-                    <p class="second-question">Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
-                </div>
-                <div class="col-lg-2"></div>
-            </div>
-            <div class="row">
-                <div class="col-lg-2"></div>
-                <div class="col-lg-8">
-                    <p class="second-question">Lorem ipsum dolor sit amet, consectetur adipisicing elit consectetur adipisicing elit</p>
-                </div>
-                <div class="col-lg-2"></div>
-            </div>
-            <div class="row">
-                <div class="col-lg-2"></div>
-                <div class="col-lg-8">
-                    <p class="second-question">Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
-                </div>
-                <div class="col-lg-2"></div>
-            </div>
-            <div class="row">
-                <div class="col-lg-2"></div>
-                <div class="col-lg-8">
-                    <p class="second-question">Lorem ipsum dolor sit amet, consectetur adipisicing elit consectetur adipisicing elit</p>
-                </div>
-                <div class="col-lg-2"></div>
-            </div>
+            {% endfor %}
         </div>
     </main>
     <!--MAIN BITDI-->

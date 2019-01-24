@@ -71,6 +71,7 @@ def admission(request,pk):
         'company':Companies.objects.get(pk=pk),
         'company_id':pk,
     }
+    context['admissions'] = Companies.objects.filter(pk=pk).last()
     return render(request, "admission.html", context)
 
 

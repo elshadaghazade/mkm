@@ -10,7 +10,10 @@ def medalist(request,pk):
         'company': Companies.objects.filter(pk=pk).last(),
         'company_id': pk,
     }
-    context['medalist'] = VIP.objects.filter(pk=pk).last()
+    context['medalist'] = VIP.objects.filter(
+        company_id=pk,
+        vip_type='MA',
+        )
     return render(request, "medalist.html", context)
 
 
@@ -19,6 +22,12 @@ def distinguished_ones(request,pk):
         'company': Companies.objects.filter(pk=pk).last(),
         'company_id': pk,
     }
+    context['distinguished_ones'] = VIP.objects.filter(
+        company_id=pk,
+        vip_type='FQ',
+        )
+
+    
     return render(request, "distinguished_ones.html", context)
 
 
