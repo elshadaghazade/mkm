@@ -23,7 +23,7 @@ class News(models.Model):
     publish_date = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return "{},{},{}".format(self.title, self.short_description, self.full_content)
+        return "{}".format(self.title)
 
     
 class CompanyNews(models.Model):
@@ -38,4 +38,4 @@ class CompanyNews(models.Model):
     created_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return "{},{},{},{}".format(self.title, self.short_description,self.long_description,self.text)
+        return "{}".format(self.title)
