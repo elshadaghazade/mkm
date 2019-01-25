@@ -30,11 +30,12 @@ class CompanyNews(models.Model):
     title = models.CharField(max_length=255)
     news_picture = models.ImageField(upload_to='media')
     short_description = models.CharField(max_length=255)
-    full_content = models.CharField(max_length=255)
+    long_description = models.CharField(max_length=255)
+    text = models.TextField()
     category_id = models.ForeignKey(Category, on_delete=models.CASCADE)
-    publish_date = models.DateTimeField(auto_now=True)
+    publish_date = models.DateTimeField()
     company_id = models.ForeignKey(Companies, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return "{},{},{}".format(self.title, self.short_description, self.full_content)
+        return "{},{},{},{}".format(self.title, self.short_description,self.long_description,self.text)
