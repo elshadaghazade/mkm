@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'crispy_forms',
     'main_app',
     'contact_app',
     'news_app',
@@ -49,6 +50,8 @@ INSTALLED_APPS = [
     'widget_tweaks',
     'control_panel'
 ]
+
+CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -89,7 +92,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'ministry_of_education',
         'USER': 'root',
-        'PASSWORD': '12345',
+        'PASSWORD': 'Lappin555',
         'HOST': 'localhost',
         'PORT': '3306',
     }

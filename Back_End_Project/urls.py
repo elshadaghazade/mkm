@@ -23,7 +23,8 @@ urlpatterns = [
     path('', include('main_app.urls')),
     path('companies/', include('company_app.urls')),
     path('news/', include('news_app.urls')),
-    path('search/', include('search_app.urls'))
+    path('search/', include('search_app.urls')),
+    path('cpanel/', include('control_panel.urls'))
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
