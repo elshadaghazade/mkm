@@ -23,13 +23,7 @@ class Companies(models.Model):
     phone_number = models.CharField(max_length=25, null=True, blank=True)
 
     def __str__(self):
-        return "{},{},{},{},{},{}".format(self.company_name,
-                                          self.about,
-                                          self.main_activity,
-                                          self.admission_requirements,
-                                          self.url,
-                                          self.address,
-                                          self.about_images)
+        return "{}".format(self.company_name)
 
     class Meta:
         verbose_name = 'Company'
@@ -46,9 +40,7 @@ class CompanyAdministration(models.Model):
     branch_icon = models.FileField(upload_to='media')
 
     def __str__(self):
-        return "{},{},{}".format(self.full_name,
-                                 self.occupation,
-                                 self.administration_type)
+        return "{}".format(self.full_name)
 
 
 class CompanyPhotoGallery(models.Model):
@@ -58,7 +50,7 @@ class CompanyPhotoGallery(models.Model):
     content = models.TextField()
 
     def __str__(self):
-        return "{},{}".format(self.title, self.content)
+        return "{}".format(self.title)
 
     class Meta:
         verbose_name = 'Photo Gallery'
@@ -72,7 +64,7 @@ class CompanyVideoGallery(models.Model):
     content = models.TextField()
 
     def __str__(self):
-        return "{},{}".format(self.title, self.content)
+        return "{}".format(self.title)
 
     class Meta:
         verbose_name = 'Video Gallery'

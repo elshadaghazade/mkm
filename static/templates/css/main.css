@@ -407,6 +407,13 @@ img.logo-main {
 .pagination2 li{
     padding-right: 45px;
 }
+
+.pagination2 li.active a {
+    background: #ccc;
+    width: 100%;
+    padding: 0px 7px;
+    display: inline-block;
+}
 .pagination2 a{
     color: black;
     font-weight: bold;

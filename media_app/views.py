@@ -8,15 +8,12 @@ def photo_gallery(request,pk):
         'company': company,
         'company_id': pk,
     }
-    
-    
-
     try:
         start = int(request.GET.get('start', 0)) - 1
     except:
         start = 0
 
-    limit = 100
+    limit = 30
     company_count = CompanyPhotoGallery.objects.filter(company_id=company).count()
 
     if start < 0:
