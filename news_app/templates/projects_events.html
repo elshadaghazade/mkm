@@ -1,172 +1,169 @@
 <!DOCTYPE html>
-{% load static %}
+{% load static%}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="csrf-token" content="UzgxbEbbw6N8kbdiGZVNzSvaVT3WnahqSly1v6ic" />
     <meta name="viewport"content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Tedbirler</title>
+    <title>Layihe ve tedbirler</title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{% static 'templates/js/owlcarousel/dist/assest/owl.carousel.min.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'templates/css/bootstrap/css/bootstrap.min.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'templates/css/main.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'templates/css/media.css' %}">
-    <link rel="shortcut icon" href="{% static 'templates/images/favicon.ico' %}" type="image/x-icon" />
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
 </head>
 <body>
-    <!--HEADER BASLADI-->
-    {% include 'layouts/header.html' %}
-    <!--HEADER BITDI-->
+<!--HEADER BASLADI-->
+{% include 'layouts/header.html' %}
+<!--HEADER BITDI-->
 
-    <!--MAIN BASLADI-->
+<!--MAIN BASLADI-->
 <main class="main">
-        <div class="container">
-            <div class="row mini-nav">
-                <div class="col-lg-2"></div>
-                <div class="col-lg-4 col-md-4 col-sm-8 col-xs-12">
-                    <ul class="pagination pagination1">
-                                <li><a href="{% url 'homepage' %}"><i class="fas fa-home home-icon"></i> <span>&gt;</span> </a></li>
-                                <li><a href="{% url 'companies' %}"> Müəssisələr <span>&gt;</span> </a></li>
-                                <li><a href="{% url 'company' company_id %}"> {{company.company_name}}</a></li>
-                                <li><a href="{% url 'projects_events' company_id  %}">Layihe ve tedbirler</a></li>
-                            </ul>
-                </div>
-                <div class="col-lg-6"></div>
-            </div>
-            <div class="row">
-                <div class="col-lg-2"></div>
-                <div class="main-head-div">
-                    <h3 class="main-head-word">Layihə və tədbirlər</h3>
-                </div>
-                <div class="col-lg-10"></div>
-            </div>
-            <div class="row">
-                <div class="col-lg-2"></div>
-                <div class="col-lg-4">
-                    <iframe style="filter:grayscale(100%);" class="iframes" width="100%" height="150px" src="https://www.youtube.com/embed/zzL50mpxIAw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    <span class="data2">Cümə, 29 Dekabr 2017</span>
-                    <i class="far fa-clock"></i><span class="time">13:45</span>
-                    <h3 class="main-foot-words">Lorem ipsum dolor sit amet, consectetur adipisicing elit. . Placeat, sit debitis!</h3>
-                </div>
-                <div class="col-lg-4">
-                    <iframe style="filter:grayscale(100%);" class="iframes" width="100%" height="150px" src="https://www.youtube.com/embed/cOgZemzR6u8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    <span class="data2">Cümə, 29 Dekabr 2017</span>
-                    <i class="far fa-clock"></i><span class="time">13:45</span>
-                    <h3 class="main-foot-words">Lorem ipsum dolor sit amet consectetur adipisicing elit. fevibero? Aliquam eum min</h3>
-                </div>
-                <div class="col-lg-2"></div>
-            </div>
-            <div class="row">
-                <div class="col-lg-2"></div>
-                <div class="col-lg-4">
-                    <iframe style="filter:grayscale(100%);" class="iframes" width="100%" height="150px" src="https://www.youtube.com/embed/zzL50mpxIAw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    <span class="data2">Cümə, 29 Dekabr 2017</span>
-                    <i class="far fa-clock"></i><span class="time">13:45</span>
-                    <h3 class="main-foot-words">Lorem ipsum dolor sit amet, consectetur adipisicing elit. . Placeat, sit debitis!</h3>
-                </div>
-                <div class="col-lg-4">
-                    <iframe style="filter:grayscale(100%);" class="iframes" width="100%" height="150px" src="https://www.youtube.com/embed/cOgZemzR6u8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    <span class="data2">Cümə, 29 Dekabr 2017</span>
-                    <i class="far fa-clock"></i><span class="time">13:45</span>
-                    <h3 class="main-foot-words">Lorem ipsum dolor sit amet consectetur adipisicing elit. fevibero? Aliquam eum min</h3>
-                </div>
-                <div class="col-lg-2"></div>
-            </div>
-            <div class="row">
-                <div class="col-lg-2"></div>
-                <div class="col-lg-4">
-                    <iframe style="filter:grayscale(100%);" class="iframes" width="100%" height="150px" src="https://www.youtube.com/embed/zzL50mpxIAw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    <span class="data2">Cümə, 29 Dekabr 2017</span>
-                    <i class="far fa-clock"></i><span class="time">13:45</span>
-                    <h3 class="main-foot-words">Lorem ipsum dolor sit amet, consectetur adipisicing elit. . Placeat, sit debitis!</h3>
-                </div>
-                <div class="col-lg-4">
-                    <iframe style="filter:grayscale(100%);" class="iframes" width="100%" height="150px" src="https://www.youtube.com/embed/cOgZemzR6u8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    <span class="data2">Cümə, 29 Dekabr 2017</span>
-                    <i class="far fa-clock"></i><span class="time">13:45</span>
-                    <h3 class="main-foot-words">Lorem ipsum dolor sit amet consectetur adipisicing elit. fevibero? Aliquam eum min</h3>
-                </div>
-                <div class="col-lg-2"></div>
-            </div>
-            <div class="row">
-                <div class="col-lg-2"></div>
-                <div class="col-lg-4">
-                    <iframe style="filter:grayscale(100%);" class="iframes" width="100%" height="150px" src="https://www.youtube.com/embed/zzL50mpxIAw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    <span class="data2">Cümə, 29 Dekabr 2017</span>
-                    <i class="far fa-clock"></i><span class="time">13:45</span>
-                    <h3 class="main-foot-words">Lorem ipsum dolor sit amet, consectetur adipisicing elit. . Placeat, sit debitis!</h3>
-                </div>
-                <div class="col-lg-4">
-                    <iframe style="filter:grayscale(100%);" class="iframes" width="100%" height="150px" src="https://www.youtube.com/embed/cOgZemzR6u8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    <span class="data2">Cümə, 29 Dekabr 2017</span>
-                    <i class="far fa-clock"></i><span class="time">13:45</span>
-                    <h3 class="main-foot-words">Lorem ipsum dolor sit amet consectetur adipisicing elit. fevibero? Aliquam eum min</h3>
-                </div>
-                <div class="col-lg-2"></div>
-            </div>
-            <div class="row">
-                <div class="col-lg-2"></div>
-                <div class="col-lg-4">
-                    <iframe style="filter:grayscale(100%);" class="iframes" width="100%" height="150px" src="https://www.youtube.com/embed/zzL50mpxIAw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    <span class="data2">Cümə, 29 Dekabr 2017</span>
-                    <i class="far fa-clock"></i><span class="time">13:45</span>
-                    <h3 class="main-foot-words">Lorem ipsum dolor sit amet, consectetur adipisicing elit. . Placeat, sit debitis!</h3>
-                </div>
-                <div class="col-lg-4">
-                    <iframe style="filter:grayscale(100%);" class="iframes" width="100%" height="150px" src="https://www.youtube.com/embed/cOgZemzR6u8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    <span class="data2">Cümə, 29 Dekabr 2017</span>
-                    <i class="far fa-clock"></i><span class="time">13:45</span>
-                    <h3 class="main-foot-words">Lorem ipsum dolor sit amet consectetur adipisicing elit. fevibero? Aliquam eum min</h3>
-                </div>
-                <div class="col-lg-2"></div>
-            </div>
-            <div class="row">
-                    <div class="col-lg-3 col-md-3"></div>
-                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                        <ul class="pagination pagination2">
-                            <li><a href="#">1</a></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">4</a></li>
-                            <li><a href="#">5</a></li>
-                            <li><a href="#">6</a></li>
-                            <li><a href="#">7</a></li>
-                            <li><a href="#">8</a></li>
-                            <li><a href="#">9</a></li>
-                            <li><a href="#">10</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-lg-3 col-md-2"></div>
-                </div>
-                <div class="row end-row">
-                    <div class="col-lg-3 col-md-3"></div>
-                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-                        <ul class="bas">
-                            <li><a href="#">Başlanğıc</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
-                        <ul class="pagination pagination3">
-                            <li class="arrow1"><a href="#"><span>&lt;</span></a></li>
-                            <li><a href="#"><span>&gt;</span></a></li>
-                        </ul>
-                    </div>
-                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-                        <ul class="text-center son">
-                            <li><a href="#">Son</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-lg-3 col-md-3"></div>
-                </div>
+    <div class="container">
+        <div class="row mini-nav">
+            <div class="col-lg-2"></div>
+            <div class="col-lg-4 col-md-4 col-sm-8 col-xs-12">
+                <ul class="pagination pagination1">
+                        <li><a href="{% url 'homepage' %}"><i class="fas fa-home home-icon"></i> <span>&gt;</span> </a></li>
+                        <li><a href="{% url 'companies' %}"> Müəssisələr <span>&gt;</span> </a></li>
+                        <li><a href="{% url 'company' company_id %}"> {{company.company_name}} <span>&gt;</span> </a></li>
+                        <li><a href="{% url 'projects_events' company_id %}">Layihe ve tedbirler</a></li>
+                    </ul>
+            <div class="col-lg-6"></div>
         </div>
-    </main>
-    <!--MAIN BITDI-->
+        <div class="row">
+            <div class="col-lg-2"></div>
+            <div class="main-head-div">
+                <h3 class="main-head-word">Layihə və tədbirlər</h3>
+            </div>
+            <div class="col-lg-10"></div>
+        </div>
+        <div class="row">
+            <div class="col-lg-2"></div>
+            <div class="col-lg-4">
+                <iframe class="iframes" width="100%" height="150px" src="https://www.youtube.com/embed/zzL50mpxIAw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <span class="data2">Cümə, 29 Dekabr 2017</span>
+                <i class="far fa-clock"></i><span class="time">13:45</span>
+                <h3 class="main-foot-words"><a href="tedbirler-daxili.html"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. . Placeat, sit debitis!</h3></a>
+            </div>
+            <div class="col-lg-4">
+                <iframe class="iframes" width="100%" height="150px" src="https://www.youtube.com/embed/cOgZemzR6u8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <span class="data2">Cümə, 29 Dekabr 2017</span>
+                <i class="far fa-clock"></i><span class="time">13:45</span>
+                <h3 class="main-foot-words"><a href="tedbirler-daxili.html"> Lorem ipsum dolor sit amet consectetur adipisicing elit. fevibero? Aliquam eum min</h3></a>
+            </div>
+            <div class="col-lg-2"></div>
+        </div>
+        <div class="row">
+            <div class="col-lg-2"></div>
+            <div class="col-lg-4">
+                <iframe class="iframes" width="100%" height="150px" src="https://www.youtube.com/embed/zzL50mpxIAw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <span class="data2">Cümə, 29 Dekabr 2017</span>
+                <i class="far fa-clock"></i><span class="time">13:45</span>
+                <h3 class="main-foot-words"><a href="tedbirler-daxili.html"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. . Placeat, sit debitis!</h3></a>
+            </div>
+            <div class="col-lg-4">
+                <iframe class="iframes" width="100%" height="150px" src="https://www.youtube.com/embed/cOgZemzR6u8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <span class="data2">Cümə, 29 Dekabr 2017</span>
+                <i class="far fa-clock"></i><span class="time">13:45</span>
+                <h3 class="main-foot-words"><a href="tedbirler-daxili.html"> Lorem ipsum dolor sit amet consectetur adipisicing elit. fevibero? Aliquam eum min</h3></a>
+            </div>
+            <div class="col-lg-2"></div>
+        </div>
+        <div class="row">
+            <div class="col-lg-2"></div>
+            <div class="col-lg-4">
+                <iframe class="iframes" width="100%" height="150px" src="https://www.youtube.com/embed/zzL50mpxIAw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <span class="data2">Cümə, 29 Dekabr 2017</span>
+                <i class="far fa-clock"></i><span class="time">13:45</span>
+                <h3 class="main-foot-words"><a href="tedbirler-daxili.html"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. . Placeat, sit debitis!</h3></a>
+            </div>
+            <div class="col-lg-4">
+                <iframe class="iframes" width="100%" height="150px" src="https://www.youtube.com/embed/cOgZemzR6u8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <span class="data2">Cümə, 29 Dekabr 2017</span>
+                <i class="far fa-clock"></i><span class="time">13:45</span>
+                <h3 class="main-foot-words"><a href="tedbirler-daxili.html"> Lorem ipsum dolor sit amet consectetur adipisicing elit. fevibero? Aliquam eum min</h3></a>
+            </div>
+            <div class="col-lg-2"></div>
+        </div>
+        <div class="row">
+            <div class="col-lg-2"></div>
+            <div class="col-lg-4">
+                <iframe class="iframes" width="100%" height="150px" src="https://www.youtube.com/embed/zzL50mpxIAw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <span class="data2">Cümə, 29 Dekabr 2017</span>
+                <i class="far fa-clock"></i><span class="time">13:45</span>
+                <h3 class="main-foot-words"><a href="tedbirler-daxili.html"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. . Placeat, sit debitis!</h3></a>
+            </div>
+            <div class="col-lg-4">
+                <iframe class="iframes" width="100%" height="150px" src="https://www.youtube.com/embed/cOgZemzR6u8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <span class="data2">Cümə, 29 Dekabr 2017</span>
+                <i class="far fa-clock"></i><span class="time">13:45</span>
+                <h3 class="main-foot-words"><a href="tedbirler-daxili.html"> Lorem ipsum dolor sit amet consectetur adipisicing elit. fevibero? Aliquam eum min</h3></a>
+            </div>
+            <div class="col-lg-2"></div>
+        </div>
+        <div class="row">
+            <div class="col-lg-2"></div>
+            <div class="col-lg-4">
+                <iframe class="iframes" width="100%" height="150px" src="https://www.youtube.com/embed/zzL50mpxIAw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <span class="data2">Cümə, 29 Dekabr 2017</span>
+                <i class="far fa-clock"></i><span class="time">13:45</span>
+                <h3 class="main-foot-words"><a href="tedbirler-daxili.html"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. . Placeat, sit debitis!</h3></a>
+            </div>
+            <div class="col-lg-4">
+                <iframe class="iframes" width="100%" height="150px" src="https://www.youtube.com/embed/cOgZemzR6u8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <span class="data2">Cümə, 29 Dekabr 2017</span>
+                <i class="far fa-clock"></i><span class="time">13:45</span>
+                <h3 class="main-foot-words"><a href="tedbirler-daxili.html"> Lorem ipsum dolor sit amet consectetur adipisicing elit. fevibero? Aliquam eum min</h3></a>
+            </div>
+            <div class="col-lg-2"></div>
+        </div>
+        <div class="row">   
+            <div class="col-lg-3 col-md-3"></div>
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                <ul class="pagination pagination2">
+                    <li><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+                    <li><a href="#">6</a></li>
+                    <li><a href="#">7</a></li>
+                    <li><a href="#">8</a></li>
+                    <li><a href="#">9</a></li>
+                    <li><a href="#">10</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-3 col-md-2"></div>
+        </div>
+        {% comment %} <div class="row end-row">
+            <div class="col-lg-3 col-md-3"></div>
+            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                <ul class="bas">
+                    <li><a href="#">Başlanğıc</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
+                <ul class="pagination pagination3">
+                    <li class="arrow1"><a href="#"><span>&lt;</span></a></li>
+                    <li><a href="#"><span>&gt;</span></a></li>
+                </ul>
+            </div>
+            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                <ul class="text-center son">
+                    <li><a href="#">Son</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-3 col-md-3"></div>
+        </div> {% endcomment %}
+</main>
+<!--MAIN BITDI-->
 
-    <!--FOOTER BASLADI-->
-    {% include 'layouts/footer.html' %}
-    <!--FOOTER BITDI-->
-
+<!--FOOTER BASLADI-->
+{% include 'layouts/footer.html' %}
+<!--FOOTER BITDI-->
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script type="text/javascript" src="{% static 'templates/js/jquery-3.3.1.min.js' %}"></script>
 <script type="text/javascript" src="https://unpkg.com/popper.js@1.14.6/dist/umd/popper.min.js"></script>
