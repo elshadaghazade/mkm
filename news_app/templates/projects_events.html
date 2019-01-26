@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-{% load static%}
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="csrf-token" content="UzgxbEbbw6N8kbdiGZVNzSvaVT3WnahqSly1v6ic" />
     <meta name="viewport"content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Layihe ve tedbirler</title>
+    <title>Tedbirler</title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{% static 'templates/js/owlcarousel/dist/assest/owl.carousel.min.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'templates/css/bootstrap/css/bootstrap.min.css' %}">
@@ -25,12 +25,13 @@
         <div class="row mini-nav">
             <div class="col-lg-2"></div>
             <div class="col-lg-4 col-md-4 col-sm-8 col-xs-12">
-                <ul class="pagination pagination1">
-                        <li><a href="{% url 'homepage' %}"><i class="fas fa-home home-icon"></i> <span>&gt;</span> </a></li>
-                        <li><a href="{% url 'companies' %}"> Müəssisələr <span>&gt;</span> </a></li>
-                        <li><a href="{% url 'company' company_id %}"> {{company.company_name}} <span>&gt;</span> </a></li>
-                        <li><a href="{% url 'projects_events' company_id %}">Layihe ve tedbirler</a></li>
-                    </ul>
+                    <ul class="pagination pagination1">
+                            <li><a href="{% url 'homepage' %}"><i class="fas fa-home home-icon"></i> <span>&gt;</span> </a></li>
+                            <li><a href="{% url 'companies' %}"> Müəssisələr <span>&gt;</span> </a></li>
+                            <li><a href="{% url 'company' company_id %}"> {{company.company_name}} <span>&gt;</span> </a></li>
+                            <li><a href="{% url 'projects_events' company_id %}">Layihe ve Tedbirler</a></li>
+                        </ul>
+            </div>
             <div class="col-lg-6"></div>
         </div>
         <div class="row">
@@ -41,123 +42,57 @@
             <div class="col-lg-10"></div>
         </div>
         <div class="row">
-            <div class="col-lg-2"></div>
-            <div class="col-lg-4">
-                <iframe class="iframes" width="100%" height="150px" src="https://www.youtube.com/embed/zzL50mpxIAw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                <span class="data2">Cümə, 29 Dekabr 2017</span>
-                <i class="far fa-clock"></i><span class="time">13:45</span>
-                <h3 class="main-foot-words"><a href="tedbirler-daxili.html"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. . Placeat, sit debitis!</h3></a>
-            </div>
-            <div class="col-lg-4">
-                <iframe class="iframes" width="100%" height="150px" src="https://www.youtube.com/embed/cOgZemzR6u8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                <span class="data2">Cümə, 29 Dekabr 2017</span>
-                <i class="far fa-clock"></i><span class="time">13:45</span>
-                <h3 class="main-foot-words"><a href="tedbirler-daxili.html"> Lorem ipsum dolor sit amet consectetur adipisicing elit. fevibero? Aliquam eum min</h3></a>
-            </div>
-            <div class="col-lg-2"></div>
-        </div>
-        <div class="row">
-            <div class="col-lg-2"></div>
-            <div class="col-lg-4">
-                <iframe class="iframes" width="100%" height="150px" src="https://www.youtube.com/embed/zzL50mpxIAw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                <span class="data2">Cümə, 29 Dekabr 2017</span>
-                <i class="far fa-clock"></i><span class="time">13:45</span>
-                <h3 class="main-foot-words"><a href="tedbirler-daxili.html"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. . Placeat, sit debitis!</h3></a>
-            </div>
-            <div class="col-lg-4">
-                <iframe class="iframes" width="100%" height="150px" src="https://www.youtube.com/embed/cOgZemzR6u8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                <span class="data2">Cümə, 29 Dekabr 2017</span>
-                <i class="far fa-clock"></i><span class="time">13:45</span>
-                <h3 class="main-foot-words"><a href="tedbirler-daxili.html"> Lorem ipsum dolor sit amet consectetur adipisicing elit. fevibero? Aliquam eum min</h3></a>
-            </div>
-            <div class="col-lg-2"></div>
-        </div>
-        <div class="row">
-            <div class="col-lg-2"></div>
-            <div class="col-lg-4">
-                <iframe class="iframes" width="100%" height="150px" src="https://www.youtube.com/embed/zzL50mpxIAw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                <span class="data2">Cümə, 29 Dekabr 2017</span>
-                <i class="far fa-clock"></i><span class="time">13:45</span>
-                <h3 class="main-foot-words"><a href="tedbirler-daxili.html"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. . Placeat, sit debitis!</h3></a>
-            </div>
-            <div class="col-lg-4">
-                <iframe class="iframes" width="100%" height="150px" src="https://www.youtube.com/embed/cOgZemzR6u8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                <span class="data2">Cümə, 29 Dekabr 2017</span>
-                <i class="far fa-clock"></i><span class="time">13:45</span>
-                <h3 class="main-foot-words"><a href="tedbirler-daxili.html"> Lorem ipsum dolor sit amet consectetur adipisicing elit. fevibero? Aliquam eum min</h3></a>
-            </div>
-            <div class="col-lg-2"></div>
-        </div>
-        <div class="row">
-            <div class="col-lg-2"></div>
-            <div class="col-lg-4">
-                <iframe class="iframes" width="100%" height="150px" src="https://www.youtube.com/embed/zzL50mpxIAw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                <span class="data2">Cümə, 29 Dekabr 2017</span>
-                <i class="far fa-clock"></i><span class="time">13:45</span>
-                <h3 class="main-foot-words"><a href="tedbirler-daxili.html"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. . Placeat, sit debitis!</h3></a>
-            </div>
-            <div class="col-lg-4">
-                <iframe class="iframes" width="100%" height="150px" src="https://www.youtube.com/embed/cOgZemzR6u8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                <span class="data2">Cümə, 29 Dekabr 2017</span>
-                <i class="far fa-clock"></i><span class="time">13:45</span>
-                <h3 class="main-foot-words"><a href="tedbirler-daxili.html"> Lorem ipsum dolor sit amet consectetur adipisicing elit. fevibero? Aliquam eum min</h3></a>
-            </div>
-            <div class="col-lg-2"></div>
-        </div>
-        <div class="row">
-            <div class="col-lg-2"></div>
-            <div class="col-lg-4">
-                <iframe class="iframes" width="100%" height="150px" src="https://www.youtube.com/embed/zzL50mpxIAw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                <span class="data2">Cümə, 29 Dekabr 2017</span>
-                <i class="far fa-clock"></i><span class="time">13:45</span>
-                <h3 class="main-foot-words"><a href="tedbirler-daxili.html"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. . Placeat, sit debitis!</h3></a>
-            </div>
-            <div class="col-lg-4">
-                <iframe class="iframes" width="100%" height="150px" src="https://www.youtube.com/embed/cOgZemzR6u8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                <span class="data2">Cümə, 29 Dekabr 2017</span>
-                <i class="far fa-clock"></i><span class="time">13:45</span>
-                <h3 class="main-foot-words"><a href="tedbirler-daxili.html"> Lorem ipsum dolor sit amet consectetur adipisicing elit. fevibero? Aliquam eum min</h3></a>
-            </div>
-            <div class="col-lg-2"></div>
-        </div>
-        <div class="row">   
-            <div class="col-lg-3 col-md-3"></div>
+            <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12"></div>
+            <div class="col-lg-8">
+            <div class="row">
+            {% for prjt_evnt in company_projects_events %}
             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                <ul class="pagination pagination2">
-                    <li><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">5</a></li>
-                    <li><a href="#">6</a></li>
-                    <li><a href="#">7</a></li>
-                    <li><a href="#">8</a></li>
-                    <li><a href="#">9</a></li>
-                    <li><a href="#">10</a></li>
-                </ul>
+                <img src="/media/{{prjt_evnt.news_picture}}" width="100%" height="150px">
+                <span class="data2">{{ prjt_evnt.publish_date|date:'D d M Y' }}</span>
+                <i class="far fa-clock"></i><span class="time">{{ prjt_evnt.publish_date|date:'H:m' }}</span>
+                <h3 class="main-foot-words"><a href="{% url 'projects_events_details' prjt_evnt.company_id.id prjt_evnt.id %}">{{prjt_evnt.title}}</h3></a>
             </div>
-            <div class="col-lg-3 col-md-2"></div>
+            {% endfor %}
+            <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12"></div>
+               
+            </div>
+            </div>
         </div>
-        {% comment %} <div class="row end-row">
-            <div class="col-lg-3 col-md-3"></div>
-            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-                <ul class="bas">
-                    <li><a href="#">Başlanğıc</a></li>
-                </ul>
+        {% if total_pages_int > 1 %}
+        <div class="row">
+                <div class="col-lg-3 col-md-3"></div>
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <ul class="pagination pagination2">
+                        {% for i in total_pages %}
+                            <li {% if i == selected_page %}class="active"{% endif %}><a href="?page={{i}}">{{i}}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-2"></div>
             </div>
-            <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
-                <ul class="pagination pagination3">
-                    <li class="arrow1"><a href="#"><span>&lt;</span></a></li>
-                    <li><a href="#"><span>&gt;</span></a></li>
-                </ul>
+            <div class="row end-row">
+                <div class="col-lg-3 col-md-3"></div>
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                    <ul class="bas">
+                        <li><a href="?page={{start_btn}}">Başlanğıc</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
+                    <ul class="pagination pagination3">
+                        <li class="arrow1"><a href="?page={{prev_btn}}"><span>&lt;</span></a></li>
+                        <li><a href="?page={{next_btn}}"><span>&gt;</span></a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                    <ul class="text-center son">
+                        <li><a href="?page={{end_btn}}">Son</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-3"></div>
             </div>
-            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-                <ul class="text-center son">
-                    <li><a href="#">Son</a></li>
-                </ul>
-            </div>
-            <div class="col-lg-3 col-md-3"></div>
-        </div> {% endcomment %}
+    </div>
+    {% endif  %}
 </main>
 <!--MAIN BITDI-->
 
