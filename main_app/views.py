@@ -1,4 +1,6 @@
 from django.shortcuts import render
+from .models import Documents
+
 
 # Create your views here.
 def home(request):
@@ -17,3 +19,8 @@ def administration(request):
 def media(request):
     context = {}
     return render(request, "media.html", context)
+
+def documents(request):
+    context = {}
+    context['document_files'] = Documents.objects.all()
+    return render(request,"documents.html",context)

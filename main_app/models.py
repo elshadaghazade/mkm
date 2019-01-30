@@ -10,3 +10,10 @@ class MainInformativePages(models.Model):
 
     def __str__(self):
         return "{},{},{}".format(self.title, self.short_description, self.full_content)
+
+class Documents(models.Model):
+    title = models.CharField(max_length=255)
+    documents_file = models.FileField(upload_to="media")
+
+    def __str__(self):
+        return "{} {}".format(self.title,self.documents_file)
