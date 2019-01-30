@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Documents
+from main_app.models import *
 
 
 # Create your views here.
@@ -24,3 +24,18 @@ def documents(request):
     context = {}
     context['document_files'] = Documents.objects.all()
     return render(request,"documents.html",context)
+
+def attributes(request):
+    context={}
+    context['attributes'] = Attributes.objects.all()
+    return render(request,'attributes.html',context)
+
+def general_information(request):
+    context = {}
+    context['information'] = GeneralInformation.objects.all().last()
+    return render(request,"General_information.html",context)
+
+def exits(request):
+    context={}
+    context['exits'] = Exits.objects.all()
+    return render(request,'exits.html',context)

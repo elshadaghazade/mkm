@@ -27,11 +27,9 @@
             <div class="col-lg-2"></div>
             <div class="col-lg-4 col-md-4 col-sm-8 col-xs-12">
                 <ul class="pagination pagination1">
-                    <li><a href="{% url 'homepage' %}"><i class="fas fa-home home-icon"></i> <span>&gt;</span> </a></li>
-                    <li><a href="{% url 'companies' %}"> Müəssisələr <span>&gt;</span> </a></li>
-                    <li><a href="{% url 'company' company_id %}"> {{company.company_name}} <span>&gt;</span> </a></li>
-                    <li><a href="{% url 'faq' company_id %}">Sual cavab</a></li>
-                </ul>
+                    <li><a href="{% url 'homepage' %}"><i class="fas fa-home home-icon"></i> <span>&gt;</span> Ana Sehife <span>&gt; </span> </a></li>
+                    <li><a href="{% url 'general_information' %}">Sual cavab</a></li>
+                </ul> 
             </div>
             <div class="col-lg-6"></div>
         </div>
@@ -39,15 +37,15 @@
             <div class="col-lg-2"></div>
             <div class="col-lg-8">
                 <div class="panel-group" id="accordion">
-                    {% for faq in faqs %}
+                    {% for main_faq in main_faqs %}
                     <div class="panel panel-default panel-a">
                         <div class="panel-heading">
                             <h4 class="panel-title">
-                              <a data-toggle="collapse" data-parent="#accordion" href="#collapse{{faq.id}}"><span class="question1">Sual: </span>{{faq.question}}</a>
+                              <a data-toggle="collapse" data-parent="#accordion" href="#collapse{{main_faq.id}}"><span class="question1">Sual: </span>{{main_faq.question}}</a>
                             </h4>
                         </div>
-                    <div id="collapse{{faq.id}}" class="panel-collapse collapse in">
-                        <div class="panel-body"><span class="answer{{faq.id}}">Cavab: </span>{{faq.answer}}</div>
+                    <div id="collapse{{main_faq.id}}" class="panel-collapse collapse in">
+                        <div class="panel-body"><span class="answer{{main_faq.id}}">Cavab: </span>{{main_faq.answer}}</div>
                     </div>
                     </div>
                     {% endfor %}
