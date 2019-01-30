@@ -61,9 +61,11 @@ def projects_events(request,pk):
     
     return render(request, "projects_events.html", context)
 
-def projects_events_details(request,pk):
+def projects_events_details(request,pk,news_id):
+    company = Companies.objects.get(pk=pk)
     context = {
-         'company': Companies.objects.filter(pk=pk).last(),
+         'company': Companies.objects.filter(pk=pk),
          'company_id': pk,
+         'news_id':CompanyNews.objects.filter(company_id=company,id=news_id ),
     }
-    return render(request, "projects_events_detailed.html", context)
+    return render(request, "projects_events_details.html", context)
