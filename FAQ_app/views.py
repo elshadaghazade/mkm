@@ -10,3 +10,8 @@ def faq(request,pk):
     }
     context['faqs'] = Faq.objects.filter(company_id=pk)
     return render(request, "faq.html", context)
+
+def main_faq(request):
+    context = {}
+    context['main_faqs'] = MainFaq.objects.all()
+    return render(request,'main_faq.html',context)
