@@ -2,7 +2,7 @@ $('.owl-carousel').owlCarousel({
     loop:true,
     margin:30,
     responsiveClass:true,
-    navText: ["<img src='./images/assets/back.png'>", "<img src='./images/assets/next.png'>"],
+    navText: ["<img src='/static/templates/images/assets/back.png'>", "<img src='/static/templates/images/assets/next.png'>"],
     responsiveRefreshRate:10,
     responsive:{
         0:{

@@ -27,9 +27,7 @@
             <div class="col-lg-4 col-md-4 col-sm-8 col-xs-12">
                     <ul class="pagination pagination1">
                             <li><a href="{% url 'homepage' %}"><i class="fas fa-home home-icon"></i> <span>&gt;</span> </a></li>
-                            <li><a href="{% url 'companies' %}"> Müəssisələr <span>&gt;</span> </a></li>
-                            <li><a href="{% url 'company' company_id %}"> {{company.company_name}} <span>&gt;</span> </a></li>
-                            <li><a href="{% url 'projects_events' company_id %}">Layihe ve Tedbirler</a></li>
+                            <li><a href="{% url 'news' %}"> Tedbirler <span>&gt;</span> </a></li>
                         </ul>
             </div>
             <div class="col-lg-6"></div>
@@ -37,7 +35,7 @@
         <div class="row">
             <div class="col-lg-2"></div>
             <div class="main-head-div">
-                <h3 class="main-head-word">Layihə və tədbirlər</h3>
+                <h3 class="main-head-word">Tədbirlər</h3>
             </div>
             <div class="col-lg-10"></div>
         </div>
@@ -45,12 +43,12 @@
             <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12"></div>
             <div class="col-lg-8">
             <div class="row">
-            {% for prjt_evnt in company_projects_events %}
+            {% for newss in news %}
             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                <img src="/media/{{prjt_evnt.news_picture}}" width="100%" height="150px">
-                <span class="data2">{{ prjt_evnt.publish_date|date:'D d M Y' }}</span>
-                <i class="far fa-clock"></i><span class="time">{{ prjt_evnt.publish_date|date:'H:m' }}</span>
-                <h3 class="main-foot-words"><a href="{% url 'projects_events_details' prjt_evnt.company_id.id prjt_evnt.id %}">{{prjt_evnt.title}}</h3></a>
+                <img src="/media/{{newss.news_picture}}" width="100%" height="150px">
+                <span class="data2">{{ newss.publish_date|date:'D d M Y' }}</span>
+                <i class="far fa-clock"></i><span class="time">{{ newss.publish_date|date:'H:m' }}</span>
+                <h3 class="main-foot-words"><a href="#">{{newss.title}}</h3></a>
             </div>
             {% endfor %}
             <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12"></div>
