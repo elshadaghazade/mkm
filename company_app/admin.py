@@ -1,5 +1,9 @@
 from django.contrib import admin
 from company_app.models import *
-# Register your models here.
 
-admin.site.register([CompanyProfile, Companies, CompanyAdministration, CompanyPhotoGallery, CompanyVideoGallery,CompanyInformativePages])
+admin.site.register(Companies, CompaniesAdmin)
+admin.site.register(CompanyAdministration, CompanyAdministrationAdmin)
+admin.site.register(CompanyPhotoGallery, CompanyPhotoGalleryAdmin)
+admin.site.register(CompanyGalleryPhotos)
+admin.site.register(CompanyVideoGallery)
+admin.site.register(CompanyInformativePages, CompanyInformativePagesAdmin)
