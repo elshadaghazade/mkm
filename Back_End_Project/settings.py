@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'crispy_forms',
+    'ckeditor',
+    'ckeditor_uploader',
     'main_app',
     'contact_app',
     'news_app',
@@ -52,6 +54,12 @@ INSTALLED_APPS = [
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
+CKEDITOR_UPLOAD_PATH = 'uploads/'
+CKEDITOR_CONFIGS = {
+    'default': {
+        'extraPlugins': ('codesnippet', 'youtube')
+    }
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
