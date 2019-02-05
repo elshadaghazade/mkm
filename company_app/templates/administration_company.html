@@ -45,6 +45,13 @@
                         </div>
                         <div class="row">
                                 <div class="col-lg-2"></div>
+                                <div class="col-lg-8 inner-content">
+                                    {{company.administration|safe}}
+                                </div>
+                                <div class="col-lg-2"></div>
+                            </div>
+                        <div class="row">
+                                <div class="col-lg-2"></div>
                                 {% if company.about_images %}
                                <div class="col-lg-8">
                                     <img src="{{ company.about_images.url }}" alt="">
@@ -61,10 +68,8 @@
                             </div>
                             <div class="row">
                                 <div class="col-lg-2"></div>
-                                <div class="col-lg-8">
-                                    <p>
-                                        {{company.main_duties}}
-                                    </p>
+                                <div class="col-lg-8 inner-content">
+                                    {{company.main_duties|safe}}
                                 </div>
                                 <div class="col-lg-2"></div>
                             </div>

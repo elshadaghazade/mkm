@@ -676,6 +676,24 @@ margin-left: 15px;
     border-radius: 20px;
 }
 
+.inner-content ul,
+.inner-content ul li {
+    list-style: disc;
+    list-style-position: outside;
+}
+
+.inner-content ol,
+.inner-content ol li {
+    list-style: decimal;
+    list-style-type: outside;
+}
+
+.inner-content ol ol,
+.inner-content ul ul,
+.inner-content ol ul,
+.inner-content ul ol {
+    margin-left: 20px;
+}
 
 @media screen and (max-width: 425px){
     .main-buttons{
@@ -741,7 +759,7 @@ margin-left: 15px;
 .info-line{
     color: black;
     font-size: 14px;
-    line-height: 10px;
+    line-height: 1.2em;
     margin-top: 20px;
 }
 .information{

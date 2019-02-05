@@ -43,18 +43,18 @@
                     <button class="btn btn-primary dropdown-toggle main-buttons" type="button" data-toggle="dropdown"><a>Fəaliyyət istiqamətləri</a>
                     <span class="caret"></span></button>
                     <ul class="dropdown-menu dropdown-menu-show">
-                        <li><a href="#">Empty</a></li>
-                        <li><a href="#">Empty</a></li>
-                        <li><a href="#">Empty</a></li>
+                        {% for area in company.companyactivityareas_set.all %}
+                            <li><a href="#">{{area}}</a></li>
+                        {% endfor %}
                     </ul>
                 </div>
                 <div class="dropdown col-lg-3 col-md-4">
                     <button class="btn btn-primary dropdown-toggle main-buttons main-buttons2" type="button" data-toggle="dropdown">Təşkil olunduğu yerlər
                     <span class="caret"></span></button>
                     <ul class="dropdown-menu dropdown-menu-show">
-                        <li><a href="#">Empty</a></li>
-                        <li><a href="#">Empty</a></li>
-                        <li><a href="#">Empty</a></li>
+                        {% for location in company.companyactivitylocations_set.all %}
+                            <li><a href="#">{{location}}</a></li>
+                        {% endfor %}
                     </ul>
                 </div>
                 <div class="input-group col-lg-3 col-md-4">

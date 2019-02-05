@@ -1,40 +1,121 @@
 from django.db import models
+from django import forms
 from django.contrib.auth.models import User
 from django.contrib import admin
 from ckeditor_uploader.fields import RichTextUploadingField
 
 
 class Companies(models.Model):
-    company_name = models.CharField(max_length=255)
-    about = RichTextUploadingField(
-        config_name='default',
-        external_plugin_resources=[('youtube', '/static/base/vendor/ckeditor_plugins/youtube/youtube/', 'plugin.js')]
+    company_name = models.CharField('Müəssisənin adı', max_length=255)
+    about = RichTextUploadingField('Haqqımızda', blank=True,
+        config_name='special',
+        external_plugin_resources=[(
+            'youtube', 
+            '/static/ckeditor/ckeditor/plugins/youtube/', 
+            'plugin.js'
+        ), 
+        (
+            'html5video',
+            '/static/ckeditor/ckeditor/plugins/html5video_1.1/ckeditor-html5-video-master/html5video/',
+            'plugin.js'
+        )]
     )
-    main_duties = RichTextUploadingField()
-    about_images = models.ImageField(upload_to='media') 
-    main_activity = models.CharField(max_length=255)
-    admission_requirements = RichTextUploadingField()
+    main_duties = RichTextUploadingField('Əsas vəzifələr', blank=True,
+        config_name='special',
+        external_plugin_resources=[(
+            'youtube', 
+            '/static/ckeditor/ckeditor/plugins/youtube/', 
+            'plugin.js'
+        ), 
+        (
+            'html5video',
+            '/static/ckeditor/ckeditor/plugins/html5video_1.1/ckeditor-html5-video-master/html5video/',
+            'plugin.js'
+        )]
+    )
+    administration = RichTextUploadingField('Rəhbərlik', blank=True,
+        config_name='special',
+        external_plugin_resources=[(
+            'youtube', 
+            '/static/ckeditor/ckeditor/plugins/youtube/', 
+            'plugin.js'
+        ), 
+        (
+            'html5video',
+            '/static/ckeditor/ckeditor/plugins/html5video_1.1/ckeditor-html5-video-master/html5video/',
+            'plugin.js'
+        )]
+    )
+    achievements = RichTextUploadingField('Nailiyyətlərimiz', blank=True,
+        config_name='special',
+        external_plugin_resources=[(
+            'youtube', 
+            '/static/ckeditor/ckeditor/plugins/youtube/', 
+            'plugin.js'
+        ), 
+        (
+            'html5video',
+            '/static/ckeditor/ckeditor/plugins/html5video_1.1/ckeditor-html5-video-master/html5video/',
+            'plugin.js'
+        )]
+    )
+    admission_requirements = RichTextUploadingField('Qəbul qaydaları', blank=True,
+        config_name='special',
+        external_plugin_resources=[(
+            'youtube', 
+            '/static/ckeditor/ckeditor/plugins/youtube/', 
+            'plugin.js'
+        ), 
+        (
+            'html5video',
+            '/static/ckeditor/ckeditor/plugins/html5video_1.1/ckeditor-html5-video-master/html5video/',
+            'plugin.js'
+        )]
+    )
+    address = models.CharField('Adres', max_length=255, blank=True)
+    phone_number = models.CharField('Telefon', max_length=25, blank=True)
+    about_images = models.ImageField('Şəkil', upload_to='media', blank=True) 
+    main_activity = models.CharField('Fəaliyyət', max_length=255, blank=True)
     profile = models.ForeignKey(User, on_delete=models.CASCADE)
-    url = models.URLField(null=True, blank=True)
-    address = models.CharField(max_length=255, null=True, blank=True)
-    phone_number = models.CharField(max_length=25, null=True, blank=True)
+    url = models.URLField(blank=True)
 
     def __str__(self):
-        return "{}".format(self.company_name)
+        return self.company_name
 
     class Meta:
         verbose_name = 'Müəssisə'
         verbose_name_plural = 'Müəssisələr'
 
+class CompanyActivityAreas(models.Model):
+    company = models.ForeignKey(Companies, on_delete=models.CASCADE)
+    area = models.CharField('Fəaliyyət sahəsi', max_length=255)
+
+    def __str__(self):
+        return self.area
+
+    class Meta:
+        verbose_name = "Fəaliyyət sahəsi"
+        verbose_name_plural = "Fəaliyyət sahələri"
+
+class CompanyActivityLocations(models.Model):
+    company = models.ForeignKey(Companies, on_delete=models.CASCADE)
+    activity_location = models.CharField('Yerləşdiyi məkan', max_length=255)
+
+    def __str__(self):
+        return self.activity_location
+
+    class Meta:
+        verbose_name = 'Təşkil olunduğu yer'
+        verbose_name_plural = 'Təşkil olunduğu yerlər'
 
 class CompanyAdministration(models.Model):
     company = models.ForeignKey(Companies, on_delete=models.CASCADE)
     # parent = models.ForeignKey(self, on_delete=models.CASCADE, null=True)
     #about_images = models.ImageField(upload_to='media') 
-    full_name = models.CharField(max_length=255)
-    occupation = models.CharField(max_length=255)
-    administration_type = models.CharField(max_length=255)
-    branch_icon = models.FileField(upload_to='media')
+    full_name = models.CharField('Adı və soyadı', max_length=255)
+    occupation = models.CharField('Tutduğu vəzifə', max_length=255)
+    administration_type = models.CharField('İdarə növü', max_length=255)
+    branch_icon = models.ImageField('Filialın emblemi', upload_to='media')
 
     def __str__(self):
         return "{}".format(self.full_name)
@@ -43,7 +124,33 @@ class CompanyAdministration(models.Model):
         verbose_name = "Rəhbərlik"
         verbose_name_plural = "Rəhbərlik"
 
+class CompanyPhotoGallery(models.Model):
+    company = models.ForeignKey(Companies, verbose_name='Müəssisə', on_delete=models.CASCADE)
+    photo_file = models.ImageField('Əsas şəkil', upload_to='media',default='')
+    title = models.CharField('Başlıq', max_length=255)
+    content = RichTextUploadingField('Kontent',
+        config_name='special',
+        external_plugin_resources=[(
+            'youtube', 
+            '/static/ckeditor/ckeditor/plugins/youtube/', 
+            'plugin.js'
+        ), 
+        (
+            'html5video',
+            '/static/ckeditor/ckeditor/plugins/html5video_1.1/ckeditor-html5-video-master/html5video/',
+            'plugin.js'
+        )]
+    )
+
+    def __str__(self):
+        return "{}".format(self.title)
+
+    class Meta:
+        verbose_name = 'Şəkil Qalereyası'
+        verbose_name_plural = 'Şəkil Qalereyası'
+
 class CompanyGalleryPhotos(models.Model):
+    company = models.ForeignKey(CompanyPhotoGallery, on_delete=models.CASCADE)
     file = models.ImageField(verbose_name="Şəkil")
 
     def __str__(self):
@@ -53,26 +160,24 @@ class CompanyGalleryPhotos(models.Model):
         verbose_name = "Şəkil"
         verbose_name_plural = "Şəkillər"
 
-class CompanyPhotoGallery(models.Model):
-    company = models.ForeignKey(Companies, on_delete=models.CASCADE)
-    photo_file = models.FileField(upload_to='media',default='')
-    title = models.CharField(max_length=255)
-    content = RichTextUploadingField()
-    photo = models.ManyToManyField(CompanyGalleryPhotos)
-
-    def __str__(self):
-        return "{}".format(self.title)
-
-    class Meta:
-        verbose_name = 'Şəkil Qalereyası'
-        verbose_name_plural = 'Şəkil Qalereyası'
-
 
 class CompanyVideoGallery(models.Model):
     company = models.ForeignKey(Companies, on_delete=models.CASCADE)
     video_file = models.FileField(upload_to='media')
     title = models.CharField(max_length=255)
-    content = RichTextUploadingField()
+    content = RichTextUploadingField(
+        config_name='special',
+        external_plugin_resources=[(
+            'youtube', 
+            '/static/ckeditor/ckeditor/plugins/youtube/', 
+            'plugin.js'
+        ), 
+        (
+            'html5video',
+            '/static/ckeditor/ckeditor/plugins/html5video_1.1/ckeditor-html5-video-master/html5video/',
+            'plugin.js'
+        )]
+    )
 
     def __str__(self):
         return "{}".format(self.title)
@@ -86,7 +191,19 @@ class CompanyInformativePages(models.Model):
     title = models.CharField(max_length=255)
     slug = models.SlugField(max_length=40)
     short_description = models.CharField(max_length=255)
-    full_content = RichTextUploadingField()
+    full_content = RichTextUploadingField(
+        config_name='special',
+        external_plugin_resources=[(
+            'youtube', 
+            '/static/ckeditor/ckeditor/plugins/youtube/', 
+            'plugin.js'
+        ), 
+        (
+            'html5video',
+            '/static/ckeditor/ckeditor/plugins/html5video_1.1/ckeditor-html5-video-master/html5video/',
+            'plugin.js'
+        )]
+    )
     company = models.ForeignKey(Companies, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now=True)
 
@@ -133,8 +250,13 @@ class CompanyInformativePagesAdmin(admin.ModelAdmin):
 
         return qs.filter(company=Companies.objects.get(profile=request.user))
 
+
+class CompanyGalleryPhotosInline(admin.TabularInline):
+    model = CompanyGalleryPhotos
+
 class CompanyPhotoGalleryAdmin(admin.ModelAdmin):
     exclude = "company",
+    inlines = [CompanyGalleryPhotosInline]
 
     def save_model(self, request, obj, form, change):
         if not request.user.is_superuser:
@@ -148,9 +270,17 @@ class CompanyPhotoGalleryAdmin(admin.ModelAdmin):
 
         return qs.filter(company=Companies.objects.get(profile=request.user))
 
+class CompanyActivityAreasInline(admin.TabularInline):
+    model = CompanyActivityAreas
+    extra=1
+
+class CompanyActivityLocationsInline(admin.TabularInline):
+    model = CompanyActivityLocations
+    extra = 1
 
 class CompaniesAdmin(admin.ModelAdmin):
-    exclude = 'profile',
+    # exclude = 'profile',
+    inlines = [CompanyActivityLocationsInline, CompanyActivityAreasInline]
 
     def save_model(self, request, obj, form, change):
         if not request.user.is_superuser:
@@ -163,4 +293,13 @@ class CompaniesAdmin(admin.ModelAdmin):
             return qs
 
         return qs.filter(profile=request.user)
+
+    def formfield_for_foreignkey(self, db_field, request, **kwargs):
+        if db_field.name == "profile" and not request.user.is_superuser:
+            kwargs["queryset"] = User.objects.filter(pk=request.user.id)
+
+        return super().formfield_for_foreignkey(db_field, request, **kwargs)
+
+    def get_inline_instances(self, request, obj=None):
+        return [inline(self.model, self.admin_site) for inline in self.inlines]
 

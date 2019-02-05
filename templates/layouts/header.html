@@ -67,13 +67,13 @@
                     <div class="menu-container ">
                         <ul class="nav justify-content-center nav-fill ">
                             <li class="menu-item nav-item">
-                                <a class="nav-link"  href="https://edu.gov.az/">Təhsil nazirliyi</a>
+                                <a class="nav-link" target="_blank"  href="https://edu.gov.az/">Təhsil nazirliyi</a>
                             </li>
                             <li class="menu-item menu-item-click nav-item">
                                 <a class="nav-link" target=_blank href="#"><span class="chevron chevron-1"></span>İdarə</a>
-                                <ul class="nav2 nav2-center nav2-active">
-                                    <li class="menu-item2"><a href="{% url 'general_information' %}" class="mobile-font-color">Ümumi məlumat</a></li>
-                                    <li class="menu-item2"><a href="haqqimizda.html" class="mobile-font-color">Struktur</a></li>
+                                <ul class="nav2 nav2-center">
+                                    <li class="menu-item2"><a href="{% url 'informative_page' 'general-information' %}" class="mobile-font-color">Ümumi məlumat</a></li>
+                                    <li class="menu-item2"><a href="{% url 'informative_page' 'structure' %}" class="mobile-font-color">Struktur</a></li>
                                     <li class="menu-item2"><a href="{% url 'companies' %}" class="mobile-font-color">Müəssisələr</a></li>
                                     <li class="menu-item2"><a href="{% url 'documents' %}" class="mobile-font-color">Sənədlər</a></li>
                                 </ul>
@@ -83,7 +83,7 @@
                             </li>
                             <li class="menu-item menu-item-click nav-item">
                                 <a class="nav-link" target=_blank href="#"><span class="chevron chevron-1"></span>Media</a>
-                                <ul class="nav2 nav2-center nav2-active">
+                                <ul class="nav2 nav2-center">
                                     <li class="menu-item2"><a href="layihe-tedbirler.html" class="mobile-font-color">Xəbərlər</a></li>
                                     <li class="menu-item2"><a href="tedbirler.html" class="mobile-font-color">Tədbirlər</a></li>
                                     <li class="menu-item2"><a href="{% url 'exits' %}" class="mobile-font-color">Çıxışlar</a></li>

@@ -12,8 +12,8 @@ def medalist(request,pk):
     }
     context['medalist'] = VIP.objects.filter(
         company_id=pk,
-        vip_type='MA',
-        )
+        vip_type=VIP.VIP_MEDAL_ALANLAR,
+    )
     return render(request, "medalist.html", context)
 
 
@@ -24,7 +24,7 @@ def distinguished_ones(request,pk):
     }
     context['distinguished_ones'] = VIP.objects.filter(
         company_id=pk,
-        vip_type='FQ',
+        vip_type=VIP.VIP_FERQLENENLER,
         )
 
     
