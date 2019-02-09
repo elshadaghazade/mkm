@@ -15,8 +15,8 @@ class Category(models.Model):
         verbose_name = "Xəbərin Kateqoriyası"
         verbose_name_plural = "Kateqoriyalar"
 
-class NewsCategories(models.Model):
-    category_id = models.ForeignKey(Category, on_delete=models.CASCADE)
+# class NewsCategories(models.Model):
+#     category = models.ForeignKey(Category, on_delete=models.CASCADE)
 
 
 class News(models.Model):
@@ -25,7 +25,7 @@ class News(models.Model):
     short_description = models.TextField(max_length=255)
     long_description = models.CharField(max_length=255)
     text = models.TextField()
-    category_id = models.ForeignKey(Category, on_delete=models.CASCADE)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
     publish_date = models.DateTimeField()
     created_at = models.DateTimeField(auto_now=True)
 
@@ -50,9 +50,9 @@ class CompanyNews(models.Model):
             'plugin.js'
         )]
     )
-    category_id = models.ForeignKey(Category, on_delete=models.CASCADE)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
     publish_date = models.DateTimeField()
-    company_id = models.ForeignKey(Companies, on_delete=models.CASCADE)
+    company = models.ForeignKey(Companies, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
@@ -83,12 +83,12 @@ class CategoryAdmin(admin.ModelAdmin):
         super().save_model(request, obj, form, change)
 
 class CompanyNewsAdmin(admin.ModelAdmin):
-    fields = "title", "news_picture", "short_description", "text", "category_id", "publish_date"
-    list_filter = 'title', 'category_id'
+    fields = "title", "news_picture", "short_description", "text", "category", "publish_date"
+    list_filter = 'title', 'category'
 
     def save_model(self, request, obj, form, change):
         if not request.user.is_superuser:
-            obj.company_id = Companies.objects.get(profile_id=request.user.id)
+            obj.company = Companies.objects.get(profile=request.user)
         super().save_model(request, obj, form, change)
 
     def get_queryset(self, request):
@@ -97,11 +97,11 @@ class CompanyNewsAdmin(admin.ModelAdmin):
         if request.user.is_superuser:
             return qs
 
-        return qs.filter(company_id=Companies.objects.get(profile_id=request.user.id))
+        return qs.filter(company=Companies.objects.get(profile=request.user.id))
 
     def formfield_for_foreignkey(self, db_field, request, **kwargs):
         
-        if db_field.name == "category_id":
+        if db_field.name == "category":
             kwargs["queryset"] = Category.objects.filter(profile=request.user)
 
         return super().formfield_for_foreignkey(db_field, request, **kwargs)

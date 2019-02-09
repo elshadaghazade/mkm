@@ -69,7 +69,7 @@ def projects_events(request,pk):
 def projects_events_details(request,pk,news_id):
     company = Companies.objects.get(pk=pk)
     context = {
-         'company': Companies.objects.filter(pk=pk),
+         'company': company,
          'company_id': pk,
          'news_id':CompanyNews.objects.filter(company_id=company,id=news_id ),
     }
