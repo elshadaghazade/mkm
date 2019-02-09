@@ -54,8 +54,13 @@
                         <div class="col-lg-2 col-md-2"></div>
                     {% endif %}
 
-                <div class="col-lg-3 col-md-3 col-sm-4">
-                    <a href="{% url 'photo_gallery_detailed' company_id photo.id %}"><img class="main-images" src="{{ photo.photo_file.url }}" alt=""></a>
+                <div class="col-lg-3 col-md-3 col-sm-4 main-image-wrapper">
+                    <a href="{% url 'photo_gallery_detailed' company_id photo.id %}">
+                        <img class="main-images" src="{{ photo.photo_file.url }}" alt="">
+                        <div class="golden-layer">
+                            <h5>{{photo.title}}</h5>
+                        </div>
+                    </a>
                 </div>
                 {% endfor %}
             </div>

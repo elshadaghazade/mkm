@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from company_app.models import *
+from .models import *
 import math
 # Create your views here.
 def photo_gallery(request,pk):
@@ -29,9 +30,9 @@ def photo_gallery(request,pk):
 def photo_gallery_detailed(request, pk, photo_gallery_detailed_id):
     company = Companies.objects.get(pk=pk)
     context = {
-        'company': Companies.objects.get(pk=pk),
+        'company': company,
         'company_id': pk,
-        'photos': CompanyPhotoGallery.objects.filter(company_id=company, id=photo_gallery_detailed_id),
+        'photos': CompanyPhotoGallery.objects.get(company=company, id=photo_gallery_detailed_id),
 
     }
     

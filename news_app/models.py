@@ -2,6 +2,7 @@ from django.db import models
 from company_app.models import Companies
 from django.contrib import admin
 from django.contrib.auth.models import User
+from ckeditor_uploader.fields import RichTextUploadingField
 
 class Category(models.Model):
     category_name = models.CharField(max_length=255)
@@ -21,7 +22,7 @@ class NewsCategories(models.Model):
 class News(models.Model):
     title = models.CharField(max_length=255)
     news_picture = models.ImageField(upload_to='media')
-    short_description = models.CharField(max_length=255)
+    short_description = models.TextField(max_length=255)
     long_description = models.CharField(max_length=255)
     text = models.TextField()
     category_id = models.ForeignKey(Category, on_delete=models.CASCADE)
@@ -33,11 +34,22 @@ class News(models.Model):
         return "{}".format(self.title)
 
 class CompanyNews(models.Model):
-    title = models.CharField(max_length=255)
-    news_picture = models.ImageField(upload_to='media')
-    short_description = models.CharField(max_length=255)
-    long_description = models.CharField(max_length=255)
-    text = models.TextField()
+    title = models.CharField("Başlıq", max_length=255)
+    news_picture = models.ImageField(upload_to='media', verbose_name="Xəbərin əsas şəkli")
+    short_description = models.TextField("Qısa təsvir", max_length=255)
+    text = RichTextUploadingField('Xəbərin mətni',
+        config_name='special',
+        external_plugin_resources=[(
+            'youtube', 
+            '/static/ckeditor/ckeditor/plugins/youtube/', 
+            'plugin.js'
+        ), 
+        (
+            'html5video',
+            '/static/ckeditor/ckeditor/plugins/html5video_1.1/ckeditor-html5-video-master/html5video/',
+            'plugin.js'
+        )]
+    )
     category_id = models.ForeignKey(Category, on_delete=models.CASCADE)
     publish_date = models.DateTimeField()
     company_id = models.ForeignKey(Companies, on_delete=models.CASCADE)
@@ -48,8 +60,8 @@ class CompanyNews(models.Model):
 
 
     class Meta:
-        verbose_name = "Xəbər"
-        verbose_name_plural = "Xəbərlər"
+        verbose_name = "MÜəssisənin xəbəri"
+        verbose_name_plural = "Müəssisənin xəbərləri"
 
 
 #### admin models #####
@@ -71,7 +83,7 @@ class CategoryAdmin(admin.ModelAdmin):
         super().save_model(request, obj, form, change)
 
 class CompanyNewsAdmin(admin.ModelAdmin):
-    fields = "title", "news_picture", "short_description", "long_description", "text", "category_id", "publish_date"
+    fields = "title", "news_picture", "short_description", "text", "category_id", "publish_date"
     list_filter = 'title', 'category_id'
 
     def save_model(self, request, obj, form, change):

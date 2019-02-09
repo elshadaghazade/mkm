@@ -2,6 +2,7 @@ from django.shortcuts import render
 from company_app.models import Companies
 from news_app.models import *
 from django.db.models import Count
+from django.core.paginator import Paginator
 import math
 
 # Create your views here.
@@ -58,45 +59,10 @@ def projects_events(request,pk):
         'company_id': pk,
     }
 
-    try:
-        page = int(request.GET.get('page', 1))
-    except:
-        page = 1
-    
 
-    limit = 10
-    cnt = CompanyNews.objects.filter(company_id=pk).aggregate(Count("id"))['id__count']
-    cnt = math.ceil(cnt / limit)
-
-    if page < 1:
-        page = 1
-    elif page > cnt:
-        page = cnt
-
-    start = (page - 1) * limit
-    end = start + limit
-
-    prev_btn = next_btn = 0
-
-    if page - 1 < 1:
-        prev_btn = 1
-    else:
-        prev_btn = page - 1
-
-    if page + 1 > cnt:
-        next_btn = cnt
-    else:
-        next_btn = page + 1
-
-
-    context['company_projects_events'] = CompanyNews.objects.filter(company_id=pk).order_by('-publish_date')[start:end]
-    context['total_pages'] = range(1, cnt+1)
-    context['selected_page'] = page
-    context['start_btn'] = 1
-    context['end_btn'] = cnt
-    context['prev_btn'] = prev_btn
-    context['next_btn'] = next_btn
-    context['total_pages_int'] = cnt
+    company_news = CompanyNews.objects.filter(company_id=pk).order_by('-publish_date')
+    context['paginator'] = Paginator(company_news, 2)
+    context['news'] = context['paginator'].get_page(request.GET.get('page', 1))
     
     return render(request, "projects_events.html", context)
 

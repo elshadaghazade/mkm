@@ -41,10 +41,20 @@
             <div class="col-lg-3"></div>
             <div class="col-lg-6 main-head-words">
                 <h3>Bizimlə əlaqə</h3>
-                <p>Təhsil Sisteminin İnformasiyalaşdırılması İdarəsi</p>
-                <p>Azadlıq prospekti, məhəllə 909</p>
-                <p class="number-p"><span>T:</span>+99412 565 02 37</p>
-                <p class="number-p2"><span>F:</span>+99412 565 02 38</p>
+                {% for addr in address %}
+                    <p>{{addr.contact}}</p>
+                {% endfor %}
+                {% for contact in contacts %}
+                    <div class="number-p"><span>
+                    {% if contact.contact_type == company_contact_model.CONTACT_TYPE_EMAIL %}
+                        E
+                    {% elif contact.contact_type == company_contact_model.CONTACT_TYPE_PHONE %}
+                        T
+                    {% elif contact.contact_type == company_contact_model.CONTACT_TYPE_FAX %}
+                        F
+                    {% endif %}
+                    </span>{{contact.contact}}</div>
+                {% endfor %}
             </div>
             <div class="col-lg-3"></div>
         </div>
@@ -52,10 +62,13 @@
             <div class="col-lg-3"></div>
             <div class="col-lg-6">
                 <div class="form-group">
-                    <input type="text" class="form-control inputs-main" id="usr" placeholder="Ad">
+                    <input type="text" class="form-control inputs-main" id="usr" placeholder="{{contact_form.name_placeholder}}">
                 </div>
                 <div class="form-group">
-                    <input type="text" class="form-control inputs-main2" id="pwd" placeholder="E-poçt">
+                    <input type="text" class="form-control inputs-main2" id="pwd" placeholder="{{contact_form.email_placeholder}}">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control inputs-main2" id="subject" placeholder="{{contact_form.subject_placeholder}}">
                 </div>
             </div>
             <div class="col-lg-3"></div>
@@ -65,7 +78,7 @@
             <div class="col-lg-6">
                 <div class="form-group">
                     <label class="label-input-main" for="comment">Məktubunuz</label>
-                    <textarea class="form-control message-input-main" rows="5" id="comment"></textarea>
+                    <textarea class="form-control message-input-main" rows="5" id="comment" placeholder="{{contact_form.content_placeholder}}"></textarea>
                 </div>
             </div>
             <div class="col-lg-3"></div>

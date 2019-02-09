@@ -20,9 +20,9 @@
 <!--Header bitdi-->
 <!--MAIN BASLADI-->
 <main>
-        <div class="main-head-image">
+        {% comment %} <div class="main-head-image">
             <img src="{% static 'templates/images/assets/output-45.png' %}" alt="img-head">
-        </div>
+        </div> {% endcomment %}
         <div class="container">
             <div class="row mini-nav">
                 <div class="col-lg-2"></div>
@@ -34,6 +34,13 @@
                     </ul>
                 </div>
                 <div class="col-lg-6"></div>
+            </div>
+            <div class="row">
+                <div class="col-lg-2"></div>
+                <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+                    <h1 class="text-center">MEDAL ALANLAR</h1>
+                </div>
+                <div class="col-lg-2"></div>
             </div>
             {% for d in medalist %}
             <div class="row information">
