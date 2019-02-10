@@ -58,9 +58,9 @@
                     </ul>
                 </div>
                 <div class="input-group col-lg-3 col-md-4">
-                    <form class="main-srch">
+                    <form class="main-srch" onsubmit="return false">
                         <input class="main-srch-inp" type="text" placeholder="Axtar">
-                            <button class="btn btn-default main-srch-btn" type="submit">
+                            <button data-cid="{{company_id}}" class="btn btn-default main-srch-btn" id="company-search-btn" type="button">
                                 <img src="{% static 'images/assets/search-find.png' %}">
                             </button>
                     </form>
@@ -69,96 +69,95 @@
         </div>
         <div class="row main-icons">
             <div class="col-lg-2"></div>
-            <div class="col-lg-2 col-md-3 col-sm-6 col-xs-6">
-                <a href="{% url 'about' company_id %}">
-                    <div class="icn1">
-                        <strong>Haqqımızda</strong>
+            <div class="col-lg-8">
+                <div class="row">
+                    <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12 company-inside-item about">
+                        <a href="{% url 'about' company_id %}">
+                            <div class="icn1">
+                                <strong>Haqqımızda</strong>
+                            </div>
+                        </a>
                     </div>
-                </a>
-            </div>
-            <div class="col-lg-2 col-md-3 col-sm-6 col-xs-6">
-                <a href="{% url 'administration' company_id %}">
-                    <div class="icn2">
-                        <strong>Rəhbərlik</strong>
+                    <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12 company-inside-item administration">
+                        <a href="{% url 'administration' company_id %}">
+                            <div class="icn2">
+                                <strong>Rəhbərlik</strong>
+                            </div>
+                        </a>
                     </div>
-                </a>
-            </div>
-            <div class="col-lg-2 col-md-3 col-sm-6 col-xs-6">
-                <a href="{% url 'achievements' company_id %}">
-                    <div class="icn3">
-                        <strong>Nailiyyətlərimiz</strong>
+                    <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12 company-inside-item achievements">
+                        <a href="{% url 'achievements' company_id %}">
+                            <div class="icn3">
+                                <strong>Nailiyyətlərimiz</strong>
+                            </div>
+                        </a>
                     </div>
-                </a>
-            </div>
-            <div class="col-lg-2 col-md-3 col-sm-6 col-xs-6">
-                <a href="{% url 'medalist' company_id %}">
-                    <div class="icn4">
-                        <strong>Medal alanlar</strong>
+                    <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12 company-inside-item medalists">
+                        <a href="{% url 'medalist' company_id %}">
+                            <div class="icn4">
+                                <strong>Medal alanlar</strong>
+                            </div>
+                        </a>
                     </div>
-                </a>
+                    <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12 company-inside-item distinguished">
+                        <a href="{% url 'distinguished_ones' company_id %}">    
+                            <div class="icn5">
+                                <strong>Fərqlənən yetirmələr</strong>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12 company-inside-item projects_events">
+                        <a href="{% url 'projects_events' company_id %}">    
+                            <div class="icn6">
+                                <strong>Layihə və tədbirlər</strong>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12 company-inside-item legislation">
+                        <a href="{% url 'legislation' company_id %}">
+                            <div class="icn7">
+                                <strong>Qanunvericilik</strong>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12 company-inside-item admission">
+                        <a href="{% url 'admission' company_id %}">
+                            <div class="icn8">
+                                <strong>Qəbul qaydaları</strong>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12 company-inside-item faq">
+                        <a href="{% url 'faq' company_id %}">
+                            <div class="icn9">
+                                <strong class="line-height">Tez-tez<br>verilən suallar</strong>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12 company-inside-item photo_galleries">
+                        <a href="{% url 'photo_galleries' company_id %}">
+                            <div class="icn10">
+                                <strong>Fotoqalereya</strong>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12 company-inside-item video_galleries">
+                        <a href="{% url 'video_galleries' company_id %}">
+                            <div class="icn11">
+                                <strong>Videoqalereya</strong>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12 company-inside-item contacts">
+                        <a href="{% url 'contact_company' company_id %}">
+                            <div class="icn12">
+                                <strong>Əlaqə</strong>
+                            </div>
+                        </a>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="row main-icons">
             <div class="col-lg-2"></div>
-            <div class="col-lg-2 col-md-3 col-sm-6 col-sm-6">
-                <a href="{% url 'distinguished_ones' company_id %}">    
-                    <div class="icn5">
-                        <strong>Fərqlənən yetirmələr</strong>
-                    </div>
-                </a>
-            </div>
-            <div class="col-lg-2 col-md-3 col-sm-6 col-sm-6">
-                <a href="{% url 'projects_events' company_id %}">    
-                    <div class="icn6">
-                        <strong>Layihə və tədbirlər</strong>
-                    </div>
-                </a>
-            </div>
-            <div class="col-lg-2 col-md-3 col-sm-6 col-sm-6">
-                <a href="{% url 'legislation' company_id %}">
-                    <div class="icn7">
-                        <strong>Qanunvericilik</strong>
-                    </div>
-                </a>
-            </div>
-            <div class="col-lg-2 col-md-3 col-sm-6 col-sm-6">
-                <a href="{% url 'admission' company_id %}">
-                    <div class="icn8">
-                        <strong>Qəbul qaydaları</strong>
-                    </div>
-                </a>
-            </div>
-        </div>
-        <div class="row main-icons">
-            <div class="col-lg-2"></div>
-            <div class="col-lg-2 col-md-3 col-sm-6">
-                <a href="{% url 'faq' company_id %}">
-                    <div class="icn9">
-                        <strong class="line-height">Tez-tez<br>verilən suallar</strong>
-                    </div>
-                </a>
-            </div>
-            <div class="col-lg-2 col-md-3 col-sm-6">
-                <a href="{% url 'photo_galleries' company_id %}">
-                    <div class="icn10">
-                        <strong>Fotoqalereya</strong>
-                    </div>
-                </a>
-            </div>
-            <div class="col-lg-2 col-md-3 col-sm-6">
-                <a href="{% url 'video_galleries' company_id %}">
-                    <div class="icn11">
-                        <strong>Videoqalereya</strong>
-                    </div>
-                </a>
-            </div>
-            <div class="col-lg-2 col-md-3 col-sm-6">
-                <a href="{% url 'contact_company' company_id %}">
-                    <div class="icn12">
-                        <strong>Əlaqə</strong>
-                    </div>
-                </a>
-            </div>
         </div>
     </div>
 </main>

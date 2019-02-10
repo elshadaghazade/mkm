@@ -277,3 +277,41 @@ $('.menu-item').click(function () {
         $(this).find('a').addClass('mobile-font-color');
     }
 })
+
+
+$('document').ready(function(){
+    $('#company-search-btn').on('click', function(){
+        let v = $('.main-srch-inp').val()
+        let cid = $('#company-search-btn').data('cid')
+
+        if (!v || !cid) {
+            $('.company-inside-item').show()
+            return false;
+        }
+
+        $.ajax({
+            url: '/ajax/search_inside_company/',
+            data: {
+                v,
+                cid
+            },
+            type: 'POST',
+            dataType: 'JSON',
+            success: function(res) {
+                if (res.status == 'ERROR') {
+                    console.log(res.error_msg)
+                    return false
+                }
+
+                if (res.data.length > 0) {
+                    $('.company-inside-item').hide()
+                    for (let i in res.data) {
+                        $('.company-inside-item.' + res.data[i]).show()
+                    }
+                } else {
+                    $('.company-inside-item').show()
+                }
+            }
+        })
+    })
+})

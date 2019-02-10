@@ -201,6 +201,10 @@ img{max-width: 100%;}
 }
 .header-mobile-right-container{margin-top: -15px;}
 
+.company-inside-item {
+    margin-bottom: 20px;
+}
+
 @media (max-width:580px) {
     .header .custom-container {
         max-width: 760px;

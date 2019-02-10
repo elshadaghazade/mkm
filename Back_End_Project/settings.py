@@ -51,7 +51,9 @@ INSTALLED_APPS = [
     'media_app',
     'legislation_app',
     'widget_tweaks',
-    'control_panel'
+    'control_panel',
+    'schools_app',
+    'ajax_app'
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap3'

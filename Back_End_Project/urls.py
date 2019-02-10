@@ -26,6 +26,7 @@ urlpatterns = [
     # path('events/', include('events_app.urls')),
     path('search/', include('search_app.urls')),
     path('cpanel/', include('control_panel.urls')),
+    path('ajax/', include('ajax_app.urls')),
     path('', include('main_app.urls')),
 ]
 
