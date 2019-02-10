@@ -1,96 +1,80 @@
 <!DOCTYPE html>
-{% load static %}
 <html lang="en">
+    {% load static %}
 <head>
     <meta charset="UTF-8">
     <meta name="csrf-token" content="UzgxbEbbw6N8kbdiGZVNzSvaVT3WnahqSly1v6ic" />
     <meta name="viewport"content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Sual cavab</title>
+    <title>Video Qalereya</title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{% static 'templates/js/owlcarousel/dist/assest/owl.carousel.min.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'templates/css/bootstrap/css/bootstrap.min.css' %}">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{% static 'templates/css/main.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'templates/css/media.css' %}">
-    <link rel="shortcut icon" href="{% static 'templates/images/favicon.ico' %}" type="image/x-icon" />
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
 </head>
 <body>
     <!--HEADER BASLADI-->
     {% include 'layouts/header.html' %}
     <!--HEADER BITDI-->
+    
     <!--MAIN BASLADI-->
-<main>
-    <div class="main-head-image">
-        <img src="{% static 'templates/images/assets/output-45.png' %}" alt="img-head">
-    </div>
-    <div class="container">
-        <div class="row mini-nav">
-            <div class="col-lg-2"></div>
-            <div class="col-lg-4 col-md-4 col-sm-8 col-xs-12">
-                <ul class="pagination pagination1">
-                    <li><a href="{% url 'homepage' %}"><i class="fas fa-home home-icon"></i> <span>&gt;</span> </a></li>
+    <main>
+        <div class="main-head-image">
+            <img src="{% static 'templates/images/assets/output-45.png' %}" alt="img-head">
+        </div>
+        <div class="container">
+            <div class="row mini-nav">
+                <div class="col-lg-2"></div>
+                <div class="col-lg-4 col-md-4 col-sm-8 col-xs-12">
+                    <ul class="pagination pagination1">
+                        <li><a href="{% url 'homepage' %}"><i class="fas fa-home home-icon"></i> <span>&gt;</span> </a></li>
                         <li><a href="{% url 'companies' %}"> Müəssisələr <span>&gt;</span> </a></li>
                         <li><a href="{% url 'company' company_id %}"> {{company.company_name}} <span>&gt;</span> </a></li>
-                        <li><a href="{% url 'photo_galleries' company_id %}">Fotoqalereya  <span>&gt;</span> </a></li>
-                </ul>
+                        <li><a href="{% url 'video_galleries' company_id %}">Video Qalereya</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-6"></div>
             </div>
-            <div class="col-lg-6"></div>
+            <div class="row">
+                <div class="col-lg-2 col-md-2"></div>
+                <div class="col-lg-8 col-md-8">
+                    <h3 class="text-center head-slider-words">Video Qalereya</h3>
+                </div>
+                <div class="col-lg-2 col-md-2"></div>
+            </div>
+            <div class="row">
+                <div class="col-lg-2 col-md-2"></div>
+                {% for video in video_list %}
+                    {% if forloop.counter0 and forloop.counter0|divisibleby:horizontal_limit %}
+                            <div class="col-lg-1 col-md-1"></div>
+                        </div>
+                        <div class="row">
+                        <div class="col-lg-2 col-md-2"></div>
+                    {% endif %}
+
+                <div class="col-lg-3 col-md-3 col-sm-4 main-image-wrapper">
+                    <a href="{% url 'video_gallery_detailed' company_id video.id %}">
+                        <img class="main-images" src="{{ video.photo_file.url }}" alt="{{video.title}}">
+                        <div class="golden-layer">
+                            <h5>{{video.title}}</h5>
+                        </div>
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
         </div>
-        <div class="row">
-            <div class="col-lg-2 col-md-2"></div>
-            <div class="col-lg-8 col-md-8">
-                <h3 class="text-center head-slider-words">Videoqalereya</h3>
-            </div>
-            <div class="col-lg-2 col-md-2"></div>
-        </div>
-        <div class="row">
-            <div class="col-lg-2"></div>
-            <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                <video class="main-videos" controls>
-                    <source src="movie.mp4" type="video/mp4">
-                </video>
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                <video class="main-videos" controls>
-                    <source src="movie.mp4" type="video/mp4">
-                </video>            
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                <video class="main-videos" controls>
-                    <source src="movie.mp4" type="video/mp4">
-                </video>            
-            </div>
-            <div class="col-lg-1"></div>
-        </div>
-        <div class="row">
-            <div class="col-lg-2"></div>
-            <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                <video class="main-videos" controls>
-                    <source src="movie.mp4" type="video/mp4">
-                </video>            
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                    <video class="main-videos" controls>
-                    <source src="movie.mp4" type="video/mp4">
-                    </video> 
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                <video class="main-videos" controls>
-                    <source src="movie.mp4" type="video/mp4">
-                </video>            
-            </div>
-            <div class="col-lg-1"></div>
-        </div>
-    </div>
-</main>
-<!--MAIN BITDI-->
-<!--FOOTER BASLADI-->
-{% include 'layouts/footer.html' %}
-<!--FOOTER BITDI-->
-<script type="text/javascript" src="{% static 'templates/js/jquery-3.3.1.min.js' %}"></script>
-<script type="text/javascript" src="https://unpkg.com/popper.js@1.14.6/dist/umd/popper.min.js"></script>
-<script type="text/javascript" src="{% static 'templates/css/bootstrap/js/bootstrap.min.js' %}"></script>
-<script type="text/javascript" src="{% static 'templates/js/owlcarousel/dist/owl.carousel.min.js' %}"></script>
-<script type="text/javascript" src="{% static 'templates/js/main.js' %}"></script>
-</body>
-</html>
+    </main>
+    <!--MAIN BITDI-->
+    
+    <!--FOOTER BASLADI-->
+    {% include 'layouts/footer.html' %}
+    <!--FOOTER BITDI-->
+    <script type="text/javascript" src="{% static 'templates/js/jquery-3.3.1.min.js' %}"></script>
+    <script type="text/javascript" src="https://unpkg.com/popper.js@1.14.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="{% static 'templates/js/owlcarousel/dist/owl.carousel.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'templates/js/main.js' %}"></script>
+    </body>
+    </html>

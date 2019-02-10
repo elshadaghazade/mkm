@@ -1,13 +1,14 @@
 from django.db import models
 from company_app.models import Companies
+from django.core.validators import FileExtensionValidator
 from django.contrib import admin
 from ckeditor_uploader.fields import RichTextUploadingField
 
 class CompanyPhotoGallery(models.Model):
     company = models.ForeignKey(Companies, verbose_name='Müəssisə', on_delete=models.CASCADE)
-    photo_file = models.ImageField('Əsas şəkil', upload_to='media',default='')
+    photo_file = models.ImageField('Əsas şəkil', upload_to='company_gallery_photo',default='')
     title = models.CharField('Başlıq', max_length=255)
-    content = RichTextUploadingField('Kontent',
+    content = RichTextUploadingField('Qalereyanın mətni',
         config_name='special',
         external_plugin_resources=[(
             'youtube', 
@@ -30,7 +31,7 @@ class CompanyPhotoGallery(models.Model):
 
 class CompanyGalleryPhotos(models.Model):
     gallery = models.ForeignKey(CompanyPhotoGallery, on_delete=models.CASCADE)
-    file = models.ImageField(verbose_name="Şəkil")
+    file = models.ImageField(verbose_name="Şəkil", upload_to='company_gallery_photos')
 
     def __str__(self):
         return self.file.name
@@ -41,10 +42,11 @@ class CompanyGalleryPhotos(models.Model):
 
 
 class CompanyVideoGallery(models.Model):
-    company = models.ForeignKey(Companies, on_delete=models.CASCADE)
-    video_file = models.FileField(upload_to='media')
+    company = models.ForeignKey(Companies, verbose_name='Müəssisə', on_delete=models.CASCADE)
+    photo_file = models.ImageField('Əsas şəkil', upload_to='company_video_gallery_photo',default='')
     title = models.CharField(max_length=255)
     content = RichTextUploadingField(
+        verbose_name='Qalereyanın mətni',
         config_name='special',
         external_plugin_resources=[(
             'youtube', 
@@ -59,11 +61,23 @@ class CompanyVideoGallery(models.Model):
     )
 
     def __str__(self):
-        return "{}".format(self.title)
+        return self.title
 
     class Meta:
-        verbose_name = 'Video Gallery'
-        verbose_name_plural = 'Video Galleries'
+        verbose_name = 'Video Qalereya'
+        verbose_name_plural = 'Video Qalereyalar'
+
+
+class CompanyGalleryVideos(models.Model):
+    gallery = models.ForeignKey(CompanyVideoGallery, on_delete=models.CASCADE)
+    file = models.FileField(verbose_name="Video fayl", upload_to='company_gallery_videos', validators=[FileExtensionValidator(allowed_extensions=['mp4', 'mov', 'mpeg'])])
+
+    def __str__(self):
+        return self.file.name
+
+    class Meta:
+        verbose_name = "Video"
+        verbose_name_plural = "Videolar"
 
 
 #### admin ####
@@ -82,6 +96,27 @@ class CompanyPhotoGalleryAdmin(admin.ModelAdmin):
 
     def get_queryset(self, request):
         qs = super(CompanyPhotoGalleryAdmin, self).get_queryset(request)
+        if request.user.is_superuser:
+            return qs
+
+        return qs.filter(company=Companies.objects.get(profile=request.user))
+
+
+class CompanyGalleryVideosInline(admin.TabularInline):
+    model = CompanyGalleryVideos
+    extra = 5
+
+class CompanyVideoGalleryAdmin(admin.ModelAdmin):
+    exclude = "company",
+    inlines = [CompanyGalleryVideosInline]
+
+    def save_model(self, request, obj, form, change):
+        if not request.user.is_superuser:
+            obj.company = Companies.objects.get(profile=request.user)
+        super(CompanyVideoGalleryAdmin, self).save_model(request, obj, form, change)
+
+    def get_queryset(self, request):
+        qs = super(CompanyVideoGalleryAdmin, self).get_queryset(request)
         if request.user.is_superuser:
             return qs
 
