@@ -9,11 +9,11 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Muessiseler daxili</title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="{% static 'templates/js/owlcarousel/dist/assest/owl.carousel.min.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'templates/css/bootstrap/css/bootstrap.min.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'templates/css/main.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'templates/css/media.css' %}">
-    <link rel="shortcut icon" href="{% static 'templates/images/favicon.ico' %}" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" href="{% static 'js/owlcarousel/dist/assest/owl.carousel.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/media.css' %}">
+    <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon" />
 </head>
 <body>
 <!--HEADER BASLADI-->
@@ -23,19 +23,19 @@
 <!--MAIN BASLADI-->
 <main>
     <div class="main-head-image">
-        <img src="{% static 'templates/images/assets/output-45.png' %}" alt="img-head">
+        {% if company.about_images %}<img src="{{company.about_images.url}}" alt="{{company.company_name}}">{% endif %}
     </div>
     <div class="container">
         <div class="row mini-nav">
             <div class="col-lg-2"></div>
-            <div class="col-lg-4 col-md-4 col-sm-8 col-xs-12">
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
                 <ul class="pagination pagination1">
                     <li><a href="{% url 'homepage' %}"><i class="fas fa-home home-icon"></i> <span>&gt;</span> </a></li>
                     <li><a href="{% url 'companies' %}"> Müəssisələr <span>&gt;</span> </a></li>
                     <li><a href="{% url 'company' company_id %}"> {{company.company_name}}</a></li>
                 </ul>
             </div>
-            <div class="col-lg-6"></div>
+            <div class="col-lg-2"></div>
         </div>
         <div class="row">
             <div class="col-lg-2"></div>
@@ -43,25 +43,25 @@
                     <button class="btn btn-primary dropdown-toggle main-buttons" type="button" data-toggle="dropdown"><a>Fəaliyyət istiqamətləri</a>
                     <span class="caret"></span></button>
                     <ul class="dropdown-menu dropdown-menu-show">
-                        <li><a href="#">Empty</a></li>
-                        <li><a href="#">Empty</a></li>
-                        <li><a href="#">Empty</a></li>
+                        {% for area in company.companyactivityareas_set.all %}
+                            <li><a href="#">{{area}}</a></li>
+                        {% endfor %}
                     </ul>
                 </div>
                 <div class="dropdown col-lg-3 col-md-4">
                     <button class="btn btn-primary dropdown-toggle main-buttons main-buttons2" type="button" data-toggle="dropdown">Təşkil olunduğu yerlər
                     <span class="caret"></span></button>
                     <ul class="dropdown-menu dropdown-menu-show">
-                        <li><a href="#">Empty</a></li>
-                        <li><a href="#">Empty</a></li>
-                        <li><a href="#">Empty</a></li>
+                        {% for location in company.companyactivitylocations_set.all %}
+                            <li><a href="#">{{location}}</a></li>
+                        {% endfor %}
                     </ul>
                 </div>
                 <div class="input-group col-lg-3 col-md-4">
-                    <form class="main-srch">
+                    <form class="main-srch" onsubmit="return false">
                         <input class="main-srch-inp" type="text" placeholder="Axtar">
-                            <button class="btn btn-default main-srch-btn" type="submit">
-                                <img src="{% static 'templates/images/assets/search-find.png' %}">
+                            <button data-cid="{{company_id}}" class="btn btn-default main-srch-btn" id="company-search-btn" type="button">
+                                <img src="{% static 'images/assets/search-find.png' %}">
                             </button>
                     </form>
                 </div>
@@ -69,96 +69,95 @@
         </div>
         <div class="row main-icons">
             <div class="col-lg-2"></div>
-            <div class="col-lg-2 col-md-3 col-sm-6 col-xs-6">
-                <a href="{% url 'about' company_id %}">
-                    <div class="icn1">
-                        <strong>Haqqımızda</strong>
+            <div class="col-lg-8">
+                <div class="row">
+                    <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12 company-inside-item about">
+                        <a href="{% url 'about' company_id %}">
+                            <div class="icn1">
+                                <strong>Haqqımızda</strong>
+                            </div>
+                        </a>
                     </div>
-                </a>
-            </div>
-            <div class="col-lg-2 col-md-3 col-sm-6 col-xs-6">
-                <a href="{% url 'administration' company_id %}">
-                    <div class="icn2">
-                        <strong>Rəhbərlik</strong>
+                    <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12 company-inside-item administration">
+                        <a href="{% url 'administration' company_id %}">
+                            <div class="icn2">
+                                <strong>Rəhbərlik</strong>
+                            </div>
+                        </a>
                     </div>
-                </a>
-            </div>
-            <div class="col-lg-2 col-md-3 col-sm-6 col-xs-6">
-                <a href="{% url 'achievements' company_id %}">
-                    <div class="icn3">
-                        <strong>Nailiyyətlərimiz</strong>
+                    <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12 company-inside-item achievements">
+                        <a href="{% url 'achievements' company_id %}">
+                            <div class="icn3">
+                                <strong>Nailiyyətlərimiz</strong>
+                            </div>
+                        </a>
                     </div>
-                </a>
-            </div>
-            <div class="col-lg-2 col-md-3 col-sm-6 col-xs-6">
-                <a href="{% url 'medalist' company_id %}">
-                    <div class="icn4">
-                        <strong>Medal alanlar</strong>
+                    <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12 company-inside-item medalists">
+                        <a href="{% url 'medalist' company_id %}">
+                            <div class="icn4">
+                                <strong>Medal alanlar</strong>
+                            </div>
+                        </a>
                     </div>
-                </a>
+                    <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12 company-inside-item distinguished">
+                        <a href="{% url 'distinguished_ones' company_id %}">    
+                            <div class="icn5">
+                                <strong>Fərqlənən yetirmələr</strong>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12 company-inside-item projects_events">
+                        <a href="{% url 'projects_events' company_id %}">    
+                            <div class="icn6">
+                                <strong>Layihə və tədbirlər</strong>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12 company-inside-item legislation">
+                        <a href="{% url 'legislation' company_id %}">
+                            <div class="icn7">
+                                <strong>Qanunvericilik</strong>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12 company-inside-item admission">
+                        <a href="{% url 'admission' company_id %}">
+                            <div class="icn8">
+                                <strong>Qəbul qaydaları</strong>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12 company-inside-item faq">
+                        <a href="{% url 'faq' company_id %}">
+                            <div class="icn9">
+                                <strong class="line-height">Tez-tez<br>verilən suallar</strong>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12 company-inside-item photo_galleries">
+                        <a href="{% url 'photo_galleries' company_id %}">
+                            <div class="icn10">
+                                <strong>Fotoqalereya</strong>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12 company-inside-item video_galleries">
+                        <a href="{% url 'video_galleries' company_id %}">
+                            <div class="icn11">
+                                <strong>Videoqalereya</strong>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12 company-inside-item contacts">
+                        <a href="{% url 'contact_company' company_id %}">
+                            <div class="icn12">
+                                <strong>Əlaqə</strong>
+                            </div>
+                        </a>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="row main-icons">
             <div class="col-lg-2"></div>
-            <div class="col-lg-2 col-md-3 col-sm-6 col-sm-6">
-                <a href="{% url 'distinguished_ones' company_id %}">    
-                    <div class="icn5">
-                        <strong>Fərqlənən yetirmələr</strong>
-                    </div>
-                </a>
-            </div>
-            <div class="col-lg-2 col-md-3 col-sm-6 col-sm-6">
-                <a href="{% url 'projects_events' company_id %}">    
-                    <div class="icn6">
-                        <strong>Layihə və tədbirlər</strong>
-                    </div>
-                </a>
-            </div>
-            <div class="col-lg-2 col-md-3 col-sm-6 col-sm-6">
-                <a href="{% url 'legislation' company_id %}">
-                    <div class="icn7">
-                        <strong>Qanunvericilik</strong>
-                    </div>
-                </a>
-            </div>
-            <div class="col-lg-2 col-md-3 col-sm-6 col-sm-6">
-                <a href="{% url 'admission' company_id %}">
-                    <div class="icn8">
-                        <strong>Qəbul qaydaları</strong>
-                    </div>
-                </a>
-            </div>
-        </div>
-        <div class="row main-icons">
-            <div class="col-lg-2"></div>
-            <div class="col-lg-2 col-md-3 col-sm-6">
-                <a href="{% url 'faq' company_id %}">
-                    <div class="icn9">
-                        <strong class="line-height">Tez-tez<br>verilən suallar</strong>
-                    </div>
-                </a>
-            </div>
-            <div class="col-lg-2 col-md-3 col-sm-6">
-                <a href="{% url 'photo_galleries' company_id %}">
-                    <div class="icn10">
-                        <strong>Fotoqalereya</strong>
-                    </div>
-                </a>
-            </div>
-            <div class="col-lg-2 col-md-3 col-sm-6">
-                <a href="{% url 'video_gallery' company_id %}">
-                    <div class="icn11">
-                        <strong>Videoqalereya</strong>
-                    </div>
-                </a>
-            </div>
-            <div class="col-lg-2 col-md-3 col-sm-6">
-                <a href="{% url 'contact_company' company_id %}">
-                    <div class="icn12">
-                        <strong>Əlaqə</strong>
-                    </div>
-                </a>
-            </div>
         </div>
     </div>
 </main>
@@ -167,10 +166,10 @@
 <!--FOOTER BASLADI-->
 {% include 'layouts/footer.html' %}
 <!--FOOTER BITDI-->
-<script type="text/javascript" src="{% static 'templates/js/jquery-3.3.1.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
 <script type="text/javascript" src="https://unpkg.com/popper.js@1.14.6/dist/umd/popper.min.js"></script>
-<script type="text/javascript" src="{% static 'templates/css/bootstrap/js/bootstrap.min.js' %}"></script>
-<script type="text/javascript" src="{% static 'templates/js/owlcarousel/dist/owl.carousel.min.js' %}"></script>
-<script type="text/javascript" src="{% static 'templates/js/main.js' %}"></script>
+<script type="text/javascript" src="{% static 'css/bootstrap/js/bootstrap.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/owlcarousel/dist/owl.carousel.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/main.js' %}"></script>
 </body>
 </html>

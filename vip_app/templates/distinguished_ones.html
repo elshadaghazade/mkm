@@ -8,11 +8,11 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>medal-alanlar</title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="{% static 'templates/js/owlcarousel/dist/assest/owl.carousel.min.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'templates/css/bootstrap/css/bootstrap.min.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'templates/css/main.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'templates/css/media.css' %}">
-    <link rel="shortcut icon" href="{% static 'templates/images/favicon.ico' %}" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" href="{% static 'js/owlcarousel/dist/assest/owl.carousel.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/media.css' %}">
+    <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon" />
 </head>
 <body>
 <!--Header basladi-->
@@ -21,19 +21,26 @@
 <!--MAIN BASLADI-->
 <main>
         <div class="main-head-image">
-            <img src="{% static 'templates/images/assets/output-45.png' %}" alt="img-head">
+            {% if company.about_images %}<img src="{{company.about_images.url}}" alt="{{company.company_name}}">{% endif %}
         </div>
         <div class="container">
             <div class="row mini-nav">
                 <div class="col-lg-2"></div>
-                <div class="col-lg-4 col-md-4 col-sm-8 col-xs-12">
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
                     <ul class="pagination pagination1">
                         <li><a href="{% url 'companies' %}"><i class="fas fa-home home-icon"></i> <span>&gt;</span> Müəssisələr <span>&gt; </span> </a></li>
                         <li><a href="{% url 'company' company_id %}"> {{company.company_name}} <span>&gt;</span> </a></li>
                         <li><a href="{% url 'medalist' company_id %}">Ferqlənən yetirmələr</a></li>
                     </ul>
                 </div>
-                <div class="col-lg-6"></div>
+                <div class="col-lg-2"></div>
+            </div>
+            <div class="row">
+                <div class="col-lg-2"></div>
+                <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+                    <h1 class="text-center">FƏRQLƏNƏN YETİRMƏLƏR</h1>
+                </div>
+                <div class="col-lg-2"></div>
             </div>
             {% for d in distinguished_ones %}
             <div class="row information">
@@ -61,10 +68,10 @@
 <!--Footer basladi-->
 {% include 'layouts/footer.html' %}
 <!--Footer bitdi-->
-<script type="text/javascript" src="{% static 'templates/js/jquery-3.3.1.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
 <script type="text/javascript" src="https://unpkg.com/popper.js@1.14.6/dist/umd/popper.min.js"></script>
-<script type="text/javascript" src="{% static 'templates/css/bootstrap/js/bootstrap.min.js' %}"></script>
-<script type="text/javascript" src="{% static 'templates/js/owlcarousel/dist/owl.carousel.min.js' %}"></script>
-<script type="text/javascript" src="{% static 'templates/js/main.js' %}"></script>
+<script type="text/javascript" src="{% static 'css/bootstrap/js/bootstrap.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/owlcarousel/dist/owl.carousel.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/main.js' %}"></script>
 </body>
 </html>

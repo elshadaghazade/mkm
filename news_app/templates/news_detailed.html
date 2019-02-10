@@ -1,1 +1,159 @@
-<h1>news_detailed</h1>
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="csrf-token" content="UzgxbEbbw6N8kbdiGZVNzSvaVT3WnahqSly1v6ic" />
+    <meta name="viewport"content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{news.title}} - Xəbərlər</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static 'js/owlcarousel/dist/assest/owl.carousel.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/lightslider.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/media.css' %}">
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+</head>
+<body>
+<!--HEADER BASLADI-->
+{% include 'layouts/header.html' %}
+<!--HEADER BITDI-->
+
+<!--MAIN BASLADI-->
+<main class="main">
+    <div class="container">
+        <div class="row mini-nav none-print">
+            <div class="col-lg-2"></div>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                <ul class="pagination pagination1">
+                    <li><a href="{% url 'homepage' %}"><i class="fas fa-home home-icon"></i> <span>&gt;</span> </a></li>
+                    <li><a href="{% url 'homepage' %}">Media <span>&gt;</span> </a></li>
+                    <li><a href="{% url 'news' %}">Xəbərlər <span>&gt;</span> </a></li>
+                    <li><a title="{{news.title}}" href="{% url 'news_detailed' news.id %}">{{news.title|slice:":65"}}... </a></li>
+                </ul>
+            </div>
+            <div class="col-lg-2"></div>
+        </div>
+        <div class="row none-print">
+            <div class="col-lg-2 col-md-2"></div>
+            <div class="col-lg-8 col-md-8">
+                <h3 class="text-center head-slider-words">{{news.title}}</h3>
+            </div>
+            <div class="col-lg-2 col-md-2"></div>
+        </div>
+        <div class="row none-print">
+            <div class="col-lg-2"></div>
+            <div class="col-lg-8">
+                <ul id="image-gallery">
+                    {% for slide in news.newsslideimages_set.all %}
+                        <li data-thumb="{{slide.image.url}}" data-src="{{slide.image.url}}"> 
+                            <img width="100%" height="315" src="{{slide.image.url}}">
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>	
+        </div>
+        <div class="row about-video none-print">
+            <div class="col-lg-2"></div>
+            <div class="col-lg-5 col-md-8">
+                <span class="source">Kateqoriya: {{news.category.category_name}}</span>
+                <span class="data">{{news_date}}</span>
+                <i class="far fa-clock"></i><span class="time">{{news_time}}</span>
+            </div>
+            <div class="col-lg-3 col-md-4">
+                <i class="fas fa-print"></i><a class="print" href="javascript:window.print()">Çap et</a>
+                {% comment %} <i class="fas fa-share"></i><a class="share" href="#">Paylaş</a> {% endcomment %}
+                    <button class="btn btn-primary dropdown-toggle text-style-btn" type="button"data-toggle="dropdown"><small class="left-t">T</small><span class="right-t">T</span><span id="change_size_sbox_text" style="font-size:0.8em;margin-left:5px;"></span>
+                    <span class="caret"></span></button>
+                    <ul class="dropdown-menu text-style-ul" id="change_size_sbox">
+                        <li class="active"><a data-val="1" href="#">1x</a></li>
+                        <li><a data-val="1.2" href="#">1.2x</a></li>
+                        <li><a data-val="1.5" href="#">1.5x</a></li>
+                        <li><a data-val="2" href="#">2x</a></li>
+                        <li><a data-val="2.2" href="#">2.2x</a></li>
+                    </ul>
+            </div>
+            <div class="col-lg-2"></div>
+        </div>
+        <div class="row print">
+            <div class="col-lg-2"></div>
+            <div class="col-lg-8" id="page_content">
+                <p class="blockquote">{{news.short_description}}</p>
+            </div>
+            <div class="col-lg-2"></div>
+        </div>
+        <div class="row">
+            <div class="col-lg-2"></div>
+            <div class="col-lg-8" id="page_content">
+                {% if news.news_picture %}
+                    <img src="{{news.news_picture.url}}" style="width:315px;max-width:100%;margin:10px 10px 10px 0;float: left;">
+                {% endif %}
+                {{news.text|safe}}
+            </div>
+            <div class="col-lg-2"></div>
+        </div>
+        {% if related_news %}
+            <div class="row none-print">
+                <div class="col-lg-2"></div>
+                <div class="main-head-div">
+                    <h3 class="main-head-word">Oxşar Xəbərlər</h3>
+                </div>
+                <div class="col-lg-10"></div>
+            </div>
+            <div class="row none-print">
+                <div class="col-lg-2"></div>
+                {% for rnews in related_news %}
+                <div class="col-lg-4">
+                    <a href="{% url 'news_detailed' rnews.id %}"><img src="{{rnews.news_picture.url}}" width="100%"></a>
+                    <span class="data2">{{rnews.news_date}}</span>
+                    <i class="far fa-clock"></i><span class="time">{{rnews.news_time}}</span>
+                    <h3 class="main-foot-words"><a href="{% url 'news_detailed' rnews.id %}">{{rnews.title}}</a></h3>
+                </div>
+                {% endfor %}
+                <div class="col-lg-2"></div>
+            </div>
+        {% endif %}
+    </div>
+</main>
+<!--MAIN BITDI-->
+
+<!--FOOTER BASLADI-->
+{% include 'layouts/footer.html' %}
+<!--FOOTER BITDI-->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript" src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+<script type="text/javascript" src="https://unpkg.com/popper.js@1.14.6/dist/umd/popper.min.js"></script>
+<script type="text/javascript" src="{% static 'css/bootstrap/js/bootstrap.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/owlcarousel/dist/owl.carousel.min.js' %}"></script>
+<script src="{% static 'js/lightslider.js' %}"></script>
+<script type="text/javascript">
+    $('#image-gallery').lightSlider({
+        gallery:true,
+        item:1,
+        loop:true,
+        thumbItem:5,
+        slideMargin:0,
+        enableDrag: true,
+        controls: true,
+        currentPagerPosition:'left',
+        onSliderLoad: function(el) {
+            el.lightGallery({
+                selector: '#image-gallery .lslide'
+            });
+        }
+    });
+
+    $('#change_size_sbox li a').on("click", function(e){
+        $('#change_size_sbox_text').html($(this).html())
+        let size = $(this).data('val') + 'em';
+        $('#page_content p, #page_content blockquote').css({
+            fontSize: size
+        })
+
+        e.preventDefault()
+    })
+</script>
+<script type="text/javascript" src="{% static 'js/main.js' %}"></script>
+</body>
+</html>

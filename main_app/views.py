@@ -1,8 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, render_to_response
+from django.template import RequestContext
 from main_app.models import *
 
-
-# Create your views here.
 def home(request):
     context = {}
 
@@ -30,12 +29,35 @@ def attributes(request):
     context['attributes'] = Attributes.objects.all()
     return render(request,'attributes.html',context)
 
-def general_information(request):
-    context = {}
-    context['information'] = GeneralInformation.objects.all().last()
-    return render(request,"General_information.html",context)
+def informative_page (request, informative_page_slug):
 
-def exits(request):
-    context={}
-    context['exits'] = Exits.objects.all()
-    return render(request,'exits.html',context)
+    try:
+        page = MainInformativePages.objects.get(slug=informative_page_slug)
+    except:
+        context = {
+            'page_title': '',
+            'page_slug': '',
+            'page_full_content': '',
+            'page_short_description': ''
+        }
+    else:
+        context = {
+            'page_title': page.title,
+            'page_slug': page.slug,
+            'page_full_content': page.full_content,
+            'page_short_description': page.short_description
+        }
+
+    print(context)
+    
+    # context['information'] = GeneralInformation.objects.all().last()
+    return render(request,"informative_page.html", context)
+
+
+############################ error pages #################################
+def handler404(request, *args, **argv):
+    return render(request, 'error_pages/404.html')
+
+
+def handler500(request, *args, **argv):
+    return render(request, 'error_pages/500.html')

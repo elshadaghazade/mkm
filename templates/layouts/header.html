@@ -8,20 +8,20 @@
                 <div class="row">
                     <div class="header-left col-md-3">
                         <div class="header-elaqe">
-                            <img src="{% static 'templates/images/assets/tel.jpg' %}">
+                            <img src="{% static 'images/assets/tel.jpg' %}">
                             <span><a style="color: #656771;font-size: 15px;margin-left:5px;margin-top:3px;font-family:'Segoe UI'!important;" href="{% url 'contact_main' %}" class="tel-1">Əlaqə </a></span>
                         </div>
                     </div>
                     <div class="header-center col-md-6">
                         <div class="header-logo">
-                            <a href="{% url 'homepage' %}"><img src="{% static 'templates/images/assets/logo2.png' %}"></a>
+                            <a href="{% url 'homepage' %}"><img src="{% static 'images/assets/logo2.png' %}"></a>
                         </div>
                     </div>
                     <div class="header-right col-md-3">
                         <div class="header-search-input-container">
                             <form action="#" method="GET">
                                 <input class="header-search-input"  type="text" name="query" placeholder="Axtar">
-                                <button class="header-search-button" type="submit"><img src="{% static 'templates/images/assets/search-find.png' %}"></button>
+                                <button class="header-search-button" type="submit"><img src="{% static 'images/assets/search-find.png' %}"></button>
                             </form>
                         </div>
                     </div>
@@ -37,15 +37,15 @@
                     <div class="mobile-header-left-container">
                         <div class="header-right-container">
                             <div class="header-search-container">
-                                <a class="header-search" href="#"><img src="{% static 'templates/images/assets/search-find.png' %}"><span class="header-top-search  mobile-text">Axtarış</span>
+                                <a class="header-search" href="#"><img src="{% static 'images/assets/search-find.png' %}"><span class="header-top-search  mobile-text">Axtarış</span>
                                 </a>
                             </div>
                         </div>
                         <div class="header-search-input-container">
                             <form action="#" method="GET">
                                 <input class="header-search-input" name="query" type="text" placeholder="Axtar">
-                                <button type="button" class="header-search-close"><img src="{% static 'templates/images/assets/search-close.png' %}"></button>
-                                <button class="header-search-button" type="submit"><img src="{% static 'templates/images/assets/search-find.png' %}"></button>
+                                <button type="button" class="header-search-close"><img src="{% static 'images/assets/search-close.png' %}"></button>
+                                <button class="header-search-button" type="submit"><img src="{% static 'images/assets/search-find.png' %}"></button>
                             </form>
 
                         </div>
@@ -67,13 +67,13 @@
                     <div class="menu-container ">
                         <ul class="nav justify-content-center nav-fill ">
                             <li class="menu-item nav-item">
-                                <a class="nav-link"  href="https://edu.gov.az/">Təhsil nazirliyi</a>
+                                <a class="nav-link" target="_blank"  href="https://edu.gov.az/">Təhsil nazirliyi</a>
                             </li>
                             <li class="menu-item menu-item-click nav-item">
                                 <a class="nav-link" target=_blank href="#"><span class="chevron chevron-1"></span>İdarə</a>
-                                <ul class="nav2 nav2-center nav2-active">
-                                    <li class="menu-item2"><a href="{% url 'general_information' %}" class="mobile-font-color">Ümumi məlumat</a></li>
-                                    <li class="menu-item2"><a href="haqqimizda.html" class="mobile-font-color">Struktur</a></li>
+                                <ul class="nav2 nav2-center">
+                                    <li class="menu-item2"><a href="{% url 'informative_page' 'general-information' %}" class="mobile-font-color">Ümumi məlumat</a></li>
+                                    <li class="menu-item2"><a href="{% url 'informative_page' 'structure' %}" class="mobile-font-color">Struktur</a></li>
                                     <li class="menu-item2"><a href="{% url 'companies' %}" class="mobile-font-color">Müəssisələr</a></li>
                                     <li class="menu-item2"><a href="{% url 'documents' %}" class="mobile-font-color">Sənədlər</a></li>
                                 </ul>
@@ -83,10 +83,10 @@
                             </li>
                             <li class="menu-item menu-item-click nav-item">
                                 <a class="nav-link" target=_blank href="#"><span class="chevron chevron-1"></span>Media</a>
-                                <ul class="nav2 nav2-center nav2-active">
-                                    <li class="menu-item2"><a href="layihe-tedbirler.html" class="mobile-font-color">Xəbərlər</a></li>
-                                    <li class="menu-item2"><a href="tedbirler.html" class="mobile-font-color">Tədbirlər</a></li>
-                                    <li class="menu-item2"><a href="{% url 'exits' %}" class="mobile-font-color">Çıxışlar</a></li>
+                                <ul class="nav2 nav2-center">
+                                    <li class="menu-item2"><a href="{% url 'news' %}" class="mobile-font-color">Xəbərlər</a></li>
+                                    <li class="menu-item2"><a href="{% url 'events' %}" class="mobile-font-color">Tədbirlər</a></li>
+                                    <li class="menu-item2"><a href="{% url 'speeches' %}" class="mobile-font-color">Çıxışlar</a></li>
                                     <li class="menu-item2"><a href="{% url 'main_faq' %}" class="mobile-font-color">Sual-cavab</a></li>
                                     <li class="menu-item2"><a href="{% url 'attributes' %}" class="mobile-font-color">Atributlar</a></li>
                                 </ul>

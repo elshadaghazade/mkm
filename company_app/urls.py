@@ -22,7 +22,7 @@ urlpatterns = [
     path('<pk>/faq/', faq,name='faq'),
     path('<pk>/photos/', photo_gallery,name='photo_galleries'),
     path('<pk>/photos/<int:photo_gallery_detailed_id>/', photo_gallery_detailed,name='photo_gallery_detailed'),
-    path('<pk>/videos/', video_gallery,name='video_gallery'),
+    path('<pk>/videos/', video_gallery,name='video_galleries'),
     path('<pk>/videos/<int:video_gallery_id>/', video_gallery_detailed,name='video_gallery_detailed'),
     path('<pk>/contacts/', contact_company,name='contact_company')
 ]

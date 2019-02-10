@@ -24,8 +24,9 @@ SECRET_KEY = 'm&#$t_4za88v@7gl3dr0@lemaxbydf$bu^&)zg_2khvlm#)oen'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+# TEMPLATE_DEBUG = DEBUG
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -50,14 +51,41 @@ INSTALLED_APPS = [
     'media_app',
     'legislation_app',
     'widget_tweaks',
-    'control_panel'
+    'control_panel',
+    'schools_app',
+    'ajax_app'
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
 CKEDITOR_UPLOAD_PATH = 'uploads/'
+CKEDITOR_RESTRICT_BY_USER = True
 CKEDITOR_CONFIGS = {
     'default': {
-        'extraPlugins': ('codesnippet', 'youtube')
+        'toolbar': 'Custom',
+        'height': 500,
+        'toolbar_Custom': [
+            ['Format', 'Bold', 'Italic', 'Underline', 'Strike', 'SpellChecker', 'Undo', 'Redo'],
+            ['Link', 'Unlink', 'Anchor', 'List'],
+            ['Image', 'Table', 'HorizontalRule'],
+            ['TextColor', 'BGColor'],
+            ['Smiley', 'SpecialChar'],
+            ['Source']
+        ],
+
+    },
+    'special': {
+        'toolbar': 'Special',
+        'height': 500,
+        'toolbar_Special': [
+            ['Styles', 'Format', 'Bold', 'Italic', 'Underline', 'Strike', 'SpellChecker', 'Undo', 'Redo'],
+            ['Link', 'Unlink', 'Anchor', 'NumberedList', 'BulletedList', 'Outdent', 'Indent'],
+            ['Image', 'Table', 'HorizontalRule'],
+            ['TextColor', 'BGColor'],
+            ['Smiley', 'SpecialChar'],
+            ['Youtube', 'html5video'],
+            ['Source']
+        ],
+        'extraPlugins': 'youtube,html5video'
     }
 }
 
@@ -144,13 +172,16 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = '/assets/'
 if DEBUG:
     STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static"),
-]
+        os.path.join(BASE_DIR, "static"),
+    ]
 else:
-    STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+    STATICFILES_DIRS = [
+        os.path.join(BASE_DIR, "assets"),
+    ]
+    STATIC_ROOT = os.path.join(BASE_DIR, 'assets')
 
 
 MEDIA_URL = '/media/'

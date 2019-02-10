@@ -10,8 +10,7 @@ urlpatterns = [
     path('administration/', administration, name='administration'),
     path('documents/', documents,name='documents'),
     path('attributes/',attributes,name='attributes'),
-    path('general_information/',general_information,name="general_information"),
-    path('main_faq/', main_faq,name='main_faq'),
-    path('exits/',exits,name='exits')
-
+    # path('general_information/',general_information,name="general_information"),
+    path('faq/', main_faq,name='main_faq'),
+    path('<slug:informative_page_slug>/', informative_page, name='informative_page'),
 ]

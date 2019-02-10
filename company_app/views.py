@@ -1,5 +1,5 @@
-from django.shortcuts import render
-from company_app.models import Companies,CompanyAdministration
+from django.shortcuts import render, get_object_or_404
+from .models import *
 import math
 
 
@@ -32,7 +32,7 @@ def companies(request):
 
 def company(request, pk):
     context = {
-        'company': Companies.objects.get(pk=pk),
+        'company': get_object_or_404(Companies, pk=pk),
         'company_id': pk,
     }
 
@@ -41,26 +41,26 @@ def company(request, pk):
 
 def about(request, pk):
     context = {
-        'company': Companies.objects.get(pk=pk),
+        'company': get_object_or_404(Companies, pk=pk),
         'company_id': pk,
 
     }
-    context['company'] = Companies.objects.get(pk=pk) 
+    context['company'] = get_object_or_404(Companies, pk=pk) 
     return render(request, "about.html", context)
 
 
 def administration(request,pk):
     context = {
-        'company': Companies.objects.get(pk=pk),
+        'company': get_object_or_404(Companies, pk=pk),
         'company_id': pk,
     }
-    context['company'] = Companies.objects.get(pk=pk) 
+    context['company'] = get_object_or_404(Companies, pk=pk) 
     return render(request, "administration_company.html", context)
 
 
 def achievements(request,pk):
     context = {
-        'company': Companies.objects.get(pk=pk),
+        'company': get_object_or_404(Companies, pk=pk),
         'company_id': pk,
     }
     return render(request, "achievements.html", context)
@@ -68,7 +68,7 @@ def achievements(request,pk):
 
 def admission(request,pk):
     context = {
-        'company':Companies.objects.get(pk=pk),
+        'company':get_object_or_404(Companies, pk=pk),
         'company_id':pk,
     }
     context['admissions'] = Companies.objects.filter(pk=pk).last()

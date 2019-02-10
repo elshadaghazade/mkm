@@ -8,10 +8,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Elaqe</title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="{% static 'templates/js/owlcarousel/dist/assest/owl.carousel.min.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'templates/css/bootstrap/css/bootstrap.min.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'templates/css/main.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'templates/css/media.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'js/owlcarousel/dist/assest/owl.carousel.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/media.css' %}">
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
 </head>
 <body>
@@ -27,24 +27,34 @@
     <div class="container">
         <div class="row mini-nav">
             <div class="col-lg-2"></div>
-            <div class="col-lg-4 col-md-4 col-sm-8 col-xs-12">
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
             <ul class="pagination pagination1">
                 <li><a href="{% url 'homepage' %}"><i class="fas fa-home home-icon"></i> <span>&gt;</span> </a></li>
                         <li><a href="{% url 'companies' %}"> Müəssisələr <span>&gt;</span> </a></li>
                         <li><a href="{% url 'company' company_id %}"> {{company.company_name}} <span>&gt;</span> </a></li>
-                        <li><a href="{% url 'contact_company' company_id %}">Elaqe</a></li>
+                        <li><a href="{% url 'contact_company' company_id %}">Əlaqə</a></li>
                 </ul>
             </div>
-            <div class="col-lg-6"></div>
+            <div class="col-lg-2"></div>
         </div>
         <div class="row">
             <div class="col-lg-3"></div>
             <div class="col-lg-6 main-head-words">
                 <h3>Bizimlə əlaqə</h3>
-                <p>Təhsil Sisteminin İnformasiyalaşdırılması İdarəsi</p>
-                <p>Azadlıq prospekti, məhəllə 909</p>
-                <p class="number-p"><span>T:</span>+99412 565 02 37</p>
-                <p class="number-p2"><span>F:</span>+99412 565 02 38</p>
+                {% for addr in address %}
+                    <p>{{addr.contact}}</p>
+                {% endfor %}
+                {% for contact in contacts %}
+                    <div class="number-p"><span>
+                    {% if contact.contact_type == company_contact_model.CONTACT_TYPE_EMAIL %}
+                        E
+                    {% elif contact.contact_type == company_contact_model.CONTACT_TYPE_PHONE %}
+                        T
+                    {% elif contact.contact_type == company_contact_model.CONTACT_TYPE_FAX %}
+                        F
+                    {% endif %}
+                    </span>{{contact.contact}}</div>
+                {% endfor %}
             </div>
             <div class="col-lg-3"></div>
         </div>
@@ -52,10 +62,13 @@
             <div class="col-lg-3"></div>
             <div class="col-lg-6">
                 <div class="form-group">
-                    <input type="text" class="form-control inputs-main" id="usr" placeholder="Ad">
+                    <input type="text" class="form-control inputs-main" id="usr" placeholder="{{contact_form.name_placeholder}}">
                 </div>
                 <div class="form-group">
-                    <input type="text" class="form-control inputs-main2" id="pwd" placeholder="E-poçt">
+                    <input type="text" class="form-control inputs-main2" id="pwd" placeholder="{{contact_form.email_placeholder}}">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control inputs-main2" id="subject" placeholder="{{contact_form.subject_placeholder}}">
                 </div>
             </div>
             <div class="col-lg-3"></div>
@@ -65,7 +78,7 @@
             <div class="col-lg-6">
                 <div class="form-group">
                     <label class="label-input-main" for="comment">Məktubunuz</label>
-                    <textarea class="form-control message-input-main" rows="5" id="comment"></textarea>
+                    <textarea class="form-control message-input-main" rows="5" id="comment" placeholder="{{contact_form.content_placeholder}}"></textarea>
                 </div>
             </div>
             <div class="col-lg-3"></div>
@@ -84,10 +97,10 @@
 <!--FOOTER BASLADI-->
 {% include 'layouts/footer.html' %}
 <!--FOOTER BITDI-->
-<script type="text/javascript" src="{% static 'templates/js/jquery-3.3.1.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
 <script type="text/javascript" src="https://unpkg.com/popper.js@1.14.6/dist/umd/popper.min.js"></script>
-<script type="text/javascript" src="{% static 'templates/css/bootstrap/js/bootstrap.min.js' %}"></script>
-<script type="text/javascript" src="{% static 'templates/js/owlcarousel/dist/owl.carousel.min.js' %}"></script>
-<script type="text/javascript" src="{% static 'templates/js/main.js' %}"></script>
+<script type="text/javascript" src="{% static 'css/bootstrap/js/bootstrap.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/owlcarousel/dist/owl.carousel.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/main.js' %}"></script>
 </body>
 </html>

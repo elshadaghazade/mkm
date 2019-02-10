@@ -6,13 +6,13 @@
     <meta name="csrf-token" content="UzgxbEbbw6N8kbdiGZVNzSvaVT3WnahqSly1v6ic" />
     <meta name="viewport"content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Sual cavab</title>
+    <title>Tez-tez verilən suallar</title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="{% static 'templates/js/owlcarousel/dist/assest/owl.carousel.min.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'templates/css/bootstrap/css/bootstrap.min.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'templates/css/main.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'templates/css/media.css' %}">
-    <link rel="shortcut icon" href="{% static 'templates/images/favicon.ico' %}" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" href="{% static 'js/owlcarousel/dist/assest/owl.carousel.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/media.css' %}">
+    <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon" />
 </head>
 <!--HEADER BASLADI-->
 {% include 'layouts/header.html' %}
@@ -20,32 +20,32 @@
 <!--MAIN BASLADI-->
 <main>
     <div class="main-head-image">
-        <img src="{% static 'templates/images/assets/output-42.png' %}" alt="img-head">
+        <img src="{% static 'images/assets/output-42.png' %}" alt="img-head">
     </div>
     <div class="container">
         <div class="row mini-nav">
             <div class="col-lg-2"></div>
-            <div class="col-lg-4 col-md-4 col-sm-8 col-xs-12">
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
                 <ul class="pagination pagination1">
-                    <li><a href="{% url 'homepage' %}"><i class="fas fa-home home-icon"></i> <span>&gt;</span> Ana Sehife <span>&gt; </span> </a></li>
-                    <li><a href="{% url 'general_information' %}">Sual cavab</a></li>
-                </ul> 
+                    <li><a href="{% url 'homepage' %}"><i class="fas fa-home home-icon"></i> <span>&gt;</span> </a></li>
+                    <li><a href="{% url 'main_faq' %}">Tez-tez verilən suallar</a></li>
+                </ul>
             </div>
-            <div class="col-lg-6"></div>
+            <div class="col-lg-2"></div>
         </div>
         <div class="row">
             <div class="col-lg-2"></div>
             <div class="col-lg-8">
                 <div class="panel-group" id="accordion">
-                    {% for main_faq in main_faqs %}
+                    {% for faq in faqs %}
                     <div class="panel panel-default panel-a">
                         <div class="panel-heading">
                             <h4 class="panel-title">
-                              <a data-toggle="collapse" data-parent="#accordion" href="#collapse{{main_faq.id}}"><span class="question1">Sual: </span>{{main_faq.question}}</a>
+                              <a data-toggle="collapse" data-parent="#accordion" href="#collapse{{faq.id}}"><span class="question1">Sual: </span>{{faq.question}}</a>
                             </h4>
                         </div>
-                    <div id="collapse{{main_faq.id}}" class="panel-collapse collapse in">
-                        <div class="panel-body"><span class="answer{{main_faq.id}}">Cavab: </span>{{main_faq.answer}}</div>
+                    <div id="collapse{{faq.id}}" class="panel-collapse collapse in">
+                        <div class="panel-body"><span class="answer{{faq.id}}">Cavab: </span>{{faq.answer}}</div>
                     </div>
                     </div>
                     {% endfor %}
@@ -60,11 +60,11 @@
     {% include 'layouts/footer.html' %}
     <!--FOOTER BITDI-->
 
-<script type="text/javascript" src="{% static 'templates/js/jquery-3.3.1.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
 <script type="text/javascript" src="https://unpkg.com/popper.js@1.14.6/dist/umd/popper.min.js"></script>
-<script type="text/javascript" src="{% static 'templates/css/bootstrap/js/bootstrap.min.js' %}"></script>
-<script type="text/javascript" src="{% static 'templates/js/owlcarousel/dist/owl.carousel.min.js' %}"></script>
-<script type="text/javascript" src="{% static 'templates/js/main.js' %}"></script>
+<script type="text/javascript" src="{% static 'css/bootstrap/js/bootstrap.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/owlcarousel/dist/owl.carousel.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/main.js' %}"></script>
 </body>
 </html>
     
