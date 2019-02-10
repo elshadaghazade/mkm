@@ -108,21 +108,21 @@ class CompanyActivityLocations(models.Model):
         verbose_name = 'Təşkil olunduğu yer'
         verbose_name_plural = 'Təşkil olunduğu yerlər'
 
-class CompanyAdministration(models.Model):
-    company = models.ForeignKey(Companies, on_delete=models.CASCADE)
-    # parent = models.ForeignKey(self, on_delete=models.CASCADE, null=True)
-    #about_images = models.ImageField(upload_to='media') 
-    full_name = models.CharField('Adı və soyadı', max_length=255)
-    occupation = models.CharField('Tutduğu vəzifə', max_length=255)
-    administration_type = models.CharField('İdarə növü', max_length=255)
-    branch_icon = models.ImageField('Filialın emblemi', upload_to='media')
+# class CompanyAdministration(models.Model):
+#     company = models.ForeignKey(Companies, on_delete=models.CASCADE)
+#     # parent = models.ForeignKey(self, on_delete=models.CASCADE, null=True)
+#     #about_images = models.ImageField(upload_to='media') 
+#     full_name = models.CharField('Adı və soyadı', max_length=255)
+#     occupation = models.CharField('Tutduğu vəzifə', max_length=255)
+#     administration_type = models.CharField('İdarə növü', max_length=255)
+#     branch_icon = models.ImageField('Filialın emblemi', upload_to='media')
 
-    def __str__(self):
-        return "{}".format(self.full_name)
+#     def __str__(self):
+#         return "{}".format(self.full_name)
 
-    class Meta:
-        verbose_name = "Rəhbərlik"
-        verbose_name_plural = "Rəhbərlik"
+#     class Meta:
+#         verbose_name = "Rəhbərlik"
+#         verbose_name_plural = "Rəhbərlik"
 
 
 class CompanyInformativePages(models.Model):
@@ -155,22 +155,22 @@ class CompanyInformativePages(models.Model):
 
 #### admin #####
 
-class CompanyAdministrationAdmin(admin.ModelAdmin):
-    exclude = "company",
+# class CompanyAdministrationAdmin(admin.ModelAdmin):
+#     exclude = "company",
 
-    def save_model(self, request, obj, form, change):
-        if not request.user.is_superuser:
-            obj.company = Companies.objects.get(profile=request.user)
+#     def save_model(self, request, obj, form, change):
+#         if not request.user.is_superuser:
+#             obj.company = Companies.objects.get(profile=request.user)
 
-        super(CompanyAdministrationAdmin, self).save_model(request, obj, form, change)
+#         super(CompanyAdministrationAdmin, self).save_model(request, obj, form, change)
 
-    def get_queryset(self, request):
-        qs = super(CompanyAdministrationAdmin, self).get_queryset(request)
+#     def get_queryset(self, request):
+#         qs = super(CompanyAdministrationAdmin, self).get_queryset(request)
 
-        if request.user.is_superuser:
-            return qs
+#         if request.user.is_superuser:
+#             return qs
 
-        return qs.filter(company=Companies.objects.get(profile=request.user))
+#         return qs.filter(company=Companies.objects.get(profile=request.user))
 
 
 class CompanyInformativePagesAdmin(admin.ModelAdmin):

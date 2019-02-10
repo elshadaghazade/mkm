@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from company_app.models import Companies,CompanyAdministration
+from .models import *
 import math
 
 
