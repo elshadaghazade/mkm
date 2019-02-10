@@ -32,7 +32,7 @@ def projects_events(request,pk):
 def projects_events_details(request,pk,news_id):
 
     company = get_object_or_404(Companies, pk=pk)
-    news = CompanyNews.objects.get(pk=news_id, company=company)
+    news = CompanyNews.objects.filter(pk=news_id, company=company).order_by('companynewsslideimages__weight')[0]
     related_news = []
     
     for rnews in CompanyNews.objects.filter(~Q(id=news.id) & Q(category=news.category))[:2]:

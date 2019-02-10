@@ -23,6 +23,7 @@ urlpatterns = [
     path('ckeditor/', include('ckeditor_uploader.urls')),
     path('companies/', include('company_app.urls')),
     path('news/', include('news_app.urls')),
+    # path('events/', include('events_app.urls')),
     path('search/', include('search_app.urls')),
     path('cpanel/', include('control_panel.urls')),
     path('', include('main_app.urls')),

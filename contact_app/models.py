@@ -30,8 +30,8 @@ class ContactCompany(models.Model):
         return f"{list(filter(lambda x: x[0] == self.contact_type, self.CONTACT_TYPES))[0][1]}: {self.contact}"
 
     class Meta:
-        verbose_name = 'Şirkətin əlaqə məlumatı'
-        verbose_name_plural = 'Əlaqə məlumatları'
+        verbose_name = 'Müəssisənin əlaqə məlumatı'
+        verbose_name_plural = 'Müəssisənin əlaqə məlumatları'
 
 
 class ContactCompanyForm(models.Model):
@@ -46,8 +46,8 @@ class ContactCompanyForm(models.Model):
         return self.subject_placeholder
     
     class Meta:
-        verbose_name = "Əlaqə formasının ayarları"
-        verbose_name_plural = "Əlaqə formasının ayarları"
+        verbose_name = "Müəssisənin əlaqə formasının ayarları"
+        verbose_name_plural = "Müəssisənin əlaqə formasının ayarları"
 
 
 class ContactCompanyReceivedEmails(models.Model):
@@ -63,8 +63,8 @@ class ContactCompanyReceivedEmails(models.Model):
         return f"from: {self.from_email} | subject: {self.subject}"
 
     class Meta:
-        verbose_name = "Gələn məktub"
-        verbose_name_plural = "Gələn məktublar"
+        verbose_name = "Müəssisəyə gələn məktub"
+        verbose_name_plural = "Müəssisəyə gələn məktublar"
 
 
 class ContactMainForm(models.Model):

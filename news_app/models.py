@@ -6,10 +6,10 @@ from ckeditor_uploader.fields import RichTextUploadingField
 
 class Category(models.Model):
     category_name = models.CharField(max_length=255)
-    profile = models.ForeignKey(User, on_delete=models.CASCADE)
+    company = models.ForeignKey(Companies, on_delete=models.CASCADE)
 
     def __str__(self):
-        return "{}".format(self.category_name)
+        return self.category_name
 
     class Meta:
         verbose_name = "Xəbərin Kateqoriyası"
@@ -17,18 +17,45 @@ class Category(models.Model):
 
 
 class News(models.Model):
-    title = models.CharField(max_length=255)
-    news_picture = models.ImageField(upload_to='media')
-    short_description = models.TextField(max_length=255)
-    long_description = models.CharField(max_length=255)
-    text = models.TextField()
+    title = models.CharField("Başlıq", max_length=255)
+    news_picture = models.ImageField(upload_to='media', verbose_name="Xəbərin əsas şəkli")
+    short_description = models.TextField("Qısa təsvir", max_length=255)
+    text = RichTextUploadingField('Xəbərin mətni',
+        config_name='special',
+        external_plugin_resources=[(
+            'youtube', 
+            '/static/ckeditor/ckeditor/plugins/youtube/', 
+            'plugin.js'
+        ), 
+        (
+            'html5video',
+            '/static/ckeditor/ckeditor/plugins/html5video_1.1/ckeditor-html5-video-master/html5video/',
+            'plugin.js'
+        )]
+    )
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     publish_date = models.DateTimeField()
     created_at = models.DateTimeField(auto_now=True)
 
-
     def __str__(self):
-        return "{}".format(self.title)
+        return self.title
+
+
+    class Meta:
+        verbose_name = "Xəbər"
+        verbose_name_plural = "Xəbərlər"
+
+class NewsSlideImages(models.Model):
+    news = models.ForeignKey(News, verbose_name='Xəbər', on_delete=models.CASCADE)
+    image = models.ImageField(verbose_name='Xəbər üçün slayd şəkli', upload_to='company_news_slides')
+    weight = models.IntegerField('Şəklin sırası', default=1)
+
+    class Meta:
+        verbose_name = 'Slayd üçün şəkil'
+        verbose_name_plural = 'Slayd üçün şəkillər'
+
+
+###### for company #########
 
 class CompanyNews(models.Model):
     title = models.CharField("Başlıq", max_length=255)
@@ -53,7 +80,7 @@ class CompanyNews(models.Model):
     created_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return "{}".format(self.title)
+        return self.title
 
 
     class Meta:
@@ -67,8 +94,8 @@ class CompanyNewsSlideImages(models.Model):
     weight = models.IntegerField('Şəklin sırası', default=1)
 
     class Meta:
-        verbose_name = 'Slayd üçün şəkil'
-        verbose_name_plural = 'Slayd üçün şəkillər'
+        verbose_name = 'Şirkətin xəbəri üçün slayd şəkil'
+        verbose_name_plural = 'Şirkətin xəbəri üçün slayd şəkillər'
 
 #### admin models #####
 

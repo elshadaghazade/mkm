@@ -26,8 +26,8 @@ class CompanyPhotoGallery(models.Model):
         return "{}".format(self.title)
 
     class Meta:
-        verbose_name = 'Şəkil Qalereyası'
-        verbose_name_plural = 'Şəkil Qalereyası'
+        verbose_name = 'Müəssisənin Şəkil Qalereyası'
+        verbose_name_plural = 'Müəssisənin Şəkil Qalereyaları'
 
 class CompanyGalleryPhotos(models.Model):
     gallery = models.ForeignKey(CompanyPhotoGallery, on_delete=models.CASCADE)
@@ -37,8 +37,8 @@ class CompanyGalleryPhotos(models.Model):
         return self.file.name
 
     class Meta:
-        verbose_name = "Şəkil"
-        verbose_name_plural = "Şəkillər"
+        verbose_name = "Müəssisənin qalereyası üçün şəkil"
+        verbose_name_plural = "Müəssisənin qalereyası üçün şəkillər"
 
 
 class CompanyVideoGallery(models.Model):
@@ -64,8 +64,8 @@ class CompanyVideoGallery(models.Model):
         return self.title
 
     class Meta:
-        verbose_name = 'Video Qalereya'
-        verbose_name_plural = 'Video Qalereyalar'
+        verbose_name = 'Müəssisənin Video Qalereyası'
+        verbose_name_plural = 'Müəssisənin Video Qalereyaları'
 
 
 class CompanyGalleryVideos(models.Model):
@@ -76,8 +76,8 @@ class CompanyGalleryVideos(models.Model):
         return self.file.name
 
     class Meta:
-        verbose_name = "Video"
-        verbose_name_plural = "Videolar"
+        verbose_name = "Müəssisənin qalereyası üçün video"
+        verbose_name_plural = "Müəssisənin qalereyası üçün videolar"
 
 
 #### admin ####

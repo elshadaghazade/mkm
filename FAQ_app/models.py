@@ -12,8 +12,8 @@ class Faq(models.Model):
         return f"{self.question}"
 
     class Meta:
-        verbose_name = "Sual"
-        verbose_name_plural = "Tez-tez verilən suallar"
+        verbose_name = "Müəssisəyə tez-tez verilən sual"
+        verbose_name_plural = "Müəssisəyə tez-tez verilən suallar"
 
 class MainFaq(models.Model):
     question = models.CharField(max_length=255)
