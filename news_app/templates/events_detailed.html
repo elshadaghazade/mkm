@@ -28,6 +28,7 @@
             <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
                 <ul class="pagination pagination1">
                     <li><a href="{% url 'homepage' %}"><i class="fas fa-home home-icon"></i> <span>&gt;</span> </a></li>
+                    <li><a href="{% url 'homepage' %}">Media <span>&gt;</span> </a></li>
                     <li><a href="{% url 'events' %}">Tədbirlər <span>&gt;</span> </a></li>
                     <li><a title="{{events.title}}" href="{% url 'events_detailed' events.id %}">{{events.title|slice:":65"}}... </a></li>
                 </ul>

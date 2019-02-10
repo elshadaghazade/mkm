@@ -47,14 +47,3 @@ class Attributes(models.Model):
     class Meta:
         verbose_name = "Atribut"
         verbose_name_plural = "Atributlar"
-
-class Speeches(models.Model):
-    title = models.CharField(max_length=255)
-    documents_file = models.FileField(upload_to="media")
-
-    def __str__(self):
-        return self.title
-
-    class Meta:
-        verbose_name = "Çıxış"
-        verbose_name_plural = "Çıxışlar"

@@ -13,5 +13,5 @@ def faq(request,pk):
 
 def main_faq(request):
     context = {}
-    context['main_faqs'] = MainFaq.objects.all()
+    context['faqs'] = MainFaq.objects.all()
     return render(request,'main_faq.html',context)

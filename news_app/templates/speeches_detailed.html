@@ -6,7 +6,7 @@
     <meta name="csrf-token" content="UzgxbEbbw6N8kbdiGZVNzSvaVT3WnahqSly1v6ic" />
     <meta name="viewport"content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{{news.title}} - Xəbərlər</title>
+    <title>{{speeches.title}} - Çıxışlar</title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{% static 'js/owlcarousel/dist/assest/owl.carousel.min.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap/css/bootstrap.min.css' %}">
@@ -29,8 +29,8 @@
                 <ul class="pagination pagination1">
                     <li><a href="{% url 'homepage' %}"><i class="fas fa-home home-icon"></i> <span>&gt;</span> </a></li>
                     <li><a href="{% url 'homepage' %}">Media <span>&gt;</span> </a></li>
-                    <li><a href="{% url 'news' %}">Xəbərlər <span>&gt;</span> </a></li>
-                    <li><a title="{{news.title}}" href="{% url 'news_detailed' news.id %}">{{news.title|slice:":65"}}... </a></li>
+                    <li><a href="{% url 'speeches' %}">Çıxışlar <span>&gt;</span> </a></li>
+                    <li><a title="{{speeches.title}}" href="{% url 'speeches_detailed' speeches.id %}">{{speeches.title|slice:":65"}}... </a></li>
                 </ul>
             </div>
             <div class="col-lg-2"></div>
@@ -38,7 +38,7 @@
         <div class="row none-print">
             <div class="col-lg-2 col-md-2"></div>
             <div class="col-lg-8 col-md-8">
-                <h3 class="text-center head-slider-words">{{news.title}}</h3>
+                <h3 class="text-center head-slider-words">{{speeches.title}}</h3>
             </div>
             <div class="col-lg-2 col-md-2"></div>
         </div>
@@ -46,7 +46,7 @@
             <div class="col-lg-2"></div>
             <div class="col-lg-8">
                 <ul id="image-gallery">
-                    {% for slide in news.newsslideimages_set.all %}
+                    {% for slide in speeches.newsslideimages_set.all %}
                         <li data-thumb="{{slide.image.url}}" data-src="{{slide.image.url}}"> 
                             <img width="100%" height="315" src="{{slide.image.url}}">
                         </li>
@@ -57,9 +57,9 @@
         <div class="row about-video none-print">
             <div class="col-lg-2"></div>
             <div class="col-lg-5 col-md-8">
-                <span class="source">Kateqoriya: {{news.category.category_name}}</span>
-                <span class="data">{{news_date}}</span>
-                <i class="far fa-clock"></i><span class="time">{{news_time}}</span>
+                <span class="source">Kateqoriya: {{speeches.category.category_name}}</span>
+                <span class="data">{{speech_date}}</span>
+                <i class="far fa-clock"></i><span class="time">{{speech_time}}</span>
             </div>
             <div class="col-lg-3 col-md-4">
                 <i class="fas fa-print"></i><a class="print" href="javascript:window.print()">Çap et</a>
@@ -79,36 +79,36 @@
         <div class="row print">
             <div class="col-lg-2"></div>
             <div class="col-lg-8" id="page_content">
-                <p class="blockquote">{{news.short_description}}</p>
+                <p class="blockquote">{{speeches.short_description}}</p>
             </div>
             <div class="col-lg-2"></div>
         </div>
         <div class="row">
             <div class="col-lg-2"></div>
             <div class="col-lg-8" id="page_content">
-                {% if news.news_picture %}
+                {% if speeches.news_picture %}
                     <img src="{{news.news_picture.url}}" style="width:315px;max-width:100%;margin:10px 10px 10px 0;float: left;">
                 {% endif %}
-                {{news.text|safe}}
+                {{speeches.text|safe}}
             </div>
             <div class="col-lg-2"></div>
         </div>
-        {% if related_news %}
+        {% if related_speeches %}
             <div class="row none-print">
                 <div class="col-lg-2"></div>
                 <div class="main-head-div">
-                    <h3 class="main-head-word">Oxşar Xəbərlər</h3>
+                    <h3 class="main-head-word">Oxşar Çıxışlar</h3>
                 </div>
                 <div class="col-lg-10"></div>
             </div>
             <div class="row none-print">
                 <div class="col-lg-2"></div>
-                {% for rnews in related_news %}
+                {% for rnews in related_speeches %}
                 <div class="col-lg-4">
-                    <a href="{% url 'news_detailed' rnews.id %}"><img src="{{rnews.news_picture.url}}" width="100%"></a>
-                    <span class="data2">{{rnews.news_date}}</span>
-                    <i class="far fa-clock"></i><span class="time">{{rnews.news_time}}</span>
-                    <h3 class="main-foot-words"><a href="{% url 'news_detailed' rnews.id %}">{{rnews.title}}</a></h3>
+                    <a href="{% url 'speeches_detailed' rnews.id %}"><img src="{{rnews.news_picture.url}}" width="100%"></a>
+                    <span class="data2">{{rnews.speech_date}}</span>
+                    <i class="far fa-clock"></i><span class="time">{{rnews.speech_time}}</span>
+                    <h3 class="main-foot-words"><a href="{% url 'speeches_detailed' rnews.id %}">{{rnews.title}}</a></h3>
                 </div>
                 {% endfor %}
                 <div class="col-lg-2"></div>

@@ -30,10 +30,12 @@ class MainNewsCategory(models.Model):
 class News(models.Model):
     TYPE_NEWS = 1
     TYPE_EVENT = 2
+    TYPE_SPEECH = 3
 
     CHOICES = (
         (TYPE_NEWS, 'Xəbər'),
-        (TYPE_EVENT, 'Tədbir')
+        (TYPE_EVENT, 'Tədbir'),
+        (TYPE_SPEECH, 'Çıxış')
     )
 
     type = models.IntegerField(choices=CHOICES, default=TYPE_NEWS, db_index=True)
@@ -58,12 +60,13 @@ class News(models.Model):
     created_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return self.title
+        return f"{self.title} - {list(filter(lambda x: x[0] == self.type, self.CHOICES))[0][1]}"
 
 
     class Meta:
         verbose_name = "Xəbər və Tədbir"
         verbose_name_plural = "Xəbərlər və Tədbirlər"
+        ordering = ['type', 'title']
 
 class NewsSlideImages(models.Model):
     news = models.ForeignKey(News, verbose_name='Xəbər', on_delete=models.CASCADE)

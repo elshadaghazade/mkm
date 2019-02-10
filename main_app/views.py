@@ -53,11 +53,6 @@ def informative_page (request, informative_page_slug):
     # context['information'] = GeneralInformation.objects.all().last()
     return render(request,"informative_page.html", context)
 
-def exits(request):
-    context={}
-    context['exits'] = Exits.objects.all()
-    return render(request,'exits.html',context)
-
 
 ############################ error pages #################################
 def handler404(request, *args, **argv):

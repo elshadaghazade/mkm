@@ -6,7 +6,7 @@
     <meta name="csrf-token" content="UzgxbEbbw6N8kbdiGZVNzSvaVT3WnahqSly1v6ic" />
     <meta name="viewport"content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Sual cavab</title>
+    <title>Tez-tez verilən suallar</title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{% static 'js/owlcarousel/dist/assest/owl.carousel.min.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap/css/bootstrap.min.css' %}">
@@ -27,9 +27,9 @@
             <div class="col-lg-2"></div>
             <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
                 <ul class="pagination pagination1">
-                    <li><a href="{% url 'homepage' %}"><i class="fas fa-home home-icon"></i> <span>&gt;</span> Ana Sehife <span>&gt; </span> </a></li>
-                    <li><a href="{% url 'general_information' %}">Tez-tez verilən suallar</a></li>
-                </ul> 
+                    <li><a href="{% url 'homepage' %}"><i class="fas fa-home home-icon"></i> <span>&gt;</span> </a></li>
+                    <li><a href="{% url 'main_faq' %}">Tez-tez verilən suallar</a></li>
+                </ul>
             </div>
             <div class="col-lg-2"></div>
         </div>
@@ -37,15 +37,15 @@
             <div class="col-lg-2"></div>
             <div class="col-lg-8">
                 <div class="panel-group" id="accordion">
-                    {% for main_faq in main_faqs %}
+                    {% for faq in faqs %}
                     <div class="panel panel-default panel-a">
                         <div class="panel-heading">
                             <h4 class="panel-title">
-                              <a data-toggle="collapse" data-parent="#accordion" href="#collapse{{main_faq.id}}"><span class="question1">Sual: </span>{{main_faq.question}}</a>
+                              <a data-toggle="collapse" data-parent="#accordion" href="#collapse{{faq.id}}"><span class="question1">Sual: </span>{{faq.question}}</a>
                             </h4>
                         </div>
-                    <div id="collapse{{main_faq.id}}" class="panel-collapse collapse in">
-                        <div class="panel-body"><span class="answer{{main_faq.id}}">Cavab: </span>{{main_faq.answer}}</div>
+                    <div id="collapse{{faq.id}}" class="panel-collapse collapse in">
+                        <div class="panel-body"><span class="answer{{faq.id}}">Cavab: </span>{{faq.answer}}</div>
                     </div>
                     </div>
                     {% endfor %}
