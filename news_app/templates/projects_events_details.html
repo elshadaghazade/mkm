@@ -31,7 +31,7 @@
                     <li><a href="{% url 'companies' %}"> Müəssisələr <span>&gt;</span> </a></li>
                     <li><a href="{% url 'company' company.id %}"> {{company.company_name}} <span>&gt;</span> </a></li>
                     <li><a href="{% url 'projects_events' company.id %}">Layihə və Tədbirlər <span>&gt;</span> </a></li>
-                    <li><a href="{% url 'projects_events_details' company.id news.id %}">{{news.title}} </a></li>
+                    <li><a title="{{news.title}}" href="{% url 'projects_events_details' company.id news.id %}">{{news.title|slice:":65"}}... </a></li>
                 </ul>
             </div>
             <div class="col-lg-2"></div>

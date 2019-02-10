@@ -105,14 +105,10 @@ class CategoryAdmin(admin.ModelAdmin):
     def get_queryset(self, request):
         qs = super(CategoryAdmin, self).get_queryset(request)
 
-        if request.user.is_superuser:
-            return qs
-
         return qs.filter(profile=request.user)
 
     def save_model(self, request, obj, form, change):
-        if not request.user.is_superuser:
-            obj.profile = request.user
+        obj.company = Companies.objects.get(profile=request.user)
         super().save_model(request, obj, form, change)
 
 
@@ -141,7 +137,7 @@ class CompanyNewsAdmin(admin.ModelAdmin):
     def formfield_for_foreignkey(self, db_field, request, **kwargs):
         
         if db_field.name == "category":
-            kwargs["queryset"] = Category.objects.filter(profile=request.user)
+            kwargs["queryset"] = Category.objects.filter(company=Companies.objects.get(profile=request.user))
 
         return super().formfield_for_foreignkey(db_field, request, **kwargs)
 

@@ -76,7 +76,7 @@ class Companies(models.Model):
     phone_number = models.CharField('Telefon', max_length=25, blank=True)
     about_images = models.ImageField('Şəkil', upload_to='media', blank=True) 
     main_activity = models.CharField('Fəaliyyət', max_length=255, blank=True)
-    profile = models.ForeignKey(User, on_delete=models.CASCADE)
+    profile = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
     url = models.URLField(blank=True)
 
     def __str__(self):
