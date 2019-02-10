@@ -5,8 +5,9 @@
     <meta charset="UTF-8">
     <meta name="csrf-token" content="UzgxbEbbw6N8kbdiGZVNzSvaVT3WnahqSly1v6ic" />
     <meta name="viewport"content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="description" content="{{page_short_description}}">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>atributlar</title>
+    <title>404 Page Not Found</title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{% static 'js/owlcarousel/dist/assest/owl.carousel.min.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap/css/bootstrap.min.css' %}">
@@ -21,29 +22,23 @@
 
 <!--MAIN BASLADI-->
 <main>
-    <div class="main-head-image">
-        <img src="{% static 'images/assets/output-45.png' %}" alt="img-head">
-    </div>
     <div class="container">
         <div class="row mini-nav">
             <div class="col-lg-2"></div>
             <div class="col-lg-4 col-md-4 col-sm-8 col-xs-12">
                 <ul class="pagination pagination1">
-                    <li><a href="{% url 'homepage' %}"><i class="fas fa-home home-icon"></i> <span>&gt;</span> Media <span>&gt; </span> </a></li>
-                    <li><a href="{% url 'attributes' %}">Atributlar</a></li>
+                    <li><a href="{% url 'homepage' %}"><i class="fas fa-home home-icon"></i> <span>&gt;</span> Ana Səhifə </a></li>
                 </ul>
             </div>
-            <div class="col-lg-6"></div>
+            <div class="col-lg-6">
+            </div>
         </div>
-        {% for attribute in attributes %}
         <div class="row">
             <div class="col-lg-2"></div>
             <div class="col-lg-8">
-                <a class="second-question"target="_blank" href="/media/{{attribute.attributes_file}}"><p>{{attribute.title}}</p></a>
+                404 Page Not Found
             </div>
-            <div class="col-lg-2"></div>
         </div>
-        {% endfor %}
     </div>
 </main>
 <!--MAIN BITDI-->

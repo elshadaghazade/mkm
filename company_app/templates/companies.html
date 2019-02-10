@@ -8,11 +8,11 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Müəssisələr</title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="{% static 'templates/js/owlcarousel/dist/assest/owl.carousel.min.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'templates/css/bootstrap/css/bootstrap.min.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'templates/css/main.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'templates/css/media.css' %}">
-    <link rel="shortcut icon" href="{% static 'templates/images/favicon.ico' %}" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" href="{% static 'js/owlcarousel/dist/assest/owl.carousel.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/media.css' %}">
+    <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon" />
 </head>
 <body>
 <!--HEADER BASLADI-->
@@ -39,7 +39,7 @@
             </div>
             <div class="col-lg-2 col-md-2 col-sm-4 col-xs-2">
                 <div class="form-group">
-                    <button type="button" class="btn btn-default search-2"><img class="find-icon" src="{% static 'templates/images/assets/search-find.png' %}"></button>
+                    <button type="button" class="btn btn-default search-2"><img class="find-icon" src="{% static 'images/assets/search-find.png' %}"></button>
                 </div>
             </div>
             <div class="col-lg-2 col-md-2"></div>
@@ -65,7 +65,7 @@
                     <div class="col-lg-2 col-md-2"></div>
             {% endif %}
             <div class="col-lg-3 col-md-3 col-sm-4 address">
-                <a href="{% url 'company' company.id %}"><h6>{{ company.company_name }}</h6></a>
+                <a href="{% url 'company' company.profile.id %}"><h6>{{ company.company_name }}</h6></a>
                 <p>{{ company.address }}</p>
                 <p>{{ company.phone_number }}</p>
                 <p>Sayt: <a href="{{ company.url }}" target="_blank">{{ company.url }}</a></p>
@@ -113,9 +113,9 @@
 <!--FOOTER BASLADI-->
 {% include 'layouts/footer.html' %}
 <!--FOOTER BITDI-->
-<script type="text/javascript" src="{% static 'templates/js/jquery-3.3.1.min.js' %}"></script>
-<script type="text/javascript" src="{% static 'templates/css/bootstrap/js/bootstrap.min.js' %}"></script>
-<script type="text/javascript" src="{% static 'templates/js/owlcarousel/dist/owl.carousel.min.js' %}"></script>
-<script type="text/javascript" src="{% static 'templates/js/main.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'css/bootstrap/js/bootstrap.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/owlcarousel/dist/owl.carousel.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/main.js' %}"></script>
 </body>
 </html>

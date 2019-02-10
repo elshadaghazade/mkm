@@ -1,10 +1,10 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from company_app.models import *
 from .models import *
 import math
 # Create your views here.
 def photo_gallery(request,pk):
-    company = Companies.objects.get(pk=pk)
+    company = get_object_or_404(Companies, pk=pk)
     context = {
         'company': company,
         'company_id': pk,
@@ -28,7 +28,7 @@ def photo_gallery(request,pk):
     return render(request, "photo_gallery.html", context)
 
 def photo_gallery_detailed(request, pk, photo_gallery_detailed_id):
-    company = Companies.objects.get(pk=pk)
+    company = get_object_or_404(Companies, pk=pk)
     context = {
         'company': company,
         'company_id': pk,
@@ -39,7 +39,7 @@ def photo_gallery_detailed(request, pk, photo_gallery_detailed_id):
     return render(request, "photo_gallery_detailed.html", context)
     
 def video_gallery(request,pk):
-    company = Companies.objects.get(pk=pk)
+    company = get_object_or_404(Companies, pk=pk)
     context = {
         'company': company,
         'company_id': pk,
@@ -63,7 +63,7 @@ def video_gallery(request,pk):
     return render(request, "video_gallery.html", context)
 
 def video_gallery_detailed(request, pk, video_gallery_id):
-    company = Companies.objects.get(pk=pk)
+    company = get_object_or_404(Companies, pk=pk)
     context = {
         'company': company,
         'company_id': pk,

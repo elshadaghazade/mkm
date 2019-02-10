@@ -84,7 +84,7 @@ class CompanyNews(models.Model):
 
 
     class Meta:
-        verbose_name = "MÜəssisənin xəbəri"
+        verbose_name = "Müəssisənin xəbəri"
         verbose_name_plural = "Müəssisənin xəbərləri"
 
 
@@ -94,8 +94,8 @@ class CompanyNewsSlideImages(models.Model):
     weight = models.IntegerField('Şəklin sırası', default=1)
 
     class Meta:
-        verbose_name = 'Şirkətin xəbəri üçün slayd şəkil'
-        verbose_name_plural = 'Şirkətin xəbəri üçün slayd şəkillər'
+        verbose_name = 'Müəssisənin xəbəri üçün slayd şəkil'
+        verbose_name_plural = 'Müəssisənin xəbəri üçün slayd şəkillər'
 
 #### admin models #####
 

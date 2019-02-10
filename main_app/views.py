@@ -1,8 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, render_to_response
+from django.template import RequestContext
 from main_app.models import *
 
-
-# Create your views here.
 def home(request):
     context = {}
 
@@ -58,3 +57,12 @@ def exits(request):
     context={}
     context['exits'] = Exits.objects.all()
     return render(request,'exits.html',context)
+
+
+############################ error pages #################################
+def handler404(request, *args, **argv):
+    return render(request, 'error_pages/404.html')
+
+
+def handler500(request, *args, **argv):
+    return render(request, 'error_pages/500.html')
