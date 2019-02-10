@@ -22,12 +22,12 @@
     <!--MAIN BASLADI-->
     <main>
         <div class="main-head-image">
-            <img src="{% static 'images/assets/output-45.png' %}" alt="img-head">
+            {% if company.about_images %}<img src="{{company.about_images.url}}" alt="{{company.company_name}}">{% endif %}
         </div>
         <div class="container">
             <div class="row mini-nav">
                 <div class="col-lg-2"></div>
-                <div class="col-lg-4 col-md-4 col-sm-8 col-xs-12">
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
                     <ul class="pagination pagination1">
                         <li><a href="{% url 'homepage' %}"><i class="fas fa-home home-icon"></i> <span>&gt;</span> </a></li>
                         <li><a href="{% url 'companies' %}"> Müəssisələr <span>&gt;</span> </a></li>
@@ -35,7 +35,7 @@
                         <li><a href="{% url 'photo_galleries' company_id %}">Fotoqalereya</a></li>
                     </ul>
                 </div>
-                <div class="col-lg-6"></div>
+                <div class="col-lg-2"></div>
             </div>
             <div class="row">
                 <div class="col-lg-2 col-md-2"></div>

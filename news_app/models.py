@@ -16,7 +16,27 @@ class Category(models.Model):
         verbose_name_plural = "Kateqoriyalar"
 
 
+class MainNewsCategory(models.Model):
+    category_name = models.CharField(max_length=255)
+
+    def __str__(self):
+        return self.category_name
+
+    class Meta:
+        verbose_name = "Əsas xəbərin kateqoriyası"
+        verbose_name_plural = "Əsas xəbərin kateqoriyaları"
+
+
 class News(models.Model):
+    TYPE_NEWS = 1
+    TYPE_EVENT = 2
+
+    CHOICES = (
+        (TYPE_NEWS, 'Xəbər'),
+        (TYPE_EVENT, 'Tədbir')
+    )
+
+    type = models.IntegerField(choices=CHOICES, default=TYPE_NEWS, db_index=True)
     title = models.CharField("Başlıq", max_length=255)
     news_picture = models.ImageField(upload_to='media', verbose_name="Xəbərin əsas şəkli")
     short_description = models.TextField("Qısa təsvir", max_length=255)
@@ -33,7 +53,7 @@ class News(models.Model):
             'plugin.js'
         )]
     )
-    category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    category = models.ForeignKey(MainNewsCategory, on_delete=models.CASCADE)
     publish_date = models.DateTimeField()
     created_at = models.DateTimeField(auto_now=True)
 
@@ -42,8 +62,8 @@ class News(models.Model):
 
 
     class Meta:
-        verbose_name = "Xəbər"
-        verbose_name_plural = "Xəbərlər"
+        verbose_name = "Xəbər və Tədbir"
+        verbose_name_plural = "Xəbərlər və Tədbirlər"
 
 class NewsSlideImages(models.Model):
     news = models.ForeignKey(News, verbose_name='Xəbər', on_delete=models.CASCADE)
@@ -140,6 +160,19 @@ class CompanyNewsAdmin(admin.ModelAdmin):
             kwargs["queryset"] = Category.objects.filter(company=Companies.objects.get(profile=request.user))
 
         return super().formfield_for_foreignkey(db_field, request, **kwargs)
+
+    def get_inline_instances(self, request, obj=None):
+        return [inline(self.model, self.admin_site) for inline in self.inlines]
+
+
+class NewsSlideImagesInline(admin.TabularInline):
+    model = NewsSlideImages
+    extra=5
+
+class NewsAdmin(admin.ModelAdmin):
+    exclude = "created_at",
+    list_filter = 'title', 'category'
+    inlines = [NewsSlideImagesInline]
 
     def get_inline_instances(self, request, obj=None):
         return [inline(self.model, self.admin_site) for inline in self.inlines]

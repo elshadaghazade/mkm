@@ -49,7 +49,7 @@ def contact_company(request,pk):
         'company_contact_model': ContactCompany,
         'address': ContactCompany.objects.filter(Q(company=pk) &  Q(contact_type=ContactCompany.CONTACT_TYPE_ADDRESS)),
         'contacts': ContactCompany.objects.filter(~Q(contact_type=ContactCompany.CONTACT_TYPE_ADDRESS), company=pk),
-        'contact_form': ContactCompanyForm.objects.get(pk=pk)
+        'contact_form': get_object_or_404(ContactCompanyForm, pk=pk)
     }
     
     return render(request, "contact_company.html", context)

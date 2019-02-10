@@ -6,7 +6,7 @@
     <meta name="csrf-token" content="UzgxbEbbw6N8kbdiGZVNzSvaVT3WnahqSly1v6ic" />
     <meta name="viewport"content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Layihə və Tədbirlər</title>
+    <title>Tədbirlər</title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{% static 'js/owlcarousel/dist/assest/owl.carousel.min.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap/css/bootstrap.min.css' %}">
@@ -27,9 +27,7 @@
             <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
                     <ul class="pagination pagination1">
                             <li><a href="{% url 'homepage' %}"><i class="fas fa-home home-icon"></i> <span>&gt;</span> </a></li>
-                            <li><a href="{% url 'companies' %}"> Müəssisələr <span>&gt;</span> </a></li>
-                            <li><a href="{% url 'company' company.profile.id %}"> {{company.company_name}} <span>&gt;</span> </a></li>
-                            <li><a href="{% url 'projects_events' company.profile.id %}">Layihə və Tədbirlər</a></li>
+                            <li><a href="{% url 'events' %}">Tədbirlər</a></li>
                         </ul>
             </div>
             <div class="col-lg-2"></div>
@@ -37,7 +35,7 @@
         <div class="row">
             <div class="col-lg-2"></div>
             <div class="main-head-div">
-                <h3 class="main-head-word">Layihə və tədbirlər</h3>
+                <h3 class="main-head-word">Tədbirlər</h3>
             </div>
             <div class="col-lg-10"></div>
         </div>
@@ -45,12 +43,12 @@
             <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12"></div>
             <div class="col-lg-8">
             <div class="row">
-            {% for n in news %}
+            {% for n in events %}
             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                <a href="{% url 'projects_events_details' n.company.profile.id n.id %}"><img src="/media/{{n.news_picture}}" width="100%" height="150px"></a>
+                <a href="{% url 'events_detailed' n.id %}"><img src="/media/{{n.news_picture}}" width="100%" height="150px"></a>
                 <span class="data2">{{ n.publish_date|date:'D d M Y' }}</span>
                 <i class="far fa-clock"></i><span class="time">{{ n.publish_date|date:'H:m' }}</span>
-                <h3 class="main-foot-words"><a href="{% url 'projects_events_details' n.company.profile.id n.id %}">{{n.title}}</h3></a>
+                <h3 class="main-foot-words"><a href="{% url 'events_detailed' n.id %}">{{n.title}}</h3></a>
             </div>
             {% endfor %}
             <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12"></div>

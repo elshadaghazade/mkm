@@ -5,6 +5,23 @@ from company_app.models import Companies
 from django.contrib import admin
 
 
+class ContactCompanyForm(models.Model):
+    company = models.OneToOneField(Companies, on_delete=models.CASCADE, primary_key=True)
+    to_email = models.EmailField("Kimə")
+    name_placeholder = models.CharField("Ad üçün qeyd", max_length=255, default="Adınızı daxil edin")
+    email_placeholder = models.CharField("Email üçün qeyd", max_length=255, default="Email adresinizi daxil edin")
+    subject_placeholder = models.CharField("Mövzu üçün qeyd", max_length=255, default="Məktubun mövzusunu daxil edin")
+    content_placeholder = models.CharField("Mətn üçün qeyd", max_length=1000, default="Məktubun mətnini daxil edin")
+
+    def __str__(self):
+        return self.subject_placeholder
+    
+    class Meta:
+        verbose_name = "Müəssisənin əlaqə formasının ayarları"
+        verbose_name_plural = "Müəssisənin əlaqə formasının ayarları"
+
+
+
 class ContactCompany(models.Model):
     CONTACT_TYPE_EMAIL = 1
     CONTACT_TYPE_PHONE = 2
@@ -32,22 +49,6 @@ class ContactCompany(models.Model):
     class Meta:
         verbose_name = 'Müəssisənin əlaqə məlumatı'
         verbose_name_plural = 'Müəssisənin əlaqə məlumatları'
-
-
-class ContactCompanyForm(models.Model):
-    company = models.OneToOneField(Companies, on_delete=models.CASCADE, primary_key=True)
-    to_email = models.EmailField("Kimə")
-    name_placeholder = models.CharField("Ad üçün qeyd", max_length=255, default="Adınızı daxil edin")
-    email_placeholder = models.CharField("Email üçün qeyd", max_length=255, default="Email adresinizi daxil edin")
-    subject_placeholder = models.CharField("Mövzu üçün qeyd", max_length=255, default="Məktubun mövzusunu daxil edin")
-    content_placeholder = models.CharField("Mətn üçün qeyd", max_length=1000, default="Məktubun mətnini daxil edin")
-
-    def __str__(self):
-        return self.subject_placeholder
-    
-    class Meta:
-        verbose_name = "Müəssisənin əlaqə formasının ayarları"
-        verbose_name_plural = "Müəssisənin əlaqə formasının ayarları"
 
 
 class ContactCompanyReceivedEmails(models.Model):
